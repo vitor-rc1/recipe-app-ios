@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B9DF6CC27FE680B00979E99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DF6CA27FE680B00979E99 /* LoginViewController.swift */; };
+		3B9DF6CD27FE680B00979E99 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9DF6CB27FE680B00979E99 /* LoginView.xib */; };
 		3BBDF5C727FBA50C0090DD54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDF5C627FBA50C0090DD54 /* AppDelegate.swift */; };
 		3BBDF5C927FBA50C0090DD54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDF5C827FBA50C0090DD54 /* SceneDelegate.swift */; };
 		3BBDF5CB27FBA50C0090DD54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDF5CA27FBA50C0090DD54 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B9DF6CA27FE680B00979E99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3B9DF6CB27FE680B00979E99 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		3BBDF5C327FBA50C0090DD54 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BBDF5C627FBA50C0090DD54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BBDF5C827FBA50C0090DD54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,9 @@
 		3B9DF6C527FE61CA00979E99 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				3B9DF6C927FE67BC00979E99 /* Model */,
+				3B9DF6C827FE67B000979E99 /* ViewModel */,
+				3B9DF6C727FE67A800979E99 /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -69,6 +76,29 @@
 			children = (
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		3B9DF6C727FE67A800979E99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B9DF6CA27FE680B00979E99 /* LoginViewController.swift */,
+				3B9DF6CB27FE680B00979E99 /* LoginView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B9DF6C827FE67B000979E99 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3B9DF6C927FE67BC00979E99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3BBDF5BA27FBA50C0090DD54 = {
@@ -92,9 +122,9 @@
 		3BBDF5C527FBA50C0090DD54 /* RecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				3BBDF5F927FBA5220090DD54 /* Application */,
 				3B9DF6C627FE61D500979E99 /* Commons */,
 				3B9DF6C527FE61CA00979E99 /* Login */,
-				3BBDF5F927FBA5220090DD54 /* Application */,
 				3BBDF5CA27FBA50C0090DD54 /* ViewController.swift */,
 				3BBDF5D227FBA50F0090DD54 /* Assets.xcassets */,
 				3BBDF5CF27FBA50C0090DD54 /* RecipeApp.xcdatamodeld */,
@@ -204,6 +234,7 @@
 			files = (
 				3BBDF5D627FBA50F0090DD54 /* LaunchScreen.storyboard in Resources */,
 				3BBDF5D327FBA50F0090DD54 /* Assets.xcassets in Resources */,
+				3B9DF6CD27FE680B00979E99 /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +255,7 @@
 				3BBDF5CB27FBA50C0090DD54 /* ViewController.swift in Sources */,
 				3BBDF5C727FBA50C0090DD54 /* AppDelegate.swift in Sources */,
 				3BBDF5C927FBA50C0090DD54 /* SceneDelegate.swift in Sources */,
+				3B9DF6CC27FE680B00979E99 /* LoginViewController.swift in Sources */,
 				3BBDF5D127FBA50C0090DD54 /* RecipeApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
