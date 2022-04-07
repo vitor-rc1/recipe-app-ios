@@ -57,6 +57,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B9DF6C527FE61CA00979E99 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3B9DF6C627FE61D500979E99 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		3BBDF5BA27FBA50C0090DD54 = {
 			isa = PBXGroup;
 			children = (
@@ -78,12 +92,13 @@
 		3BBDF5C527FBA50C0090DD54 /* RecipeApp */ = {
 			isa = PBXGroup;
 			children = (
+				3B9DF6C627FE61D500979E99 /* Commons */,
+				3B9DF6C527FE61CA00979E99 /* Login */,
 				3BBDF5F927FBA5220090DD54 /* Application */,
 				3BBDF5CA27FBA50C0090DD54 /* ViewController.swift */,
-				3BBDF5D427FBA50F0090DD54 /* LaunchScreen.storyboard */,
 				3BBDF5D227FBA50F0090DD54 /* Assets.xcassets */,
-				3BBDF5D727FBA50F0090DD54 /* Info.plist */,
 				3BBDF5CF27FBA50C0090DD54 /* RecipeApp.xcdatamodeld */,
+				3BBDF5D727FBA50F0090DD54 /* Info.plist */,
 			);
 			path = RecipeApp;
 			sourceTree = "<group>";
@@ -101,6 +116,7 @@
 			children = (
 				3BBDF5C627FBA50C0090DD54 /* AppDelegate.swift */,
 				3BBDF5C827FBA50C0090DD54 /* SceneDelegate.swift */,
+				3BBDF5D427FBA50F0090DD54 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
 			sourceTree = "<group>";
