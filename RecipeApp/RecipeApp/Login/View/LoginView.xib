@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="RecipeApp" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextField" destination="hPW-KX-Z9T" id="cuU-aJ-mX0"/>
+                <outlet property="passwordTextField" destination="rhL-Tz-ukr" id="EJf-wd-P55"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,6 +43,9 @@
                         <fontDescription key="titleFontDescription" name="Cochin" family="Cochin" pointSize="22"/>
                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="Pzm-wN-ab6"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hPW-KX-Z9T">
                     <rect key="frame" x="50" y="196" width="314" height="45"/>
