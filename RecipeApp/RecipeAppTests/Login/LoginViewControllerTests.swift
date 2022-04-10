@@ -14,9 +14,9 @@ class LoginViewControllerTests: XCTestCase {
         let (sut, viewModel) = makeSut()
         sut.emailTextField.text = "test@email.com"
         sut.passwordTextField.text = "123456"
-        
+        let button = UIButton()
         // Act
-        sut.loginButton()
+        sut.loginButton(button)
         
         // Assert
         XCTAssertTrue((viewModel as! LoginViewModelInputSpy).loginIsCalled)
@@ -38,7 +38,7 @@ class LoginViewModelInputSpy : LoginViewModelInputProtocol {
     var email = String()
     var password = String()
     
-    func login(email: String, password: String, callback: (() -> Void)?) {
+    func login(email: String, password: String) {
         loginIsCalled = true
         self.email = email
         self.password = password

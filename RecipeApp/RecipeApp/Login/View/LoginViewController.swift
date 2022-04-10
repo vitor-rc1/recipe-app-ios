@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     // MARK: Properties
     private let viewModel: LoginViewModelInputProtocol
     
-    init(viewModel: LoginViewModelInputProtocol) {
+    init(viewModel: LoginViewModelInputProtocol = LoginViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,12 +29,19 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: IBActions
-    @IBAction func loginButton() {
+    @IBAction func loginButton(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
-        viewModel.login(email: email,
-                        password: password,
-                        callback: nil)
+        
+        viewModel.login(email: email, password: password)
+        let foodTab = FoodTabBarController()
+        foodTab.modalPresentationStyle = .fullScreen
+        present(foodTab, animated: true, completion: nil)
     }
     
+}
+
+extension LoginViewController: LoginViewModelOutputProtocol {
+    func didSuccessLogin() {
+    }
 }

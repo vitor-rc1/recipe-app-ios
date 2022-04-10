@@ -8,5 +8,9 @@
 import Foundation
 
 protocol LoginViewModelInputProtocol {
-    func login(email: String, password: String, callback: (() -> Void)?)
+    func login(email: String, password: String)
+}
+
+protocol LoginViewModelOutputProtocol {
+    func didSuccessLogin()
 }

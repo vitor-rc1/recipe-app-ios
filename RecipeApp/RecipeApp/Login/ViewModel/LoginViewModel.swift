@@ -9,10 +9,11 @@ import Foundation
 
 class LoginViewModel {
     
+    
 }
 
 extension LoginViewModel : LoginViewModelInputProtocol {
-    func login(email: String, password: String, callback: (() -> Void)?) {
+    func login(email: String, password: String) {
         print("Opa")
     }
 }
