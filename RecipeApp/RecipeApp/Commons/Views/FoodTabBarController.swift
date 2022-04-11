@@ -7,6 +7,8 @@
 
 import UIKit
 
+private let foodCollectionNibName = "FoodCollectionViewController"
+
 class FoodTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +16,8 @@ class FoodTabBarController: UITabBarController {
     }
     
     func loadDefaultView() {
-        let foodCollectionVC = FoodCollectionViewController(collectionViewLayout: UICollectionViewLayout())
+        let foodCollectionVC = FoodCollectionViewController(nibName: foodCollectionNibName,
+                                                            bundle: nil)
 
         foodCollectionVC.title = "Foods"
         foodCollectionVC.tabBarItem.image = UIImage(systemName: "person.3")

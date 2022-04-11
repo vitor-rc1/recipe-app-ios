@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B7EBF6E28038FE300F4581E /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF6D28038FE300F4581E /* FoodViewModel.swift */; };
+		3B7EBF7128039C0800F4581E /* FoodCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF7028039C0800F4581E /* FoodCollectionViewControllerTests.swift */; };
+		3B7EBF7E2803A2F700F4581E /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF7C2803A2F700F4581E /* EmptyCollectionViewCell.swift */; };
+		3B7EBF7F2803A2F700F4581E /* EmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EBF7D2803A2F700F4581E /* EmptyCollectionViewCell.xib */; };
 		3B9DF6CC27FE680B00979E99 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DF6CA27FE680B00979E99 /* LoginViewController.swift */; };
 		3B9DF6CD27FE680B00979E99 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B9DF6CB27FE680B00979E99 /* LoginView.xib */; };
 		3BA4901A2800FA0B0021A4E9 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA490192800FA0B0021A4E9 /* LoginViewControllerTests.swift */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		3B7EBF6D28038FE300F4581E /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
+		3B7EBF7028039C0800F4581E /* FoodCollectionViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewControllerTests.swift; sourceTree = "<group>"; };
+		3B7EBF7C2803A2F700F4581E /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B7EBF7D2803A2F700F4581E /* EmptyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B9DF6CA27FE680B00979E99 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3B9DF6CB27FE680B00979E99 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		3BA490192800FA0B0021A4E9 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
@@ -77,6 +83,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B7EBF6F28039BEB00F4581E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BF5BE4028030D2B00A6D205 /* FoodTabBarControllerTests.swift */,
+				3B7EBF7028039C0800F4581E /* FoodCollectionViewControllerTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B7EBF7228039C6600F4581E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B7EBF7C2803A2F700F4581E /* EmptyCollectionViewCell.swift */,
+				3B7EBF7D2803A2F700F4581E /* EmptyCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3B7EBF7B28039F6D00F4581E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BF5BE422803178E00A6D205 /* FoodTabBarController.swift */,
+				3BF5BE432803178E00A6D205 /* FoodTabBarController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3B9DF6C527FE61CA00979E99 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +124,7 @@
 		3B9DF6C627FE61D500979E99 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3B7EBF7B28039F6D00F4581E /* Views */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -208,8 +242,7 @@
 		3BF5BE3C28030BE600A6D205 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3BF5BE422803178E00A6D205 /* FoodTabBarController.swift */,
-				3BF5BE432803178E00A6D205 /* FoodTabBarController.xib */,
+				3B7EBF7228039C6600F4581E /* Cells */,
 				3BF5BE46280319AE00A6D205 /* FoodCollectionViewController.swift */,
 				3BF5BE47280319AE00A6D205 /* FoodCollectionViewController.xib */,
 			);
@@ -234,7 +267,7 @@
 		3BF5BE3F28030CFE00A6D205 /* Food */ = {
 			isa = PBXGroup;
 			children = (
-				3BF5BE4028030D2B00A6D205 /* FoodTabBarControllerTests.swift */,
+				3B7EBF6F28039BEB00F4581E /* View */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -320,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7EBF7F2803A2F700F4581E /* EmptyCollectionViewCell.xib in Resources */,
 				3BBDF5D627FBA50F0090DD54 /* LaunchScreen.storyboard in Resources */,
 				3BF5BE49280319AE00A6D205 /* FoodCollectionViewController.xib in Resources */,
 				3BF5BE452803178E00A6D205 /* FoodTabBarController.xib in Resources */,
@@ -343,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7EBF6E28038FE300F4581E /* FoodViewModel.swift in Sources */,
+				3B7EBF7E2803A2F700F4581E /* EmptyCollectionViewCell.swift in Sources */,
 				3BBDF5C727FBA50C0090DD54 /* AppDelegate.swift in Sources */,
 				3BBDF5C927FBA50C0090DD54 /* SceneDelegate.swift in Sources */,
 				3BA4901E2800FBE70021A4E9 /* LoginProtocols.swift in Sources */,
@@ -360,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA4901A2800FA0B0021A4E9 /* LoginViewControllerTests.swift in Sources */,
+				3B7EBF7128039C0800F4581E /* FoodCollectionViewControllerTests.swift in Sources */,
 				3BF5BE4128030D2B00A6D205 /* FoodTabBarControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
