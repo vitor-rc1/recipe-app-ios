@@ -13,11 +13,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     // MARK: Properties
-    private let viewModel: LoginViewModelProtocol
+    private var viewModel: LoginViewModelProtocol
     
     init(viewModel: LoginViewModelProtocol = LoginViewModel()) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "LoginViewController", bundle: nil)
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {

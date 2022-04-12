@@ -20,9 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi9-Nd-mwB">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="45.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45.5" id="WJk-Yo-ypa"/>
+                                    <constraint firstAttribute="height" constant="50" id="AmN-bD-TTk"/>
                                 </constraints>
                                 <string key="text">Oops! Recipes 
 not found</string>
@@ -31,24 +31,22 @@ not found</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frying-pan" translatesAutoresizingMaskIntoConstraints="NO" id="hI0-Th-nyN">
-                                <rect key="frame" x="0.0" y="60.5" width="200" height="139.5"/>
+                                <rect key="frame" x="0.0" y="65" width="200" height="135"/>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="200" id="Wnv-gN-fer"/>
-                            <constraint firstItem="Bi9-Nd-mwB" firstAttribute="leading" secondItem="Wez-Di-fKY" secondAttribute="leading" id="hYy-78-sUc"/>
-                            <constraint firstAttribute="trailing" secondItem="Bi9-Nd-mwB" secondAttribute="trailing" id="mWj-DT-GjG"/>
-                            <constraint firstAttribute="width" constant="200" id="wWm-DR-nQ5"/>
+                            <constraint firstAttribute="width" constant="200" id="R45-LQ-Zbc"/>
+                            <constraint firstAttribute="trailing" secondItem="Bi9-Nd-mwB" secondAttribute="trailing" id="g5B-B7-oUV"/>
+                            <constraint firstItem="Bi9-Nd-mwB" firstAttribute="leading" secondItem="Wez-Di-fKY" secondAttribute="leading" id="kC9-xN-0cV"/>
+                            <constraint firstAttribute="height" constant="200" id="yo2-nw-jpa"/>
                         </constraints>
                     </stackView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Wez-Di-fKY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BBB-E0-qbQ"/>
-                <constraint firstAttribute="bottom" secondItem="Wez-Di-fKY" secondAttribute="bottom" id="f6M-G7-AID"/>
-                <constraint firstAttribute="trailing" secondItem="Wez-Di-fKY" secondAttribute="trailing" id="liX-fF-Bm5"/>
-                <constraint firstItem="Wez-Di-fKY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vho-Qd-XVn"/>
+                <constraint firstItem="Wez-Di-fKY" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="KRj-Ak-E3X"/>
+                <constraint firstItem="Wez-Di-fKY" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YZh-ub-398"/>
             </constraints>
             <size key="customSize" width="214" height="201"/>
             <connections>

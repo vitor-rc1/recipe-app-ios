@@ -7,12 +7,10 @@
 
 import Foundation
 
-class LoginViewModel {
+class LoginViewModel: LoginViewModelProtocol {
     
+    var delegate: LoginViewModelDelegateProtocol?
     
-}
-
-extension LoginViewModel : LoginViewModelProtocol {
     func login(email: String, password: String) {
         print("Opa")
     }

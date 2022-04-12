@@ -47,18 +47,10 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 200, height: 200)
+        if recipes.isEmpty {
+            return CGSize(width: view.bounds.width, height: view.bounds.height)
         }
-}
-
-extension UICollectionView {
-    func register(_ type: UICollectionViewCell.Type) {
-        let className = String(describing: type)
-        self.register(UINib(nibName: className, bundle: nil), forCellWithReuseIdentifier: className)
-    }
-    
-    func dequeueReusableCell<T>(_ type: T.Type, for indexPath: IndexPath) -> T? {
-        let className = String(describing: type)
-        return dequeueReusableCell(withReuseIdentifier: className, for: indexPath) as? T
+        let foodSize = (view.bounds.width / 2) - 5
+        return CGSize(width: foodSize, height: foodSize)
     }
 }

@@ -15,6 +15,7 @@ class LoginViewControllerTests: XCTestCase {
         sut.emailTextField.text = "test@email.com"
         sut.passwordTextField.text = "123456"
         let button = UIButton()
+        
         // Act
         sut.loginButton(button)
         
@@ -34,6 +35,8 @@ class LoginViewControllerTests: XCTestCase {
 }
 
 class LoginViewModelInputSpy : LoginViewModelProtocol {
+    var delegate: LoginViewModelDelegateProtocol?
+    
     var loginIsCalled = false
     var email = String()
     var password = String()
