@@ -12,7 +12,7 @@ class LoginViewModel {
     
 }
 
-extension LoginViewModel : LoginViewModelInputProtocol {
+extension LoginViewModel : LoginViewModelProtocol {
     func login(email: String, password: String) {
         print("Opa")
     }

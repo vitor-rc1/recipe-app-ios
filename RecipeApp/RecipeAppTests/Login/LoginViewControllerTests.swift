@@ -24,7 +24,7 @@ class LoginViewControllerTests: XCTestCase {
         XCTAssertEqual((viewModel as! LoginViewModelInputSpy).password, sut.passwordTextField.text)
     }
     
-    func makeSut() -> (LoginViewController, LoginViewModelInputProtocol) {
+    func makeSut() -> (LoginViewController, LoginViewModelProtocol) {
         let viewMNodel = LoginViewModelInputSpy()
         let viewController = LoginViewController(viewModel: viewMNodel)
         _ = viewController.view
@@ -33,7 +33,7 @@ class LoginViewControllerTests: XCTestCase {
 
 }
 
-class LoginViewModelInputSpy : LoginViewModelInputProtocol {
+class LoginViewModelInputSpy : LoginViewModelProtocol {
     var loginIsCalled = false
     var email = String()
     var password = String()

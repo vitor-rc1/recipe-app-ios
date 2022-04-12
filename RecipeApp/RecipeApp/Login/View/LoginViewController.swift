@@ -13,9 +13,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     // MARK: Properties
-    private let viewModel: LoginViewModelInputProtocol
+    private let viewModel: LoginViewModelProtocol
     
-    init(viewModel: LoginViewModelInputProtocol = LoginViewModel()) {
+    init(viewModel: LoginViewModelProtocol = LoginViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
     
 }
 
-extension LoginViewController: LoginViewModelOutputProtocol {
+extension LoginViewController: LoginViewModelDelegateProtocol {
     func didSuccessLogin() {
     }
 }

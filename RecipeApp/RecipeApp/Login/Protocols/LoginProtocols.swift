@@ -7,10 +7,10 @@
 
 import Foundation
 
-protocol LoginViewModelInputProtocol {
+protocol LoginViewModelProtocol {
     func login(email: String, password: String)
 }
 
-protocol LoginViewModelOutputProtocol {
+protocol LoginViewModelDelegateProtocol {
     func didSuccessLogin()
 }
