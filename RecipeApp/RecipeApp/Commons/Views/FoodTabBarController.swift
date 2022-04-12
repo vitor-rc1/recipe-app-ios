@@ -7,7 +7,7 @@
 
 import UIKit
 
-private let foodCollectionNibName = "FoodCollectionViewController"
+private let foodCollectionNibName = "FoodViewController"
 
 class FoodTabBarController: UITabBarController {
     override func viewDidLoad() {
@@ -16,7 +16,7 @@ class FoodTabBarController: UITabBarController {
     }
     
     func loadDefaultView() {
-        let foodCollectionVC = FoodCollectionViewController(nibName: foodCollectionNibName,
+        let foodCollectionVC = FoodViewController(nibName: foodCollectionNibName,
                                                             bundle: nil)
 
         foodCollectionVC.title = "Foods"
