@@ -8,10 +8,16 @@
 import XCTest
 @testable import RecipeApp
 
-class FoodCollectionViewControllerTests: XCTestCase {
+final class FoodCollectionViewControllerTests: XCTestCase {
+    
+    func test_foodViewController_should_call_loadFood_when_viewDidLoad() {
+        let (_, viewModel) = makeSut()
+        
+        XCTAssertTrue((viewModel as! FoodViewModelSpy).loadFoodIsCalled)
+    }
     
     func test_foodViewController_should_return_empty_cell_when_dont_have_data() {
-        let (sut) = makeSut()
+        let (sut, _) = makeSut()
         
         let emptyCell = sut.collectionView.cell(at: 0) as! EmptyCollectionViewCell
         
@@ -20,7 +26,7 @@ class FoodCollectionViewControllerTests: XCTestCase {
     }
     
     func test_foodViewController_should_return_food_cell_when_load_data() {
-        let (sut) = makeSut()
+        let (sut, _) = makeSut()
         let recipes = ["Chicken", "Cherry Pie", "Donuts"]
         sut.recipes = recipes
         sut.collectionView.reloadData()
@@ -31,12 +37,21 @@ class FoodCollectionViewControllerTests: XCTestCase {
         XCTAssertEqual(foodCell.label.text, recipes[0])
     }
     
-    func makeSut() -> (FoodViewController) {
-        let sut = FoodViewController(collectionViewLayout: UICollectionViewLayout())
+    func makeSut() -> (FoodViewController, FoodViewModelProtocol) {
+        let viewModel = FoodViewModelSpy()
+        let sut = FoodViewController(viewModel: viewModel)
         _ = sut.view
-        return (sut)
+        return (sut, viewModel)
     }
 
+}
+
+final class FoodViewModelSpy: FoodViewModelProtocol {
+    var delegate: FoodViewModelDelegateProtocol?
+    var loadFoodIsCalled = false
+    func loadFood() {
+        loadFoodIsCalled = true
+    }
 }
 
 private extension UICollectionView {

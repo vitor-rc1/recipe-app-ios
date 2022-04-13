@@ -8,7 +8,7 @@
 import XCTest
 @testable import RecipeApp
 
-class FoodTabBarControllerTests: XCTestCase {
+final class FoodTabBarControllerTests: XCTestCase {
     func test_when_initialized_did_call_FoodViewController() throws {
         let (sut) = makeSut()
         

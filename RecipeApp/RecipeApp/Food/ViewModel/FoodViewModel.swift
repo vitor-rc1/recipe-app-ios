@@ -7,6 +7,10 @@
 
 import Foundation
 
-class FoodViewModel {
+final class FoodViewModel: FoodViewModelProtocol {
+    var delegate: FoodViewModelDelegateProtocol?
     
+    func loadFood() {
+        
+    }
 }

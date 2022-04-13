@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B6474B9280648E400BE1342 /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6474B8280648E400BE1342 /* CollectionViewHelpers.swift */; };
+		3B6474BB28064B1000BE1342 /* FoodProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6474BA28064B1000BE1342 /* FoodProtocols.swift */; };
 		3B7EBF6E28038FE300F4581E /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF6D28038FE300F4581E /* FoodViewModel.swift */; };
 		3B7EBF7128039C0800F4581E /* FoodViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF7028039C0800F4581E /* FoodViewControllerTests.swift */; };
 		3B7EBF7E2803A2F700F4581E /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF7C2803A2F700F4581E /* EmptyCollectionViewCell.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		3B6474B8280648E400BE1342 /* CollectionViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelpers.swift; sourceTree = "<group>"; };
+		3B6474BA28064B1000BE1342 /* FoodProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodProtocols.swift; sourceTree = "<group>"; };
 		3B7EBF6D28038FE300F4581E /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
 		3B7EBF7028039C0800F4581E /* FoodViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewControllerTests.swift; sourceTree = "<group>"; };
 		3B7EBF7C2803A2F700F4581E /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		3BF5BE3E28030BFA00A6D205 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				3B6474BA28064B1000BE1342 /* FoodProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7EBF6E28038FE300F4581E /* FoodViewModel.swift in Sources */,
+				3B6474BB28064B1000BE1342 /* FoodProtocols.swift in Sources */,
 				3B7EBF7E2803A2F700F4581E /* EmptyCollectionViewCell.swift in Sources */,
 				3BBDF5C727FBA50C0090DD54 /* AppDelegate.swift in Sources */,
 				3BBDF5C927FBA50C0090DD54 /* SceneDelegate.swift in Sources */,

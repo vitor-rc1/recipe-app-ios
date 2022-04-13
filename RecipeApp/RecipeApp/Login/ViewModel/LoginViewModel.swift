@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginViewModel: LoginViewModelProtocol {
+final class LoginViewModel: LoginViewModelProtocol {
     
     var delegate: LoginViewModelDelegateProtocol?
     

@@ -8,7 +8,7 @@
 import XCTest
 @testable import RecipeApp
 
-class LoginViewControllerTests: XCTestCase {
+final class LoginViewControllerTests: XCTestCase {
     func test_login_did_called_with_correct_parameters() throws {
         // Arrange
         let (sut, viewModel) = makeSut()
