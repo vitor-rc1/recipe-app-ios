@@ -37,7 +37,7 @@ final class LoginViewController: UIViewController {
         viewModel.login(email: email, password: password)
         let foodTab = FoodTabBarController()
         foodTab.modalPresentationStyle = .fullScreen
-        present(foodTab, animated: true, completion: nil)
+        show(foodTab, sender: nil)
     }
     
 }

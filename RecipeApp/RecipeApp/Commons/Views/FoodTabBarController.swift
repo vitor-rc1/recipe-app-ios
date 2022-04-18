@@ -7,8 +7,6 @@
 
 import UIKit
 
-private let foodCollectionNibName = "FoodViewController"
-
 final class FoodTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()

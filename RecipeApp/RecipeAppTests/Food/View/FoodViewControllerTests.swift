@@ -19,10 +19,9 @@ final class FoodCollectionViewControllerTests: XCTestCase {
     func test_foodViewController_should_return_empty_cell_when_dont_have_data() {
         let (sut, _) = makeSut()
         
-        let emptyCell = sut.collectionView.cell(at: 0) as! EmptyCollectionViewCell
+        let emptyCell = sut.collectionView.cell(at: 0)
         
-        XCTAssertTrue(type(of: emptyCell) == EmptyCollectionViewCell.self)
-        XCTAssertEqual(emptyCell.cellLabel.text, "Oops! Recipes \nnot found")
+        XCTAssertTrue(emptyCell is EmptyCollectionViewCell)
     }
     
     func test_foodViewController_should_return_food_cell_when_load_data() {
@@ -57,5 +56,11 @@ final class FoodViewModelSpy: FoodViewModelProtocol {
 private extension UICollectionView {
     func cell(at row: Int) -> UICollectionViewCell? {
         return dataSource?.collectionView(self, cellForItemAt: IndexPath(row: 0, section: 0))
+    }
+}
+
+private extension FoodViewController {
+    func firstCell() {
+        // tralla
     }
 }

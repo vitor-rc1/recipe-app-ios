@@ -60,8 +60,9 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if recipes.isEmpty {
-            return CGSize(width: view.bounds.width, height: view.bounds.height)
+            return CGSize(width: view.bounds.width, height: view.bounds.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top)
         }
+        
         let foodSize = (view.bounds.width / 2) - 5
         return CGSize(width: foodSize, height: foodSize)
     }
