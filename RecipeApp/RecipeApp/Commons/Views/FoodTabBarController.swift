@@ -12,7 +12,6 @@ final class FoodTabBarController: UITabBarController {
         super.viewDidLoad()
         loadDefaultView()
     }
-    
     func loadDefaultView() {
         let foodCollectionVC = FoodViewController()
 

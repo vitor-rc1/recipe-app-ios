@@ -8,9 +8,7 @@
 import Foundation
 
 final class LoginViewModel: LoginViewModelProtocol {
-    
     var delegate: LoginViewModelDelegateProtocol?
-    
     func login(email: String, password: String) {
         print("Opa")
     }

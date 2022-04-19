@@ -9,8 +9,5 @@ import Foundation
 
 final class FoodViewModel: FoodViewModelProtocol {
     var delegate: FoodViewModelDelegateProtocol?
-    
-    func loadFood() {
-        
-    }
+    func loadFood() { }
 }

@@ -15,16 +15,15 @@ final class LoginViewControllerTests: XCTestCase {
         sut.emailTextField.text = "test@email.com"
         sut.passwordTextField.text = "123456"
         let button = UIButton()
-        
-        // Act
+        let loginViewModel = try XCTUnwrap(viewModel as? LoginViewModelInputSpy)
+
         sut.loginButton(button)
-        
-        // Assert
-        XCTAssertTrue((viewModel as! LoginViewModelInputSpy).loginIsCalled)
-        XCTAssertEqual((viewModel as! LoginViewModelInputSpy).email, sut.emailTextField.text)
-        XCTAssertEqual((viewModel as! LoginViewModelInputSpy).password, sut.passwordTextField.text)
+
+        XCTAssertTrue(loginViewModel.loginIsCalled)
+        XCTAssertEqual(loginViewModel.email, sut.emailTextField.text)
+        XCTAssertEqual(loginViewModel.password, sut.passwordTextField.text)
     }
-    
+
     func makeSut() -> (LoginViewController, LoginViewModelProtocol) {
         let viewMNodel = LoginViewModelInputSpy()
         let viewController = LoginViewController(viewModel: viewMNodel)
@@ -34,13 +33,13 @@ final class LoginViewControllerTests: XCTestCase {
 
 }
 
-class LoginViewModelInputSpy : LoginViewModelProtocol {
+class LoginViewModelInputSpy: LoginViewModelProtocol {
     var delegate: LoginViewModelDelegateProtocol?
-    
+
     var loginIsCalled = false
     var email = String()
     var password = String()
-    
+
     func login(email: String, password: String) {
         loginIsCalled = true
         self.email = email

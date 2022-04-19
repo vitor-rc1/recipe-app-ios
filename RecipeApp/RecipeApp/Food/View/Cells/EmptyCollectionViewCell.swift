@@ -10,7 +10,7 @@ import UIKit
 final class EmptyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
