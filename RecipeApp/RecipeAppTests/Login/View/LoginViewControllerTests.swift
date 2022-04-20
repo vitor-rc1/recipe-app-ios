@@ -34,7 +34,8 @@ final class LoginViewControllerTests: XCTestCase {
 }
 
 class LoginViewModelInputSpy: LoginViewModelProtocol {
-    var delegate: LoginViewModelDelegateProtocol?
+    weak var delegate: LoginViewModelDelegateProtocol?
+    var loginNavigation: LoginNavigation?
 
     var loginIsCalled = false
     var email = String()

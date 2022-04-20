@@ -69,3 +69,9 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: foodSize, height: foodSize)
     }
 }
+
+extension FoodViewController: FoodViewModelDelegateProtocol {
+    func didLoadedFood() { }
+
+    func didFailLoadedFood() { }
+}

@@ -14,6 +14,7 @@ protocol Coordinator {
     var navigationController: UINavigationController { get set }
 
     func start()
+    func goToLoginPage()
 }
 
 class AppCoordinator: Coordinator {
@@ -26,6 +27,25 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-        print("App Coordinator Start")
+        goToLoginPage()
+    }
+}
+
+extension AppCoordinator: LoginNavigation {
+    // TODO: Gerar RegisterProtocol
+    func goToRegisterPage() {}
+
+    func goToLoginPage() {
+        let loginViewModel = LoginViewModel(loginNavigation: self)
+        let loginViewController = LoginViewController(viewModel: loginViewModel)
+        loginViewModel.delegate = loginViewController
+
+        navigationController.pushViewController(loginViewController, animated: true)
+    }
+
+    func goToHome() {
+        let foodTabBarController = FoodTabBarController(nibName: "FoodTabBarController", bundle: nil)
+
+        navigationController.pushViewController(foodTabBarController, animated: true)
     }
 }

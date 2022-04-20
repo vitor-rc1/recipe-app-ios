@@ -45,7 +45,8 @@ final class FoodCollectionViewControllerTests: XCTestCase {
 }
 
 final class FoodViewModelSpy: FoodViewModelProtocol {
-    var delegate: FoodViewModelDelegateProtocol?
+    weak var delegate: FoodViewModelDelegateProtocol?
+
     var loadFoodIsCalled = false
     func loadFood() {
         loadFoodIsCalled = true

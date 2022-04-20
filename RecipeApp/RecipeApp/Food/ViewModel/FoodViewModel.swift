@@ -8,6 +8,6 @@
 import Foundation
 
 final class FoodViewModel: FoodViewModelProtocol {
-    var delegate: FoodViewModelDelegateProtocol?
+    weak var delegate: FoodViewModelDelegateProtocol?
     func loadFood() { }
 }

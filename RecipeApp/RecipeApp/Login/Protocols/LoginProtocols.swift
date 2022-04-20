@@ -9,9 +9,16 @@ import Foundation
 
 protocol LoginViewModelProtocol {
     var delegate: LoginViewModelDelegateProtocol? { get set }
+    var loginNavigation: LoginNavigation? { get set }
+
     func login(email: String, password: String)
 }
 
-protocol LoginViewModelDelegateProtocol {
+protocol LoginViewModelDelegateProtocol: AnyObject {
     func didSuccessLogin()
+}
+
+protocol LoginNavigation {
+    func goToHome()
+    func goToRegisterPage()
 }

@@ -8,8 +8,14 @@
 import Foundation
 
 final class LoginViewModel: LoginViewModelProtocol {
-    var delegate: LoginViewModelDelegateProtocol?
+    weak var delegate: LoginViewModelDelegateProtocol?
+    var loginNavigation: LoginNavigation?
+
+    init(loginNavigation: LoginNavigation?) {
+        self.loginNavigation = loginNavigation
+    }
+
     func login(email: String, password: String) {
-        print("Opa")
+        loginNavigation?.goToHome()
     }
 }

@@ -12,7 +12,7 @@ protocol FoodViewModelProtocol {
     func loadFood()
 }
 
-protocol FoodViewModelDelegateProtocol {
+protocol FoodViewModelDelegateProtocol: AnyObject {
     func didLoadedFood()
     func didFailLoadedFood()
 }
