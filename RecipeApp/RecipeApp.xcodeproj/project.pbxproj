@@ -23,6 +23,7 @@
 		3BBDF5D127FBA50C0090DD54 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDF5CF27FBA50C0090DD54 /* RecipeApp.xcdatamodeld */; };
 		3BBDF5D327FBA50F0090DD54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDF5D227FBA50F0090DD54 /* Assets.xcassets */; };
 		3BBDF5D627FBA50F0090DD54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BBDF5D427FBA50F0090DD54 /* LaunchScreen.storyboard */; };
+		3BCF370E280E3A320046F73B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF370D280E3A320046F73B /* AppCoordinator.swift */; };
 		3BE4FB292804F89D00A3F01F /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE4FB272804F89D00A3F01F /* FoodCollectionViewCell.swift */; };
 		3BE4FB2A2804F89D00A3F01F /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE4FB282804F89D00A3F01F /* FoodCollectionViewCell.xib */; };
 		3BF5BE392803067600A6D205 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5BE382803067600A6D205 /* LoginViewModel.swift */; };
@@ -66,6 +67,7 @@
 		3BBDF5D527FBA50F0090DD54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BBDF5D727FBA50F0090DD54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BBDF5DC27FBA50F0090DD54 /* RecipeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BCF370D280E3A320046F73B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		3BE4FB272804F89D00A3F01F /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		3BE4FB282804F89D00A3F01F /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		3BF5BE382803067600A6D205 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -228,8 +230,8 @@
 		3BBDF5C527FBA50C0090DD54 /* RecipeApp */ = {
 			isa = PBXGroup;
 			children = (
-				3BE4FB2B2804FB8800A3F01F /* Helpers */,
 				3BBDF5F927FBA5220090DD54 /* Application */,
+				3BE4FB2B2804FB8800A3F01F /* Helpers */,
 				3B9DF6C627FE61D500979E99 /* Commons */,
 				3BF5BE3A28030BA400A6D205 /* Food */,
 				3B9DF6C527FE61CA00979E99 /* Login */,
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				3BBDF5C627FBA50C0090DD54 /* AppDelegate.swift */,
+				3BCF370D280E3A320046F73B /* AppCoordinator.swift */,
 				3BBDF5C827FBA50C0090DD54 /* SceneDelegate.swift */,
 				3BBDF5D427FBA50F0090DD54 /* LaunchScreen.storyboard */,
 			);
@@ -525,6 +528,7 @@
 				3BBDF5D127FBA50C0090DD54 /* RecipeApp.xcdatamodeld in Sources */,
 				3BF5BE442803178E00A6D205 /* FoodTabBarController.swift in Sources */,
 				3BA490202800FEED0021A4E9 /* User.swift in Sources */,
+				3BCF370E280E3A320046F73B /* AppCoordinator.swift in Sources */,
 				3BE4FB292804F89D00A3F01F /* FoodCollectionViewCell.swift in Sources */,
 				3BF5BE392803067600A6D205 /* LoginViewModel.swift in Sources */,
 			);

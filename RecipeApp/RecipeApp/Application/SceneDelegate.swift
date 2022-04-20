@@ -10,15 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appCoordinator: AppCoordinator?
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let loginVC = LoginViewController()
-        let nav = UINavigationController(rootViewController: loginVC)
-        loginVC.title = "Login"
+        let nav = UINavigationController()
+        appCoordinator = AppCoordinator(navCon: nav)
+        appCoordinator?.start()
         window.rootViewController = nav
         window.makeKeyAndVisible()
         self.window = window
