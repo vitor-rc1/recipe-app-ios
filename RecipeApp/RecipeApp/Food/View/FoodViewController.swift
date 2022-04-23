@@ -68,7 +68,7 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension FoodViewController: FoodViewModelDelegateProtocol {
-    func didLoadedFood() { }
+    func didLoadedFood(foods: [Meal]) { }
 
     func didFailLoadedFood() { }
 }

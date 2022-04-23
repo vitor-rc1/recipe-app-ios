@@ -45,7 +45,13 @@ final class FoodCollectionViewControllerTests: XCTestCase {
 }
 
 final class FoodViewModelSpy: FoodViewModelProtocol {
+    weak var foodNavigation: FoodNavigation?
     weak var delegate: FoodViewModelDelegateProtocol?
+    var service: FoodServiceProtocol
+    
+    init() {
+        service = FoodServiceMock()
+    }
 
     var loadFoodIsCalled = false
     func loadFood() {

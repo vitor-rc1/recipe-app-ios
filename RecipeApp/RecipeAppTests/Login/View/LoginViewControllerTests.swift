@@ -15,7 +15,7 @@ final class LoginViewControllerTests: XCTestCase {
         sut.emailTextField.text = "test@email.com"
         sut.passwordTextField.text = "123456"
         let button = UIButton()
-        let loginViewModel = try XCTUnwrap(viewModel as? LoginViewModelInputSpy)
+        let loginViewModel = try XCTUnwrap(viewModel as? LoginViewModelSpy)
 
         sut.loginButton(button)
 
@@ -25,7 +25,7 @@ final class LoginViewControllerTests: XCTestCase {
     }
 
     func makeSut() -> (LoginViewController, LoginViewModelProtocol) {
-        let viewMNodel = LoginViewModelInputSpy()
+        let viewMNodel = LoginViewModelSpy()
         let viewController = LoginViewController(viewModel: viewMNodel)
         _ = viewController.view
         return (viewController, viewMNodel)
@@ -33,7 +33,7 @@ final class LoginViewControllerTests: XCTestCase {
 
 }
 
-class LoginViewModelInputSpy: LoginViewModelProtocol {
+class LoginViewModelSpy: LoginViewModelProtocol {
     weak var delegate: LoginViewModelDelegateProtocol?
     var loginNavigation: LoginNavigation?
 

@@ -9,10 +9,16 @@ import Foundation
 
 protocol FoodViewModelProtocol {
     var delegate: FoodViewModelDelegateProtocol? { get set }
+    var foodNavigation: FoodNavigation? { get set }
+    var service: FoodServiceProtocol { get set }
     func loadFood()
 }
 
 protocol FoodViewModelDelegateProtocol: AnyObject {
-    func didLoadedFood()
+    func didLoadedFood(foods: [Meal])
     func didFailLoadedFood()
+}
+
+protocol FoodNavigation: AnyObject {
+    func goToFoodView()
 }

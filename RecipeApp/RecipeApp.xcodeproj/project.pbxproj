@@ -26,6 +26,12 @@
 		3BB3A3B2281479A300501A67 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3B1281479A300501A67 /* AppCoordinatorTests.swift */; };
 		3BB3A3B5281481AB00501A67 /* NavigationControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3B4281481AB00501A67 /* NavigationControllerHelper.swift */; };
 		3BB3A3B7281481FD00501A67 /* FoodTabBarCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3B6281481FD00501A67 /* FoodTabBarCoordinatorTests.swift */; };
+		3BB3A3BA28149C7800501A67 /* FoodViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3B928149C7800501A67 /* FoodViewModelTests.swift */; };
+		3BB3A3BD2814B05000501A67 /* FoodServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3BC2814B05000501A67 /* FoodServiceProtocols.swift */; };
+		3BB3A3C02814B22400501A67 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3BF2814B22400501A67 /* Meal.swift */; };
+		3BB3A3C22814B59B00501A67 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3C12814B59B00501A67 /* Drink.swift */; };
+		3BB3A3C42814B5F500501A67 /* FoodMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3C32814B5F500501A67 /* FoodMocks.swift */; };
+		3BB3A3C62814BAED00501A67 /* FoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3C52814BAED00501A67 /* FoodService.swift */; };
 		3BBDF5C727FBA50C0090DD54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDF5C627FBA50C0090DD54 /* AppDelegate.swift */; };
 		3BBDF5C927FBA50C0090DD54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDF5C827FBA50C0090DD54 /* SceneDelegate.swift */; };
 		3BBDF5D127FBA50C0090DD54 /* RecipeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BBDF5CF27FBA50C0090DD54 /* RecipeApp.xcdatamodeld */; };
@@ -74,6 +80,12 @@
 		3BB3A3B1281479A300501A67 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		3BB3A3B4281481AB00501A67 /* NavigationControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerHelper.swift; sourceTree = "<group>"; };
 		3BB3A3B6281481FD00501A67 /* FoodTabBarCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarCoordinatorTests.swift; sourceTree = "<group>"; };
+		3BB3A3B928149C7800501A67 /* FoodViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModelTests.swift; sourceTree = "<group>"; };
+		3BB3A3BC2814B05000501A67 /* FoodServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodServiceProtocols.swift; sourceTree = "<group>"; };
+		3BB3A3BF2814B22400501A67 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		3BB3A3C12814B59B00501A67 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		3BB3A3C32814B5F500501A67 /* FoodMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMocks.swift; sourceTree = "<group>"; };
+		3BB3A3C52814BAED00501A67 /* FoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodService.swift; sourceTree = "<group>"; };
 		3BBDF5C327FBA50C0090DD54 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BBDF5C627FBA50C0090DD54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BBDF5C827FBA50C0090DD54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -240,9 +252,9 @@
 		3BB3A3A328131A8B00501A67 /* FoodTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				3BB3A3A428131B4E00501A67 /* FoodTabBarCoordinator.swift */,
 				3BB3A3AD28138CAA00501A67 /* Protocols */,
 				3BB3A3AA281349D100501A67 /* Enums */,
-				3BB3A3A428131B4E00501A67 /* FoodTabBarCoordinator.swift */,
 				3B7EBF7B28039F6D00F4581E /* Views */,
 			);
 			path = FoodTabBar;
@@ -276,8 +288,41 @@
 			isa = PBXGroup;
 			children = (
 				3BB3A3B4281481AB00501A67 /* NavigationControllerHelper.swift */,
+				3BB3A3C32814B5F500501A67 /* FoodMocks.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3BB3A3B828149C4C00501A67 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BB3A3B928149C7800501A67 /* FoodViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3BB3A3BB2814B03000501A67 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3BB3A3BC2814B05000501A67 /* FoodServiceProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3BB3A3BE2814B20F00501A67 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3BB3A3BF2814B22400501A67 /* Meal.swift */,
+				3BB3A3C12814B59B00501A67 /* Drink.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3BB3A3C72814BDFF00501A67 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3BBDF5BA27FBA50C0090DD54 = {
@@ -320,6 +365,7 @@
 		3BBDF5DF27FBA50F0090DD54 /* RecipeAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				3BB3A3C72814BDFF00501A67 /* Services */,
 				3BB3A3B02814798D00501A67 /* Application */,
 				3BF5BE3F28030CFE00A6D205 /* Food */,
 				3B6474B52806439900BE1342 /* FoodTabBar */,
@@ -352,9 +398,10 @@
 			isa = PBXGroup;
 			children = (
 				3BB3A3A1281319F700501A67 /* FoodCoordinator.swift */,
+				3BB3A3BE2814B20F00501A67 /* Models */,
 				3BF5BE3E28030BFA00A6D205 /* Protocols */,
-				3BF5BE3D28030BEF00A6D205 /* ViewModel */,
 				3BF5BE3C28030BE600A6D205 /* View */,
+				3BF5BE3D28030BEF00A6D205 /* ViewModel */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -362,6 +409,8 @@
 		3BF5BE3B28030BCD00A6D205 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3BB3A3BB2814B03000501A67 /* Protocols */,
+				3BB3A3C52814BAED00501A67 /* FoodService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -395,6 +444,7 @@
 		3BF5BE3F28030CFE00A6D205 /* Food */ = {
 			isa = PBXGroup;
 			children = (
+				3BB3A3B828149C4C00501A67 /* ViewModel */,
 				3B7EBF6F28039BEB00F4581E /* View */,
 			);
 			path = Food;
@@ -601,13 +651,17 @@
 				3BB3A3A2281319F700501A67 /* FoodCoordinator.swift in Sources */,
 				3BBDF5C927FBA50C0090DD54 /* SceneDelegate.swift in Sources */,
 				3BA4901E2800FBE70021A4E9 /* LoginProtocols.swift in Sources */,
+				3BB3A3C02814B22400501A67 /* Meal.swift in Sources */,
 				3BF5BE48280319AE00A6D205 /* FoodViewController.swift in Sources */,
 				3B6474B9280648E400BE1342 /* CollectionViewHelpers.swift in Sources */,
 				3B9DF6CC27FE680B00979E99 /* LoginViewController.swift in Sources */,
+				3BB3A3C62814BAED00501A67 /* FoodService.swift in Sources */,
 				3BBDF5D127FBA50C0090DD54 /* RecipeApp.xcdatamodeld in Sources */,
+				3BB3A3BD2814B05000501A67 /* FoodServiceProtocols.swift in Sources */,
 				3BF5BE442803178E00A6D205 /* FoodTabBarController.swift in Sources */,
 				3BA490202800FEED0021A4E9 /* User.swift in Sources */,
 				3BB3A3A528131B4E00501A67 /* FoodTabBarCoordinator.swift in Sources */,
+				3BB3A3C22814B59B00501A67 /* Drink.swift in Sources */,
 				3BCF370E280E3A320046F73B /* AppCoordinator.swift in Sources */,
 				3BB3A3AF28138CD700501A67 /* FoodTabBarProtocols.swift in Sources */,
 				3BE4FB292804F89D00A3F01F /* FoodCollectionViewCell.swift in Sources */,
@@ -623,8 +677,10 @@
 				3BB3A3B2281479A300501A67 /* AppCoordinatorTests.swift in Sources */,
 				3BA4901A2800FA0B0021A4E9 /* LoginViewControllerTests.swift in Sources */,
 				3B7EBF7128039C0800F4581E /* FoodViewControllerTests.swift in Sources */,
+				3BB3A3BA28149C7800501A67 /* FoodViewModelTests.swift in Sources */,
 				3BB3A3B7281481FD00501A67 /* FoodTabBarCoordinatorTests.swift in Sources */,
 				3BF5BE4128030D2B00A6D205 /* FoodTabBarControllerTests.swift in Sources */,
+				3BB3A3C42814B5F500501A67 /* FoodMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
