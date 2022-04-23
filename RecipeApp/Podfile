@@ -3,6 +3,7 @@
 
 target 'RecipeApp' do
   pod 'SwiftLint'
+  pod 'Alamofire'
 
   target 'RecipeAppTests' do
     inherit! :search_paths
