@@ -18,7 +18,7 @@ protocol LoginViewModelDelegateProtocol: AnyObject {
     func didSuccessLogin()
 }
 
-protocol LoginNavigation {
+protocol LoginNavigation: AnyObject {
     func goToHome()
     func goToRegisterPage()
 }

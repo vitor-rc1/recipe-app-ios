@@ -9,7 +9,7 @@ import Foundation
 
 final class LoginViewModel: LoginViewModelProtocol {
     weak var delegate: LoginViewModelDelegateProtocol?
-    var loginNavigation: LoginNavigation?
+    weak var loginNavigation: LoginNavigation?
 
     init(loginNavigation: LoginNavigation?) {
         self.loginNavigation = loginNavigation

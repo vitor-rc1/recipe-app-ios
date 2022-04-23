@@ -58,9 +58,3 @@ private extension UICollectionView {
         return dataSource?.collectionView(self, cellForItemAt: IndexPath(row: 0, section: 0))
     }
 }
-
-private extension FoodViewController {
-    func firstCell() {
-        // tralla
-    }
-}
