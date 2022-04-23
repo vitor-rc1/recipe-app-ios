@@ -10,13 +10,13 @@ import XCTest
 
 final class FoodTabBarControllerTests: XCTestCase {
     func test_when_initialized_did_call_FoodViewController() throws {
-        let (sut) = makeSut()
+        let sut = makeSut()
         let selectedViewController = try XCTUnwrap(sut.selectedViewController as? UINavigationController)
         XCTAssertTrue(selectedViewController.viewControllers.first is CustomViewController)
         XCTAssertEqual(selectedViewController.viewControllers.first?.title, "Foods")
     }
 
-    func makeSut() -> (FoodTabBarController) {
+    func makeSut() -> FoodTabBarController {
         let navController = UINavigationController()
         navController.tabBarItem = UITabBarItem(title: "Foods",
                                                      image: nil,

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FoodTabBarCoordinator: Coordinator {
+final class FoodTabBarCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
@@ -20,9 +20,6 @@ class FoodTabBarCoordinator: Coordinator {
     func start() {
         prepareFoodTabBar()
     }
-}
-
-extension FoodTabBarCoordinator: FoodTabBarNavigation {
 
     private func prepareFoodTabBar() {
         let pages: [TabBarPage] = [.food, .explore, .drink, .profile]
@@ -44,16 +41,20 @@ extension FoodTabBarCoordinator: FoodTabBarNavigation {
             foodCoordinator.parentCoordinator = self
             foodCoordinator.start()
         case .explore:
-            let foodVC = UIViewController()
-            navController.pushViewController(foodVC, animated: true)
+            let exploreVC = UIViewController()
+            navController.pushViewController(exploreVC, animated: true)
         case .drink:
-            let foodVC = UIViewController()
-            navController.pushViewController(foodVC, animated: true)
+            let drinkVC = UIViewController()
+            navController.pushViewController(drinkVC, animated: true)
         case .profile:
-            let foodVC = UIViewController()
-            navController.pushViewController(foodVC, animated: true)
+            let profileVC = UIViewController()
+            navController.pushViewController(profileVC, animated: true)
         }
 
         return navController
     }
+}
+
+extension FoodTabBarCoordinator: FoodTabBarNavigation {
+
 }

@@ -13,15 +13,11 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
 
     // MARK: Properties
-    private var viewModel: LoginViewModelProtocol
+    private var viewModel: LoginViewModelProtocol?
 
-    init(viewModel: LoginViewModelProtocol) {
+    convenience init(viewModel: LoginViewModelProtocol) {
+        self.init(nibName: "LoginViewController", bundle: nil)
         self.viewModel = viewModel
-        super.init(nibName: "LoginViewController", bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -33,7 +29,7 @@ final class LoginViewController: UIViewController {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
 
-        viewModel.login(email: email, password: password)
+        viewModel?.login(email: email, password: password)
     }
 
 }
