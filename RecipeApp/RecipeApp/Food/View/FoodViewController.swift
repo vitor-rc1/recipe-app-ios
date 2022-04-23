@@ -12,7 +12,7 @@ final class FoodViewController: UICollectionViewController {
 
     var recipes = [String]()
 
-    init(viewModel: FoodViewModelProtocol = FoodViewModel()) {
+    init(viewModel: FoodViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: "FoodViewController", bundle: nil)
     }
@@ -61,8 +61,9 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if recipes.isEmpty {
+            let margins = view.safeAreaInsets.bottom + view.safeAreaInsets.top
             return CGSize(width: view.bounds.width,
-                          height: view.bounds.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top)
+                          height: view.bounds.height - margins)
         }
 
         let foodSize = (view.bounds.width / 2) - 5

@@ -23,6 +23,7 @@ class FoodTabBarCoordinator: Coordinator {
 }
 
 extension FoodTabBarCoordinator: FoodTabBarNavigation {
+
     private func prepareFoodTabBar() {
         let pages: [TabBarPage] = [.food, .explore, .drink, .profile]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
@@ -39,15 +40,17 @@ extension FoodTabBarCoordinator: FoodTabBarNavigation {
         switch page {
         case .food:
             let foodCoordinator = FoodCoordinator(navCon: navController)
+            children.append(foodCoordinator)
             foodCoordinator.parentCoordinator = self
+            foodCoordinator.start()
         case .explore:
-            let foodVC = FoodViewController()
+            let foodVC = UIViewController()
             navController.pushViewController(foodVC, animated: true)
         case .drink:
-            let foodVC = FoodViewController()
+            let foodVC = UIViewController()
             navController.pushViewController(foodVC, animated: true)
         case .profile:
-            let foodVC = FoodViewController()
+            let foodVC = UIViewController()
             navController.pushViewController(foodVC, animated: true)
         }
 

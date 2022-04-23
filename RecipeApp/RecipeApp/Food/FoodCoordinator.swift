@@ -18,7 +18,8 @@ class FoodCoordinator: Coordinator {
     }
 
     func start() {
-        let foodVC = FoodViewController()
+        let foodViewModel = FoodViewModel()
+        let foodVC = FoodViewController(viewModel: foodViewModel)
         navigationController.pushViewController(foodVC, animated: true)
     }
 
