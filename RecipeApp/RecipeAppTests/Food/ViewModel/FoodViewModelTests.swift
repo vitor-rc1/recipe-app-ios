@@ -14,7 +14,7 @@ final class FoodViewModelTests: XCTestCase {
         let (sut, delegate, service) = makeSut()
 
         sut.loadFood()
-        
+
         let delegateSpy = try XCTUnwrap(delegate as? FoodViewModelDelegateMock)
         XCTAssertTrue(delegateSpy.isDidLoadedFoodCalled)
         XCTAssertEqual(delegateSpy.foods.count, 4)
