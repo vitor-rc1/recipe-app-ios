@@ -1,20 +1,30 @@
 PODS:
   - Alamofire (5.5.0)
+  - Mocker (2.5.5)
+  - SDWebImage/Core (5.12.2)
+  - SDWebImage/MapKit (5.12.2):
+    - SDWebImage/Core
   - SwiftLint (0.45.1)
 
 DEPENDENCIES:
   - Alamofire
+  - Mocker
+  - SDWebImage/MapKit
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Mocker
+    - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Mocker: 8c731a8104962f246cadf2b02556218e9edc1390
+  SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
 
-PODFILE CHECKSUM: b776b2b545446cfdcb650e55a15575d9f23cfc73
+PODFILE CHECKSUM: 5355ff6aa12aa157979b7042ec759af8de756c24
 
 COCOAPODS: 1.10.2

@@ -6,8 +6,20 @@
 //
 
 import Foundation
+import Alamofire
 
-class FoodService: FoodServiceProtocol {
-    func getFood(completion: ([Meal]) -> Void) {
+final class FoodService: FoodServiceProtocol {
+
+    func getFood<T: Codable>(url: FoodAPI, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+        let response = AF.request(url.apiURL)
+            .responseDecodable(of: T.self) { response in
+                switch response.result {
+                case .success(let foods):
+                    completion(.success(foods))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+
     }
 }

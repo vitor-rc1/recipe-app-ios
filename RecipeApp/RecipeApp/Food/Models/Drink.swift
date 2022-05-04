@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct Drink {
-
+struct Drink: Codable {
+    let id: String
+    let name: String
+    let thumb: String
+    let category: String
+    let videoURL: String
 }
