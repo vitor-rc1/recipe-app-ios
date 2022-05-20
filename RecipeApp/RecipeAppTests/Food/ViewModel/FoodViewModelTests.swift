@@ -10,7 +10,7 @@ import XCTest
 
 final class FoodViewModelTests: XCTestCase {
 
-    func test_() throws {
+    func test_loadFood_loaded_foods_with_success() throws {
         let (sut, delegate, service) = makeSut()
 
         sut.loadFood()
@@ -52,10 +52,17 @@ final class FoodViewModelDelegateMock: FoodViewModelDelegateProtocol {
 }
 
 final class FoodServiceMock: FoodServiceProtocol {
-    var isGetFoodCalled = false
-
-    func getFood(completion: ([Meal]) -> Void) {
+    func getFood<T>(url: FoodAPI, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
         isGetFoodCalled = true
-        completion(FoodMocks.shared.mockMeals())
+        let foods = FoodMocks.shared.mockMeals() as? [T] ?? []
+//        completion(.success(Meals() as? T.init()))
     }
+    
+    func getFood<T: Codable>(type: T.Type, completion: (Result<[T], Error>) -> Void) {
+        isGetFoodCalled = true
+        let foods = FoodMocks.shared.mockMeals() as? [T] ?? []
+        completion(.success(foods))
+    }
+    
+    var isGetFoodCalled = false
 }
