@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class FoodCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
@@ -24,7 +25,8 @@ class FoodCoordinator: Coordinator {
 
 extension FoodCoordinator: FoodNavigation {
     func goToFoodView() {
-        let service = FoodService()
+        let sessionManager = Alamofire.Session()
+        let service = FoodService(sessionManager: sessionManager)
         let foodViewModel = FoodViewModel(foodNavigation: self, service: service)
         let foodVC = FoodViewController(viewModel: foodViewModel)
         navigationController.pushViewController(foodVC, animated: true)

@@ -15,7 +15,7 @@ protocol FoodViewModelProtocol {
 }
 
 protocol FoodViewModelDelegateProtocol: AnyObject {
-    func didLoadedFood(foods: [Meal])
+    func didLoadedFood(foods: [Food])
     func didFailLoadedFood()
 }
 

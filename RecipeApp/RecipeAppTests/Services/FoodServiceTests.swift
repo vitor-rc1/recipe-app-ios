@@ -7,6 +7,7 @@
 
 import XCTest
 import Mocker
+import Alamofire
 @testable import RecipeApp
 
 final class FoodServiceTests: XCTestCase {
@@ -14,8 +15,8 @@ final class FoodServiceTests: XCTestCase {
         let sut = makeSut()
 
         let expectation = self.expectation(description: "Get meals")
-        registerMock(urlString: FoodAPI.meals.apiURL, mockFileName: "Meals", statusCode: 200)
-        sut.getFood(url: FoodAPI.meals, type: Meals.self) { result in
+        registerMock(urlString: FoodAPI<Meals>.foods.apiURL, mockFileName: "Meals", statusCode: 200)
+        sut.getFood(url: FoodAPI<Meals>.foods, type: Meals.self) { result in
             switch result {
             case .success(let data):
                 XCTAssertEqual(data.meals?.count, 25)
@@ -26,11 +27,69 @@ final class FoodServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        self.wait(for: [expectation], timeout: 3)
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_getFood_should_return_drinks() throws {
+        let sut = makeSut()
+        
+        let expectation = self.expectation(description: "Get drinks")
+        registerMock(urlString: FoodAPI<Drinks>.foods.apiURL, mockFileName: "Drinks", statusCode: 200)
+        sut.getFood(url: FoodAPI<Drinks>.foods, type: Drinks.self) { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.drinks?.count, 25)
+                XCTAssertEqual(data.drinks?.first?.id, "15997")
+                XCTAssertEqual(data.drinks?.last?.id, "11872")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_getFood_should_return_mealById() throws {
+        let sut = makeSut()
+
+        let expectation = self.expectation(description: "Get meal by id")
+        registerMock(urlString: FoodAPI<Meals>.foodById(id: "52772").apiURL, mockFileName: "Meal", statusCode: 200)
+        sut.getFood(url: FoodAPI<Meals>.foodById(id: "52772"), type: Meals.self) { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.meals?.count, 1)
+                XCTAssertEqual(data.meals?.first?.id, "52772")
+            default:
+                XCTFail("Failed to get meal")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_getFood_should_return_drinkByName() throws {
+        let sut = makeSut()
+
+        let expectation = self.expectation(description: "Get drink by name")
+        registerMock(urlString: FoodAPI<Drinks>.foodByName(name: "Margarita").apiURL, mockFileName: "Drink", statusCode: 200)
+        sut.getFood(url: FoodAPI<Drinks>.foodByName(name: "Margarita"), type: Drinks.self) { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.drinks?.count, 1)
+                XCTAssertEqual(data.drinks?.first?.name, "Margarita")
+            default:
+                XCTFail("Failed to get meals")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
     }
     
     func makeSut() -> FoodService {
-        let service = FoodService()
+        let configuration = URLSessionConfiguration.af.default
+        configuration.protocolClasses = [MockingURLProtocol.self]
+        let sessionManager = Alamofire.Session(configuration: configuration)
+        let service = FoodService(sessionManager: sessionManager)
         return service
     }
     

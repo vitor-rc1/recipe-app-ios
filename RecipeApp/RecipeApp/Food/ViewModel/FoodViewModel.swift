@@ -18,15 +18,15 @@ final class FoodViewModel: FoodViewModelProtocol {
     }
 
     func loadFood() {
-        service.getFood(url: FoodAPI.meals, type: Meals.self) { result in
+        service.getFood(url: FoodAPI<Meals>.foods, type: Meals.self) { result in
             switch result {
-            case .success:
+            case .success(let foods):
+
 //                delegate?.didLoadedFood(foods: foods)
                 break
             case .failure(let error):
                 print(error.localizedDescription)
             }
-
         }
     }
 }

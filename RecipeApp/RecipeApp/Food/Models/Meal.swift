@@ -13,7 +13,7 @@ struct Meal: Codable {
     let thumb: String
     let category: String
     let videoURL: String
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "idMeal"
         case name = "strMeal"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E63105928394F3400165529 /* FoodTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105828394F3400165529 /* FoodTabBarProtocols.swift */; };
+		1E63105B283975F900165529 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105A283975F900165529 /* Food.swift */; };
 		3B6474B9280648E400BE1342 /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6474B8280648E400BE1342 /* CollectionViewHelpers.swift */; };
 		3B6474BB28064B1000BE1342 /* FoodProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6474BA28064B1000BE1342 /* FoodProtocols.swift */; };
 		3B7EBF6E28038FE300F4581E /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF6D28038FE300F4581E /* FoodViewModel.swift */; };
@@ -22,7 +24,6 @@
 		3BB3A3A2281319F700501A67 /* FoodCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3A1281319F700501A67 /* FoodCoordinator.swift */; };
 		3BB3A3A528131B4E00501A67 /* FoodTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3A428131B4E00501A67 /* FoodTabBarCoordinator.swift */; };
 		3BB3A3AC281349E800501A67 /* FoodTabBarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3AB281349E800501A67 /* FoodTabBarEnums.swift */; };
-		3BB3A3AF28138CD700501A67 /* FoodTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3AE28138CD700501A67 /* FoodTabBarProtocols.swift */; };
 		3BB3A3B2281479A300501A67 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3B1281479A300501A67 /* AppCoordinatorTests.swift */; };
 		3BB3A3B5281481AB00501A67 /* NavigationControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3B4281481AB00501A67 /* NavigationControllerHelper.swift */; };
 		3BB3A3B7281481FD00501A67 /* FoodTabBarCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3B6281481FD00501A67 /* FoodTabBarCoordinatorTests.swift */; };
@@ -68,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E63105828394F3400165529 /* FoodTabBarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarProtocols.swift; sourceTree = "<group>"; };
+		1E63105A283975F900165529 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		29DFD6F6D560747CE4CA9689 /* libPods-RecipeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6474B8280648E400BE1342 /* CollectionViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelpers.swift; sourceTree = "<group>"; };
 		3B6474BA28064B1000BE1342 /* FoodProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodProtocols.swift; sourceTree = "<group>"; };
@@ -84,7 +87,6 @@
 		3BB3A3A1281319F700501A67 /* FoodCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCoordinator.swift; sourceTree = "<group>"; };
 		3BB3A3A428131B4E00501A67 /* FoodTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarCoordinator.swift; sourceTree = "<group>"; };
 		3BB3A3AB281349E800501A67 /* FoodTabBarEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarEnums.swift; sourceTree = "<group>"; };
-		3BB3A3AE28138CD700501A67 /* FoodTabBarProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodTabBarProtocols.swift; path = ../../../../../../../../FoodTabBarProtocols.swift; sourceTree = "<group>"; };
 		3BB3A3B1281479A300501A67 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		3BB3A3B4281481AB00501A67 /* NavigationControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerHelper.swift; sourceTree = "<group>"; };
 		3BB3A3B6281481FD00501A67 /* FoodTabBarCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarCoordinatorTests.swift; sourceTree = "<group>"; };
@@ -287,7 +289,7 @@
 		3BB3A3AD28138CAA00501A67 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3BB3A3AE28138CD700501A67 /* FoodTabBarProtocols.swift */,
+				1E63105828394F3400165529 /* FoodTabBarProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -329,10 +331,11 @@
 		3BB3A3BE2814B20F00501A67 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3BB3A3BF2814B22400501A67 /* Meal.swift */,
 				3BB3A3C12814B59B00501A67 /* Drink.swift */,
-				3BB3A3CD281767C400501A67 /* Meals.swift */,
 				3BFB83BA28231DE5006B84E7 /* Drinks.swift */,
+				1E63105A283975F900165529 /* Food.swift */,
+				3BB3A3BF2814B22400501A67 /* Meal.swift */,
+				3BB3A3CD281767C400501A67 /* Meals.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB3A3AC281349E800501A67 /* FoodTabBarEnums.swift in Sources */,
+				1E63105928394F3400165529 /* FoodTabBarProtocols.swift in Sources */,
 				3BB3A3A02813195500501A67 /* Coordinator.swift in Sources */,
 				3B7EBF6E28038FE300F4581E /* FoodViewModel.swift in Sources */,
 				3B6474BB28064B1000BE1342 /* FoodProtocols.swift in Sources */,
@@ -706,11 +710,11 @@
 				3BF5BE442803178E00A6D205 /* FoodTabBarController.swift in Sources */,
 				3BA490202800FEED0021A4E9 /* User.swift in Sources */,
 				3BB3A3A528131B4E00501A67 /* FoodTabBarCoordinator.swift in Sources */,
+				1E63105B283975F900165529 /* Food.swift in Sources */,
 				3BB3A3CE281767C400501A67 /* Meals.swift in Sources */,
 				3BFB83BB28231DE5006B84E7 /* Drinks.swift in Sources */,
 				3BB3A3C22814B59B00501A67 /* Drink.swift in Sources */,
 				3BCF370E280E3A320046F73B /* AppCoordinator.swift in Sources */,
-				3BB3A3AF28138CD700501A67 /* FoodTabBarProtocols.swift in Sources */,
 				3BE4FB292804F89D00A3F01F /* FoodCollectionViewCell.swift in Sources */,
 				3BF5BE392803067600A6D205 /* LoginViewModel.swift in Sources */,
 			);

@@ -7,37 +7,36 @@
 
 import Foundation
 
-enum FoodAPI {
-    case meals
-    case mealByName(name: String)
-    case mealById(id: String)
-    case mealFirstLettter(letter: String)
-    case mealRandom
-    case drinks
+enum FoodAPI<TypeFood: Codable> {
+    case foods
+    case foodByName(name: String)
+    case foodById(id: String)
+    case foodFirstLettter(letter: String)
+    case randomFood
 
     private var baseURL: String {
-        switch self {
-        case .meals, .mealByName, .mealById, .mealFirstLettter, .mealRandom:
+        switch TypeFood.self {
+        case is Meals.Type:
             return "https://www.themealdb.com/api/json/v1/1"
-        case .drinks:
+        case is Drinks.Type:
+            return "https://www.thecocktaildb.com/api/json/v1/1"
+        default:
             return ""
         }
     }
 
     var apiURL: String {
         switch self {
-        case .meals:
+        case .foods:
             return "\(baseURL)/search.php?s="
-        case .mealByName(let name):
+        case .foodByName(let name):
             return "\(baseURL)/search.php?s=\(name)"
-        case . mealById(let id):
+        case .foodById(let id):
             return "\(baseURL)/lookup.php?i=\(id)"
-        case .mealFirstLettter(let letter):
+        case .foodFirstLettter(let letter):
             return "\(baseURL)/search.php?f=\(letter)"
-        case .mealRandom:
+        case .randomFood:
             return "\(baseURL)/random.php"
-        case .drinks:
-            return ""
         }
     }
 }

@@ -12,5 +12,13 @@ struct Drink: Codable {
     let name: String
     let thumb: String
     let category: String
-    let videoURL: String
+    let videoURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "idDrink"
+        case name = "strDrink"
+        case thumb = "strDrinkThumb"
+        case category = "strCategory"
+        case videoURL = "strVideo"
+      }
 }

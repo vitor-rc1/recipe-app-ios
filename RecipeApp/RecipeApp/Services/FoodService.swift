@@ -9,9 +9,14 @@ import Foundation
 import Alamofire
 
 final class FoodService: FoodServiceProtocol {
-
-    func getFood<T: Codable>(url: FoodAPI, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        let response = AF.request(url.apiURL)
+    private var sessionManager: Session?
+    
+    init(sessionManager: Session) {
+        self.sessionManager = sessionManager
+    }
+    
+    func getFood<T: Codable>(url: FoodAPI<T>, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+        sessionManager?.request(url.apiURL)
             .responseDecodable(of: T.self) { response in
                 switch response.result {
                 case .success(let foods):
@@ -20,6 +25,5 @@ final class FoodService: FoodServiceProtocol {
                     completion(.failure(error))
                 }
             }
-
     }
 }

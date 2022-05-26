@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Alamofire
 @testable import RecipeApp
 
 final class FoodViewModelTests: XCTestCase {
@@ -41,9 +42,9 @@ final class FoodNavigationSpy: FoodNavigation {
 final class FoodViewModelDelegateMock: FoodViewModelDelegateProtocol {
     var isDidLoadedFoodCalled = false
     var isDidFailLoadedFoodCalled = false
-    var foods: [Meal] = []
+    var foods: [Food] = []
 
-    func didLoadedFood(foods: [Meal]) {
+    func didLoadedFood(foods: [Food]) {
         isDidLoadedFoodCalled = true
         self.foods = foods
     }
@@ -52,7 +53,9 @@ final class FoodViewModelDelegateMock: FoodViewModelDelegateProtocol {
 }
 
 final class FoodServiceMock: FoodServiceProtocol {
-    func getFood<T>(url: FoodAPI, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
+    var sessionManager: Session?
+    
+    func getFood<T: Codable>(url: FoodAPI<T>, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         isGetFoodCalled = true
         let foods = FoodMocks.shared.mockMeals() as? [T] ?? []
 //        completion(.success(Meals() as? T.init()))
