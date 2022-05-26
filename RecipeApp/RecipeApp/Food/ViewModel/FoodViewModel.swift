@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FoodViewModel: FoodViewModelProtocol {
+final class FoodViewModel<FoodType: Codable>: FoodViewModelProtocol {
     weak var delegate: FoodViewModelDelegateProtocol?
     weak var foodNavigation: FoodNavigation?
     var service: FoodServiceProtocol
@@ -18,12 +18,11 @@ final class FoodViewModel: FoodViewModelProtocol {
     }
 
     func loadFood() {
-        service.getFood(url: FoodAPI<Meals>.foods, type: Meals.self) { result in
+        service.getFood(url: FoodAPI<FoodType>.foods, type: FoodType.self) { result in
             switch result {
-            case .success(let foods):
-
-//                delegate?.didLoadedFood(foods: foods)
-                break
+            case .success(let responseFoods):
+                let foods = Foods(responseFoods)
+                self.delegate?.didLoadedFood(foods: foods.foods)
             case .failure(let error):
                 print(error.localizedDescription)
             }

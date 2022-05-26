@@ -10,7 +10,7 @@ import UIKit
 final class FoodViewController: UICollectionViewController {
     var viewModel: FoodViewModelProtocol?
 
-    var recipes = [String]()
+    var recipes = [Food]()
 
     convenience init(viewModel: FoodViewModelProtocol) {
         self.init(nibName: "FoodViewController", bundle: nil)
@@ -47,7 +47,7 @@ final class FoodViewController: UICollectionViewController {
 
     func foodCell(indexPath: IndexPath) -> FoodCollectionViewCell {
         let cell = collectionView.dequeueReusableCell(FoodCollectionViewCell.self, for: indexPath)!
-        cell.label.text = recipes[indexPath.row]
+        cell.label.text = recipes[indexPath.row].name
         return cell
     }
 }
@@ -68,7 +68,12 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension FoodViewController: FoodViewModelDelegateProtocol {
-    func didLoadedFood(foods: [Food]) {}
+    func didLoadedFood(foods: [Food]) {
+        self.recipes = foods
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 
     func didFailLoadedFood() { }
 }

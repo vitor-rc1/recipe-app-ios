@@ -27,8 +27,9 @@ extension FoodCoordinator: FoodNavigation {
     func goToFoodView() {
         let sessionManager = Alamofire.Session()
         let service = FoodService(sessionManager: sessionManager)
-        let foodViewModel = FoodViewModel(foodNavigation: self, service: service)
+        let foodViewModel = FoodViewModel<Meals>(foodNavigation: self, service: service)
         let foodVC = FoodViewController(viewModel: foodViewModel)
+        foodViewModel.delegate = foodVC
         navigationController.pushViewController(foodVC, animated: true)
     }
 }
