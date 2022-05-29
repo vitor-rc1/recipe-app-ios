@@ -9,16 +9,13 @@ import Foundation
 
 enum TabBarPage: Int {
     case food = 0
-    case explore = 1
-    case drink = 2
-    case profile = 3
+    case drink = 1
+    case profile = 2
 
     func pageTitleValue() -> String {
         switch self {
         case .food:
             return "Foods"
-        case .explore:
-            return "Explore foods"
         case .drink:
             return "Drinks"
         case .profile:
@@ -30,8 +27,6 @@ enum TabBarPage: Int {
         switch self {
         case .food:
             return "food"
-        case .explore:
-            return "explore"
         case .drink:
             return "drink"
         case .profile:

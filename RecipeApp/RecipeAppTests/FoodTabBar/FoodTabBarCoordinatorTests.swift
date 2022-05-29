@@ -29,11 +29,10 @@ final class FoodTabBarCoordinatorTests: XCTestCase {
         let navController = try XCTUnwrap(sut.navigationController as? NavigationControllerSpy)
         let foodTabBarControllers = try XCTUnwrap(navController.viewController as? FoodTabBarController).viewControllers
 
-        XCTAssertEqual(foodTabBarControllers?.count, 4)
+        XCTAssertEqual(foodTabBarControllers?.count, 3)
         XCTAssertEqual(foodTabBarControllers?.first?.tabBarItem.title, "Foods")
-        XCTAssertEqual(foodTabBarControllers?[1].tabBarItem.title, "Explore foods")
-        XCTAssertEqual(foodTabBarControllers?[2].tabBarItem.title, "Drinks")
-        XCTAssertEqual(foodTabBarControllers?[3].tabBarItem.title, "Profile")
+        XCTAssertEqual(foodTabBarControllers?[1].tabBarItem.title, "Drinks")
+        XCTAssertEqual(foodTabBarControllers?[2].tabBarItem.title, "Profile")
     }
 
     func makeSut() -> FoodTabBarCoordinator {

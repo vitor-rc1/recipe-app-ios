@@ -22,7 +22,7 @@ final class FoodTabBarCoordinator: Coordinator {
     }
 
     private func prepareFoodTabBar() {
-        let pages: [TabBarPage] = [.food, .explore, .drink, .profile]
+        let pages: [TabBarPage] = [.food, .drink, .profile]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         let foodTabBarController = FoodTabBarController(foodTabBarNavigation: self, controllers: controllers)
         foodTabBarController.modalPresentationStyle = .fullScreen
@@ -40,9 +40,6 @@ final class FoodTabBarCoordinator: Coordinator {
             children.append(foodCoordinator)
             foodCoordinator.parentCoordinator = self
             foodCoordinator.start()
-        case .explore:
-            let exploreVC = UIViewController()
-            navController.pushViewController(exploreVC, animated: true)
         case .drink:
             let foodCoordinator = FoodCoordinator<Drinks>(navCon: navController)
             children.append(foodCoordinator)

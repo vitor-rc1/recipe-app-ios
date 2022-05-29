@@ -11,13 +11,9 @@ enum FoodAPI<TypeFood: Codable> {
     case foods
     case foodByName(name: String)
     case foodById(id: String)
+    case foodsByIngredient(ingredient: String)
     case foodFirstLettter(letter: String)
     case randomFood
-    
-    case categories
-    case foodsByCategory(category: String)
-    case ingredients
-    case foodsByIngredient(ingredient: String)
 
     private var baseURL: String {
         switch TypeFood.self {
@@ -38,18 +34,12 @@ enum FoodAPI<TypeFood: Codable> {
             return "\(baseURL)/search.php?s=\(name)"
         case .foodById(let id):
             return "\(baseURL)/lookup.php?i=\(id)"
+        case .foodsByIngredient(let ingredient):
+            return "/filter.php?i=\(ingredient)"
         case .foodFirstLettter(let letter):
             return "\(baseURL)/search.php?f=\(letter)"
         case .randomFood:
             return "\(baseURL)/random.php"
-        case .categories:
-            return "/list.php?c=list"
-        case .foodsByCategory(let category):
-            return "/filter.php?c=\(category)"
-        case .ingredients:
-            return "/list.php?i=list"
-        case .foodsByIngredient(let ingredient):
-            return "/filter.php?i=\(ingredient)"
         }
     }
 }
