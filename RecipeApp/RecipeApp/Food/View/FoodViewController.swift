@@ -47,7 +47,8 @@ final class FoodViewController: UICollectionViewController {
 
     func foodCell(indexPath: IndexPath) -> FoodCollectionViewCell {
         let cell = collectionView.dequeueReusableCell(FoodCollectionViewCell.self, for: indexPath)!
-        cell.label.text = recipes[indexPath.row].name
+        let recipe = recipes[indexPath.row]
+        cell.setupCell(food: recipe)
         return cell
     }
 }

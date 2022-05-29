@@ -9,5 +9,7 @@ import Foundation
 import Alamofire
 
 protocol FoodServiceProtocol: AnyObject {
-    func getFood<FoodType: Codable>(url: FoodAPI<FoodType>, type: FoodType.Type, completion: @escaping (Result<FoodType, Error>) -> Void)
+    func getFood<FoodType: Codable>(url: FoodAPI<FoodType>,
+                                    type: FoodType.Type,
+                                    completion: @escaping (Result<FoodType, Error>) -> Void)
 }

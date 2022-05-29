@@ -13,7 +13,7 @@ struct Food {
     let thumb: String
     let category: String
     let videoURL: String?
-    
+
     init(meal: Meal) {
         id = meal.id
         name = meal.name
@@ -21,7 +21,7 @@ struct Food {
         category = meal.category
         videoURL = meal.videoURL
     }
-    
+
     init(drink: Drink) {
         id = drink.id
         name = drink.name

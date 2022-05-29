@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class FoodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var foodView: UIView!
@@ -14,5 +15,10 @@ final class FoodCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+
+    func setupCell(food: Food) {
+        label.text = food.name
+        image.sd_setImage(with: URL(string: food.thumb))
     }
 }

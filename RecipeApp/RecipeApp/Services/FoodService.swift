@@ -10,11 +10,11 @@ import Alamofire
 
 final class FoodService: FoodServiceProtocol {
     private var sessionManager: Session?
-    
+
     init(sessionManager: Session) {
         self.sessionManager = sessionManager
     }
-    
+
     func getFood<T: Codable>(url: FoodAPI<T>, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         sessionManager?.request(url.apiURL)
             .responseDecodable(of: T.self) { response in
