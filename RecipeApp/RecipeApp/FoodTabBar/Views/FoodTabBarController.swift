@@ -15,9 +15,4 @@ final class FoodTabBarController: UITabBarController {
         self.foodTabBarNavigation = foodTabBarNavigation
         self.setViewControllers(controllers, animated: true)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
 }

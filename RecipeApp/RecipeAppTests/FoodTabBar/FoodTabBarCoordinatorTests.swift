@@ -17,7 +17,7 @@ final class FoodTabBarCoordinatorTests: XCTestCase {
 
         let navController = try XCTUnwrap(sut.navigationController as? NavigationControllerSpy)
 
-        XCTAssertTrue(navController.pushViewControllerDidCalled)
+        XCTAssertTrue(navController.presentDidCalled)
         XCTAssertTrue(navController.viewController is FoodTabBarController)
     }
 

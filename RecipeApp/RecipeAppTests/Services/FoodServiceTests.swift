@@ -66,7 +66,7 @@ final class FoodServiceTests: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 0.1)
     }
-    
+
     func test_getFood_should_return_drinkByName() throws {
         let sut = makeSut()
 
@@ -78,7 +78,7 @@ final class FoodServiceTests: XCTestCase {
                 XCTAssertEqual(data.drinks?.count, 1)
                 XCTAssertEqual(data.drinks?.first?.name, "Margarita")
             default:
-                XCTFail("Failed to get meals")
+                XCTFail("Failed to get drinks")
             }
             expectation.fulfill()
         }
@@ -96,7 +96,7 @@ final class FoodServiceTests: XCTestCase {
     private func registerMock(urlString: String, mockFileName: String, statusCode: Int) {
             if let url = URL(string: urlString) {
                 let mockResponse = FileManipulation.shared.loadJsonFile(name: mockFileName)
-                let mockService = Mock(url: url, ignoreQuery: true, dataType: .json, statusCode: statusCode,
+                let mockService = Mock(url: url, ignoreQuery: false, dataType: .json, statusCode: statusCode,
                                        data: [Mock.HTTPMethod.get : mockResponse])
                 mockService.register()
             } else {

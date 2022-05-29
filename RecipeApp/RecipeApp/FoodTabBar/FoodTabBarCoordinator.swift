@@ -25,12 +25,12 @@ final class FoodTabBarCoordinator: Coordinator {
         let pages: [TabBarPage] = [.food, .explore, .drink, .profile]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         let foodTabBarController = FoodTabBarController(foodTabBarNavigation: self, controllers: controllers)
-        navigationController.pushViewController(foodTabBarController, animated: true)
+        foodTabBarController.modalPresentationStyle = .fullScreen
+        navigationController.present(foodTabBarController, animated: true)
     }
 
     private func getTabController(_ page: TabBarPage) -> UINavigationController {
         let navController = UINavigationController()
-        navController.setNavigationBarHidden(false, animated: false)
         navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(),
                                                      image: UIImage(named: page.pageImageName()),
                                                      tag: page.rawValue)
