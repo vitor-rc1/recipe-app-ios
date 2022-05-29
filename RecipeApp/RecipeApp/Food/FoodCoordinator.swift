@@ -30,6 +30,7 @@ extension FoodCoordinator: FoodNavigation {
         let foodViewModel = FoodViewModel<FoodType>(foodNavigation: self, service: service)
         let foodVC = FoodViewController(viewModel: foodViewModel)
         foodViewModel.delegate = foodVC
+        foodVC.title = navigationController.tabBarItem.title
         navigationController.pushViewController(foodVC, animated: true)
     }
 }
