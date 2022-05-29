@@ -7,6 +7,14 @@
 
 import Foundation
 
-struct Meals: Codable {
+struct Meals: FoodsProtocol, Codable {
     let meals: [Meal]?
+    
+    var foods: [Food] {
+        meals?.map { Food(food: $0) } ?? []
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case meals
+    }
 }
