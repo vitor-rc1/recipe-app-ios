@@ -15,8 +15,8 @@ final class FoodService: FoodServiceProtocol {
         self.sessionManager = sessionManager
     }
 
-    func getFoodAPIData<T: Codable>(url: FoodAPI<T>, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        sessionManager?.request(url.apiURL)
+    func getFoodAPIData<T: Codable>(url: String, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+        sessionManager?.request(url)
             .responseDecodable(of: T.self) { response in
                 switch response.result {
                 case .success(let foods):
