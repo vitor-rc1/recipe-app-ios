@@ -12,7 +12,7 @@ import Alamofire
 final class FoodViewModelTests: XCTestCase {
 
     func test_loadFood_loaded_foods_with_success() throws {
-        let (sut, delegate, service) = makeSut()
+        let (sut, delegate, service) = makeSut(type: Meals.self)
 
         sut.loadFood()
 
@@ -23,12 +23,12 @@ final class FoodViewModelTests: XCTestCase {
         XCTAssertTrue((try XCTUnwrap(service as? FoodServiceMock)).isGetFoodCalled)
     }
 
-    func makeSut() -> (FoodViewModel,
+    func makeSut<FoodType: Codable>(type: FoodType.Type ) -> (FoodViewModel<FoodType>,
                        FoodViewModelDelegateProtocol,
                        FoodServiceProtocol) {
         let service = FoodServiceMock()
         let delegate = FoodViewModelDelegateMock()
-        let sut = FoodViewModel(foodNavigation: FoodNavigationSpy(),
+        let sut = FoodViewModel<FoodType>(foodNavigation: FoodNavigationSpy(),
                                 service: service)
         sut.delegate = delegate
         return (sut, delegate, service)
@@ -55,17 +55,14 @@ final class FoodViewModelDelegateMock: FoodViewModelDelegateProtocol {
 final class FoodServiceMock: FoodServiceProtocol {
     var sessionManager: Session?
     
-    func getFood<T: Codable>(url: FoodAPI<T>, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        isGetFoodCalled = true
-        let foods = FoodMocks.shared.mockMeals() as? [T] ?? []
-//        completion(.success(Meals() as? T.init()))
-    }
-    
-    func getFood<T: Codable>(type: T.Type, completion: (Result<[T], Error>) -> Void) {
-        isGetFoodCalled = true
-        let foods = FoodMocks.shared.mockMeals() as? [T] ?? []
-        completion(.success(foods))
-    }
-    
     var isGetFoodCalled = false
+    
+    func getFood<FoodType: Codable>(url: FoodAPI<FoodType>,
+                                    type: FoodType.Type,
+                                    completion: @escaping (Result<FoodType, Error>) -> Void) {
+        isGetFoodCalled = true
+        let foods = FoodMocks.shared.mockMeals()
+        let meals = Meals(meals: foods)
+        completion(.success(meals as! FoodType))
+    }
 }

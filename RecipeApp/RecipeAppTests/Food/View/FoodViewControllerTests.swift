@@ -26,14 +26,14 @@ final class FoodCollectionViewControllerTests: XCTestCase {
 
     func test_foodViewController_should_return_food_cell_when_load_data() throws {
         let (sut, _) = makeSut()
-        let recipes = ["Chicken", "Cherry Pie", "Donuts"]
+        let recipes = Foods(Drinks(drinks: FoodMocks.shared.mockDrinks())).foods
         sut.recipes = recipes
         sut.collectionView.reloadData()
 
         let foodCell = try XCTUnwrap(sut.collectionView.cell(at: 0) as? FoodCollectionViewCell)
 
         XCTAssertTrue(type(of: foodCell) == FoodCollectionViewCell.self)
-        XCTAssertEqual(foodCell.label.text, recipes[0])
+        XCTAssertEqual(foodCell.label.text, recipes[0].name)
     }
 
     func makeSut() -> (FoodViewController, FoodViewModelProtocol) {
@@ -61,6 +61,6 @@ final class FoodViewModelSpy: FoodViewModelProtocol {
 
 private extension UICollectionView {
     func cell(at row: Int) -> UICollectionViewCell? {
-        return dataSource?.collectionView(self, cellForItemAt: IndexPath(row: 0, section: 0))
+        return dataSource?.collectionView(self, cellForItemAt: IndexPath(row: row, section: 0))
     }
 }

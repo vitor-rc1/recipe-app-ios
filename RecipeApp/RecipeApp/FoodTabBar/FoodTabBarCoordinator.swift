@@ -36,7 +36,7 @@ final class FoodTabBarCoordinator: Coordinator {
                                                      tag: page.rawValue)
         switch page {
         case .food:
-            let foodCoordinator = FoodCoordinator(navCon: navController)
+            let foodCoordinator = FoodCoordinator<Meals>(navCon: navController)
             children.append(foodCoordinator)
             foodCoordinator.parentCoordinator = self
             foodCoordinator.start()
@@ -44,8 +44,10 @@ final class FoodTabBarCoordinator: Coordinator {
             let exploreVC = UIViewController()
             navController.pushViewController(exploreVC, animated: true)
         case .drink:
-            let drinkVC = UIViewController()
-            navController.pushViewController(drinkVC, animated: true)
+            let foodCoordinator = FoodCoordinator<Drinks>(navCon: navController)
+            children.append(foodCoordinator)
+            foodCoordinator.parentCoordinator = self
+            foodCoordinator.start()
         case .profile:
             let profileVC = UIViewController()
             navController.pushViewController(profileVC, animated: true)

@@ -336,9 +336,9 @@
 				3BB3A3C12814B59B00501A67 /* Drink.swift */,
 				3BFB83BA28231DE5006B84E7 /* Drinks.swift */,
 				1E63105A283975F900165529 /* Food.swift */,
+				1EE54222283F00D200297046 /* Foods.swift */,
 				3BB3A3BF2814B22400501A67 /* Meal.swift */,
 				3BB3A3CD281767C400501A67 /* Meals.swift */,
-				1EE54222283F00D200297046 /* Foods.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

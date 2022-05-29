@@ -4,7 +4,7 @@
 target 'RecipeApp' do
   pod 'SwiftLint'
   pod 'Alamofire'
-  pod 'SDWebImage/MapKit'
+  pod 'SDWebImage'
 
   target 'RecipeAppTests' do
     inherit! :search_paths
