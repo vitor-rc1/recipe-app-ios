@@ -15,33 +15,23 @@ final class FoodMocks {
         var meals: [Meal] = []
         meals.append(Meal(id: "52772",
                          name: "Teriyaki Chicken Casserole",
-                         thumb: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
-                         category: "Chicken",
-                         videoURL: "https://www.youtube.com/watch?v=4aZr5hZXP_s"))
+                         thumb: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg"))
         meals.append(Meal(id: "52977",
                          name: "Corba",
-                         thumb: "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg",
-                         category: "Side",
-                         videoURL: "https://www.youtube.com/watch?v=VVnZd8A84z4"))
+                         thumb: "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg"))
         meals.append(Meal(id: "53060",
                          name: "Burek",
-                         thumb: "https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg",
-                         category: "Side",
-                         videoURL: "https://www.youtube.com/watch?v=YsJXZwE5pdY"))
+                         thumb: "https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg"))
         meals.append(Meal(id: "52977",
                          name: "Kumpir",
-                         thumb: "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg",
-                         category: "Side",
-                         videoURL: "https://www.youtube.com/watch?v=IEDEtZ4UVtI"))
+                         thumb: "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg"))
         return meals
     }
     
     func mockMeal() -> Meal {
         return Meal(id: "52772",
                     name: "Teriyaki Chicken Casserole",
-                    thumb: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
-                    category: "Chicken",
-                    videoURL: "https://www.youtube.com/watch?v=4aZr5hZXP_s")
+                    thumb: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg")
     }
     
     
@@ -49,32 +39,22 @@ final class FoodMocks {
         var drinks: [Drink] = []
         drinks.append(Drink(id: "15997",
                           name: "GG",
-                          thumb: "https://www.thecocktaildb.com/images/media/drink/vyxwut1468875960.jpg",
-                          category: "Ordinary Drink",
-                          videoURL: nil))
+                          thumb: "https://www.thecocktaildb.com/images/media/drink/vyxwut1468875960.jpg"))
         drinks.append(Drink(id: "17222",
                          name: "A1",
-                         thumb: "https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg",
-                         category: "Cocktail",
-                         videoURL: nil))
+                         thumb: "https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg"))
         drinks.append(Drink(id: "13501",
                          name: "ABC",
-                         thumb: "https://www.thecocktaildb.com/images/media/drink/tqpvqp1472668328.jpg",
-                         category: "Shot",
-                         videoURL: nil))
+                         thumb: "https://www.thecocktaildb.com/images/media/drink/tqpvqp1472668328.jpg"))
         drinks.append(Drink(id: "17203",
                          name: "Kir",
-                         thumb: "https://www.thecocktaildb.com/images/media/drink/apneom1504370294.jpg",
-                         category: "Ordinary Drink",
-                         videoURL: nil))
+                         thumb: "https://www.thecocktaildb.com/images/media/drink/apneom1504370294.jpg"))
         return drinks
     }
     
     func mockDrink() -> Drink {
         return Drink(id: "15997",
                     name: "GG",
-                    thumb: "https://www.thecocktaildb.com/images/media/drink/vyxwut1468875960.jpg",
-                    category: "Ordinary Drink",
-                    videoURL: nil)
+                    thumb: "https://www.thecocktaildb.com/images/media/drink/vyxwut1468875960.jpg")
     }
 }
