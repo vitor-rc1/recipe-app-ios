@@ -16,5 +16,5 @@ struct Drink: Codable {
         case id = "idDrink"
         case name = "strDrink"
         case thumb = "strDrinkThumb"
-      }
+    }
 }

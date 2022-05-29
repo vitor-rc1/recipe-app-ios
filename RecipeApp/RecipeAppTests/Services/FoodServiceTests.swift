@@ -16,7 +16,7 @@ final class FoodServiceTests: XCTestCase {
 
         let expectation = self.expectation(description: "Get meals")
         registerMock(urlString: FoodAPI<Meals>.foods.apiURL, mockFileName: "Meals", statusCode: 200)
-        sut.getFood(url: FoodAPI<Meals>.foods, type: Meals.self) { result in
+        sut.getFoodAPIData(url: FoodAPI<Meals>.foods, type: Meals.self) { result in
             switch result {
             case .success(let data):
                 XCTAssertEqual(data.meals?.count, 25)
@@ -35,7 +35,7 @@ final class FoodServiceTests: XCTestCase {
         
         let expectation = self.expectation(description: "Get drinks")
         registerMock(urlString: FoodAPI<Drinks>.foods.apiURL, mockFileName: "Drinks", statusCode: 200)
-        sut.getFood(url: FoodAPI<Drinks>.foods, type: Drinks.self) { result in
+        sut.getFoodAPIData(url: FoodAPI<Drinks>.foods, type: Drinks.self) { result in
             switch result {
             case .success(let data):
                 XCTAssertEqual(data.drinks?.count, 25)
@@ -54,7 +54,7 @@ final class FoodServiceTests: XCTestCase {
 
         let expectation = self.expectation(description: "Get meal by id")
         registerMock(urlString: FoodAPI<Meals>.foodById(id: "52772").apiURL, mockFileName: "Meal", statusCode: 200)
-        sut.getFood(url: FoodAPI<Meals>.foodById(id: "52772"), type: Meals.self) { result in
+        sut.getFoodAPIData(url: FoodAPI<Meals>.foodById(id: "52772"), type: Meals.self) { result in
             switch result {
             case .success(let data):
                 XCTAssertEqual(data.meals?.count, 1)
@@ -72,7 +72,7 @@ final class FoodServiceTests: XCTestCase {
 
         let expectation = self.expectation(description: "Get drink by name")
         registerMock(urlString: FoodAPI<Drinks>.foodByName(name: "Margarita").apiURL, mockFileName: "Drink", statusCode: 200)
-        sut.getFood(url: FoodAPI<Drinks>.foodByName(name: "Margarita"), type: Drinks.self) { result in
+        sut.getFoodAPIData(url: FoodAPI<Drinks>.foodByName(name: "Margarita"), type: Drinks.self) { result in
             switch result {
             case .success(let data):
                 XCTAssertEqual(data.drinks?.count, 1)

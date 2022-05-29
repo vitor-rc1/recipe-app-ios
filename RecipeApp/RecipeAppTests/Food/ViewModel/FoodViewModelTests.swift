@@ -57,7 +57,7 @@ final class FoodServiceMock: FoodServiceProtocol {
     
     var isGetFoodCalled = false
     
-    func getFood<FoodType: Codable>(url: FoodAPI<FoodType>,
+    func getFoodAPIData<FoodType: Codable>(url: FoodAPI<FoodType>,
                                     type: FoodType.Type,
                                     completion: @escaping (Result<FoodType, Error>) -> Void) {
         isGetFoodCalled = true

@@ -18,7 +18,7 @@ final class FoodViewModel<FoodType: Codable>: FoodViewModelProtocol {
     }
 
     func loadFood() {
-        service.getFood(url: FoodAPI<FoodType>.foods, type: FoodType.self) { result in
+        service.getFoodAPIData(url: FoodAPI<FoodType>.foods, type: FoodType.self) { result in
             switch result {
             case .success(let responseFoods):
                 let foods = Foods(responseFoods)
