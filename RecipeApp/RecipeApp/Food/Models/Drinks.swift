@@ -9,11 +9,11 @@ import Foundation
 
 struct Drinks: FoodsProtocol, Codable {
     let drinks: [Drink]?
-    
+
     var foods: [Food] {
-        drinks?.map { Food(food: $0) } ?? []
+        drinks?.map { Food($0) } ?? []
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case drinks
     }

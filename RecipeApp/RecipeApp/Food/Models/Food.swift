@@ -18,7 +18,7 @@ struct Food {
     let name: String
     let thumb: String
 
-    init(food: FoodProtocol) {
+    init(_ food: FoodProtocol) {
         id = food.id
         name = food.name
         thumb = food.thumb

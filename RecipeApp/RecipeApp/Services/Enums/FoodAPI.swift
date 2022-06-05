@@ -7,39 +7,23 @@
 
 import Foundation
 
-enum FoodAPI<TypeFood: Codable> {
-    case foods
-    case foodByName(name: String)
-    case foodById(id: String)
-    case foodsByIngredient(ingredient: String)
-    case foodFirstLettter(letter: String)
-    case randomFood
-
+enum FoodAPI {
+    case meal
+    case drink
+    
     private var baseURL: String {
-        switch TypeFood.self {
-        case is Meals.Type:
-            return "https://www.themealdb.com/api/json/v1/1"
-        case is Drinks.Type:
-            return "https://www.thecocktaildb.com/api/json/v1/1"
-        default:
-            return ""
-        }
-    }
-
-    var apiURL: String {
         switch self {
-        case .foods:
-            return "\(baseURL)/search.php?s="
-        case .foodByName(let name):
-            return "\(baseURL)/search.php?s=\(name)"
-        case .foodById(let id):
-            return "\(baseURL)/lookup.php?i=\(id)"
-        case .foodsByIngredient(let ingredient):
-            return "/filter.php?i=\(ingredient)"
-        case .foodFirstLettter(let letter):
-            return "\(baseURL)/search.php?f=\(letter)"
-        case .randomFood:
-            return "\(baseURL)/random.php"
+        case .meal:
+            return "https://www.themealdb.com/api/json/v1/1"
+        case .drink:
+            return "https://www.thecocktaildb.com/api/json/v1/1"
         }
     }
+    
+    func foods() -> String { "\(baseURL)/search.php?s=" }
+    func foodByName(name: String) -> String { "\(baseURL)/search.php?s=\(name)" }
+    func foodById(id: String) -> String { "\(baseURL)/lookup.php?i=\(id)" }
+    func foodsByIngredient(ingredient: String) -> String { "/filter.php?i=\(ingredient)" }
+    func foodFirstLettter(letter: String) -> String { "\(baseURL)/search.php?f=\(letter)" }
+    func randomFood() -> String { "\(baseURL)/random.php" }
 }

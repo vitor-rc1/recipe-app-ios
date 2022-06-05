@@ -13,9 +13,11 @@ class FoodCoordinator<FoodType: Codable>: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
+    let api: FoodAPI
 
-    init(navCon: UINavigationController) {
+    init(navCon: UINavigationController, api: FoodAPI) {
         self.navigationController = navCon
+        self.api = api
     }
 
     func start() {
@@ -26,8 +28,8 @@ class FoodCoordinator<FoodType: Codable>: Coordinator {
 extension FoodCoordinator: FoodNavigation {
     func goToFoodView() {
         let sessionManager = Alamofire.Session()
-        let service = FoodService(sessionManager: sessionManager)
-        let foodViewModel = FoodViewModel<FoodType>(foodNavigation: self, service: service)
+        let service = FoodService<FoodType>(sessionManager: sessionManager, api: api)
+        let foodViewModel = FoodViewModel(foodNavigation: self, service: service)
         let foodVC = FoodViewController(viewModel: foodViewModel)
         foodViewModel.delegate = foodVC
         foodVC.title = navigationController.tabBarItem.title

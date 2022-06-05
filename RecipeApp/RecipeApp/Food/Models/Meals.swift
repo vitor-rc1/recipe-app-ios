@@ -11,7 +11,7 @@ struct Meals: FoodsProtocol, Codable {
     let meals: [Meal]?
     
     var foods: [Food] {
-        meals?.map { Food(food: $0) } ?? []
+        meals?.map { Food($0) } ?? []
     }
     
     enum CodingKeys: String, CodingKey {

@@ -23,12 +23,12 @@ final class FoodViewModelTests: XCTestCase {
         XCTAssertTrue((try XCTUnwrap(service as? FoodServiceMock)).isGetFoodCalled)
     }
 
-    func makeSut<FoodType: Codable>(type: FoodType.Type ) -> (FoodViewModel<FoodType>,
+    func makeSut<FoodType: Codable>(type: FoodType.Type) -> (FoodViewModel,
                        FoodViewModelDelegateProtocol,
                        FoodServiceProtocol) {
         let service = FoodServiceMock()
         let delegate = FoodViewModelDelegateMock()
-        let sut = FoodViewModel<FoodType>(foodNavigation: FoodNavigationSpy(),
+        let sut = FoodViewModel(foodNavigation: FoodNavigationSpy(),
                                 service: service)
         sut.delegate = delegate
         return (sut, delegate, service)
@@ -54,15 +54,12 @@ final class FoodViewModelDelegateMock: FoodViewModelDelegateProtocol {
 
 final class FoodServiceMock: FoodServiceProtocol {
     var sessionManager: Session?
-    
     var isGetFoodCalled = false
     
-    func getFoodAPIData<FoodType: Codable>(url: String,
-                                    type: FoodType.Type,
-                                    completion: @escaping (Result<FoodType, Error>) -> Void) {
+    func getFoods(completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
         isGetFoodCalled = true
         let foods = FoodMocks.shared.mockMeals()
         let meals = Meals(meals: foods)
-        completion(.success(meals as! FoodType))
+        completion(.success(meals))
     }
 }
