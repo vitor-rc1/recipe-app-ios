@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E01B8C6284D7DF100C4FFA4 /* DrinksByFirstLetter.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8C3284D7DF100C4FFA4 /* DrinksByFirstLetter.json */; };
+		1E01B8C7284D7DF100C4FFA4 /* DrinksByIngredient.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8C4284D7DF100C4FFA4 /* DrinksByIngredient.json */; };
+		1E01B8C8284D7DF100C4FFA4 /* RandomMeal.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8C5284D7DF100C4FFA4 /* RandomMeal.json */; };
+		1E01B8CA284D80E700C4FFA4 /* NotFound.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8C9284D80E700C4FFA4 /* NotFound.json */; };
 		1E63105928394F3400165529 /* FoodTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105828394F3400165529 /* FoodTabBarProtocols.swift */; };
 		1E63105B283975F900165529 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105A283975F900165529 /* Food.swift */; };
 		1EE54223283F00D200297046 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE54222283F00D200297046 /* Foods.swift */; };
@@ -70,6 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E01B8C3284D7DF100C4FFA4 /* DrinksByFirstLetter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DrinksByFirstLetter.json; sourceTree = "<group>"; };
+		1E01B8C4284D7DF100C4FFA4 /* DrinksByIngredient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DrinksByIngredient.json; sourceTree = "<group>"; };
+		1E01B8C5284D7DF100C4FFA4 /* RandomMeal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RandomMeal.json; sourceTree = "<group>"; };
+		1E01B8C9284D80E700C4FFA4 /* NotFound.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotFound.json; sourceTree = "<group>"; };
 		1E63105828394F3400165529 /* FoodTabBarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarProtocols.swift; sourceTree = "<group>"; };
 		1E63105A283975F900165529 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1EE54222283F00D200297046 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
@@ -356,8 +364,12 @@
 			children = (
 				3BB3A3D328176A1B00501A67 /* Drink.json */,
 				3BB3A3D028176A1B00501A67 /* Drinks.json */,
+				1E01B8C3284D7DF100C4FFA4 /* DrinksByFirstLetter.json */,
+				1E01B8C4284D7DF100C4FFA4 /* DrinksByIngredient.json */,
 				3BB3A3D228176A1B00501A67 /* Meal.json */,
 				3BB3A3D128176A1B00501A67 /* Meals.json */,
+				1E01B8C9284D80E700C4FFA4 /* NotFound.json */,
+				1E01B8C5284D7DF100C4FFA4 /* RandomMeal.json */,
 			);
 			path = JsonResponses;
 			sourceTree = "<group>";
@@ -615,6 +627,10 @@
 			files = (
 				3BB3A3D528176A1B00501A67 /* Meals.json in Resources */,
 				3BB3A3D628176A1B00501A67 /* Meal.json in Resources */,
+				1E01B8CA284D80E700C4FFA4 /* NotFound.json in Resources */,
+				1E01B8C8284D7DF100C4FFA4 /* RandomMeal.json in Resources */,
+				1E01B8C7284D7DF100C4FFA4 /* DrinksByIngredient.json in Resources */,
+				1E01B8C6284D7DF100C4FFA4 /* DrinksByFirstLetter.json in Resources */,
 				3BB3A3D728176A1B00501A67 /* Drink.json in Resources */,
 				3BB3A3D428176A1B00501A67 /* Drinks.json in Resources */,
 			);

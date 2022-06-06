@@ -10,7 +10,7 @@ import Foundation
 enum FoodAPI {
     case meal
     case drink
-    
+
     private var baseURL: String {
         switch self {
         case .meal:
@@ -19,11 +19,11 @@ enum FoodAPI {
             return "https://www.thecocktaildb.com/api/json/v1/1"
         }
     }
-    
+
     func foods() -> String { "\(baseURL)/search.php?s=" }
     func foodByName(name: String) -> String { "\(baseURL)/search.php?s=\(name)" }
     func foodById(id: String) -> String { "\(baseURL)/lookup.php?i=\(id)" }
     func foodsByIngredient(ingredient: String) -> String { "/filter.php?i=\(ingredient)" }
-    func foodFirstLettter(letter: String) -> String { "\(baseURL)/search.php?f=\(letter)" }
+    func foodsByFirstLettter(letter: String) -> String { "\(baseURL)/search.php?f=\(letter)" }
     func randomFood() -> String { "\(baseURL)/random.php" }
 }

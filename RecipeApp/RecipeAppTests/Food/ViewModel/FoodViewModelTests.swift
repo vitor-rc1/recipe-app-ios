@@ -62,4 +62,24 @@ final class FoodServiceMock: FoodServiceProtocol {
         let meals = Meals(meals: foods)
         completion(.success(meals))
     }
+    
+    func getFoodById(id: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+        
+    }
+    
+    func getFoodByName(name: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+        
+    }
+    
+    func getFoodsByIngredient(ingredient: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+        
+    }
+    
+    func getFoodsByFirstLettter(letter: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+        
+    }
+    
+    func getRandomFood(completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+        
+    }
 }

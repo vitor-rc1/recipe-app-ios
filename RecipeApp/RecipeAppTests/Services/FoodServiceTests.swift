@@ -51,42 +51,121 @@ final class FoodServiceTests: XCTestCase {
         self.wait(for: [expectation], timeout: 0.1)
     }
     
-//    func test_getFood_should_return_mealById() throws {
-//        let sut = makeSut()
-//
-//        let expectation = self.expectation(description: "Get meal by id")
-//        registerMock(urlString: FoodAPI.meal.foodById(id: "52772"), mockFileName: "Meal", statusCode: 200)
-//        sut.getFoodAPIData(url: FoodAPI.meal.foodById(id: "52772"), type: Meals.self) { result in
-//            switch result {
-//            case .success(let data):
-//                XCTAssertEqual(data.meals?.count, 1)
-//                XCTAssertEqual(data.meals?.first?.id, "52772")
-//            default:
-//                XCTFail("Failed to get meal")
-//            }
-//            expectation.fulfill()
-//        }
-//        self.wait(for: [expectation], timeout: 0.1)
-//    }
-//
-//    func test_getFood_should_return_drinkByName() throws {
-//        let api = FoodAPI.drink
-//        let sut = makeSut(type: Drinks.self, api: api)
-//
-//        let expectation = self.expectation(description: "Get drink by name")
-//        registerMock(urlString: api.foodByName(name: "Margarita"), mockFileName: "Drink", statusCode: 200)
-//        sut.getFoodAPIData { result in
-//            switch result {
-//            case .success(let data):
-//                XCTAssertEqual(data.drinks?.count, 1)
-//                XCTAssertEqual(data.drinks?.first?.name, "Margarita")
-//            default:
-//                XCTFail("Failed to get drinks")
-//            }
-//            expectation.fulfill()
-//        }
-//        self.wait(for: [expectation], timeout: 0.1)
-//    }
+    func test_getFoodById_should_return_mealById() throws {
+        let api = FoodAPI.drink
+        let sut = makeSut(type: Meals.self, api: api)
+
+        let expectation = self.expectation(description: "Get meal by id")
+        registerMock(urlString: api.foodById(id: "52772"), mockFileName: "Meal", statusCode: 200)
+        sut.getFoodById(id: "52772") { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.foods.count, 1)
+                XCTAssertEqual(data.foods.first?.id, "52772")
+            default:
+                XCTFail("Failed to get meal")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+
+    func test_getFoodByName_should_return_drinkByName() throws {
+        let api = FoodAPI.drink
+        let sut = makeSut(type: Drinks.self, api: api)
+
+        let expectation = self.expectation(description: "Get drink by name")
+        registerMock(urlString: api.foodByName(name: "Margarita"), mockFileName: "Drink", statusCode: 200)
+        sut.getFoodByName(name: "Margarita") { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.foods.count, 1)
+                XCTAssertEqual(data.foods.first?.name, "Margarita")
+            default:
+                XCTFail("Failed to get drinks")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_getFoodsByFirstLetter_should_return_drinksByFirsLetter() throws {
+        let api = FoodAPI.drink
+        let sut = makeSut(type: Drinks.self, api: api)
+
+        let expectation = self.expectation(description: "Get drinks by first letter")
+        registerMock(urlString: api.foodsByFirstLettter(letter: "a"), mockFileName: "DrinksByFirstLetter", statusCode: 200)
+        sut.getFoodsByFirstLettter(letter: "a") { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.foods.count, 25)
+                XCTAssertEqual(data.foods.first?.name, "A1")
+                XCTAssertEqual(data.foods.last?.name, "After sex")
+            default:
+                XCTFail("Failed to get drinks")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_getFooddByFirstLetter_should_return_drinksByFirsLetter() throws {
+        let api = FoodAPI.drink
+        let sut = makeSut(type: Drinks.self, api: api)
+
+        let expectation = self.expectation(description: "Get drinks by ingredient")
+        registerMock(urlString: api.foodsByIngredient(ingredient: "vodka"), mockFileName: "DrinksByIngredient", statusCode: 200)
+        sut.getFoodsByIngredient(ingredient: "vodka") { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.foods.count, 92)
+                XCTAssertEqual(data.foods.first?.name, "155 Belmont")
+                XCTAssertEqual(data.foods.last?.name, "Zorbatini")
+            default:
+                XCTFail("Failed to get drinks")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_getRandomFood_should_return_mealById() throws {
+        let api = FoodAPI.meal
+        let sut = makeSut(type: Meals.self, api: api)
+
+        let expectation = self.expectation(description: "Get random meal.")
+        registerMock(urlString: api.randomFood(), mockFileName: "RandomMeal", statusCode: 200)
+        sut.getRandomFood { result in
+            switch result {
+            case .success(let data):
+                XCTAssertEqual(data.foods.count, 1)
+                XCTAssertEqual(data.foods.first?.id, "52908")
+            default:
+                XCTFail("Failed to get meal")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
+    
+    
+    func test_getfoods_should_not_return_meals() throws {
+        let api = FoodAPI.meal
+        let sut = makeSut(type: Meals.self, api: api)
+
+        let expectation = self.expectation(description: "Get random meal.")
+        registerMock(urlString: FoodAPI.drink.foodById(id: "1234"), mockFileName: "NotFound", statusCode: 200)
+        sut.getFoodById(id: "1234") { result in
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error.localizedDescription, "URLSessionTask failed with error: The operation couldn’t be completed. (Mocker.MockingURLProtocol.Error error 0.)")
+            default:
+                XCTFail("Success to get meal")
+            }
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 0.1)
+    }
     
     func makeSut<FoodType: Codable>(type: FoodType.Type, api: FoodAPI) -> FoodService<FoodType> {
         let configuration = URLSessionConfiguration.af.default
