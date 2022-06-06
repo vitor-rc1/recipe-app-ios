@@ -8,9 +8,9 @@
 import UIKit
 
 final class FoodViewController: UICollectionViewController {
-    var viewModel: FoodViewModelProtocol?
+    private var viewModel: FoodViewModelProtocol?
 
-    var recipes = [Food]()
+    private var recipes = [Food]()
 
     convenience init(viewModel: FoodViewModelProtocol) {
         self.init(nibName: "FoodViewController", bundle: nil)
@@ -71,7 +71,7 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
 extension FoodViewController: FoodViewModelDelegateProtocol {
     func didLoadedFood(foods: [Food]) {
         self.recipes = foods
-        DispatchQueue.main.async {
+        guaranteeMainThread {
             self.collectionView.reloadData()
         }
     }

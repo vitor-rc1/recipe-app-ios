@@ -28,7 +28,7 @@ final class FoodServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        self.wait(for: [expectation], timeout: 0.1)
+        self.wait(for: [expectation], timeout: 0.2)
     }
     
     func test_getFood_should_return_drinks() throws {
@@ -48,7 +48,7 @@ final class FoodServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        self.wait(for: [expectation], timeout: 0.1)
+        self.wait(for: [expectation], timeout: 0.2)
     }
     
     func test_getFoodById_should_return_mealById() throws {

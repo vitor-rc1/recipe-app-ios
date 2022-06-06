@@ -11,6 +11,8 @@
 		1E01B8C7284D7DF100C4FFA4 /* DrinksByIngredient.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8C4284D7DF100C4FFA4 /* DrinksByIngredient.json */; };
 		1E01B8C8284D7DF100C4FFA4 /* RandomMeal.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8C5284D7DF100C4FFA4 /* RandomMeal.json */; };
 		1E01B8CA284D80E700C4FFA4 /* NotFound.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8C9284D80E700C4FFA4 /* NotFound.json */; };
+		1E01B8CD284D85DA00C4FFA4 /* FoodSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E01B8CC284D85DA00C4FFA4 /* FoodSearchBar.swift */; };
+		1E01B8CF284D883D00C4FFA4 /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8CE284D883D00C4FFA4 /* FoodViewController.xib */; };
 		1E63105928394F3400165529 /* FoodTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105828394F3400165529 /* FoodTabBarProtocols.swift */; };
 		1E63105B283975F900165529 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105A283975F900165529 /* Food.swift */; };
 		1EE54223283F00D200297046 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE54222283F00D200297046 /* Foods.swift */; };
@@ -56,7 +58,6 @@
 		3BF5BE4128030D2B00A6D205 /* FoodTabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5BE4028030D2B00A6D205 /* FoodTabBarControllerTests.swift */; };
 		3BF5BE442803178E00A6D205 /* FoodTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5BE422803178E00A6D205 /* FoodTabBarController.swift */; };
 		3BF5BE48280319AE00A6D205 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5BE46280319AE00A6D205 /* FoodViewController.swift */; };
-		3BF5BE49280319AE00A6D205 /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5BE47280319AE00A6D205 /* FoodViewController.xib */; };
 		3BFB83BB28231DE5006B84E7 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB83BA28231DE5006B84E7 /* Drinks.swift */; };
 		3BFB83BD282325FD006B84E7 /* FoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB83BC282325FD006B84E7 /* FoodAPI.swift */; };
 		94A04E01116CEABB53014507 /* libPods-RecipeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DFD6F6D560747CE4CA9689 /* libPods-RecipeApp.a */; };
@@ -78,6 +79,8 @@
 		1E01B8C4284D7DF100C4FFA4 /* DrinksByIngredient.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DrinksByIngredient.json; sourceTree = "<group>"; };
 		1E01B8C5284D7DF100C4FFA4 /* RandomMeal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RandomMeal.json; sourceTree = "<group>"; };
 		1E01B8C9284D80E700C4FFA4 /* NotFound.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotFound.json; sourceTree = "<group>"; };
+		1E01B8CC284D85DA00C4FFA4 /* FoodSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBar.swift; sourceTree = "<group>"; };
+		1E01B8CE284D883D00C4FFA4 /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
 		1E63105828394F3400165529 /* FoodTabBarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarProtocols.swift; sourceTree = "<group>"; };
 		1E63105A283975F900165529 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1EE54222283F00D200297046 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
@@ -127,7 +130,6 @@
 		3BF5BE4028030D2B00A6D205 /* FoodTabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarControllerTests.swift; sourceTree = "<group>"; };
 		3BF5BE422803178E00A6D205 /* FoodTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarController.swift; sourceTree = "<group>"; };
 		3BF5BE46280319AE00A6D205 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
-		3BF5BE47280319AE00A6D205 /* FoodViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
 		3BFB83BA28231DE5006B84E7 /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		3BFB83BC282325FD006B84E7 /* FoodAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAPI.swift; sourceTree = "<group>"; };
 		567D9C77BC8C684DDF8AF409 /* Pods-RecipeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeAppTests.release.xcconfig"; path = "Target Support Files/Pods-RecipeAppTests/Pods-RecipeAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E01B8CB284D85A400C4FFA4 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				1E01B8CC284D85DA00C4FFA4 /* FoodSearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		3B6474B52806439900BE1342 /* FoodTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,9 +478,10 @@
 		3BF5BE3C28030BE600A6D205 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3B7EBF7228039C6600F4581E /* Cells */,
 				3BF5BE46280319AE00A6D205 /* FoodViewController.swift */,
-				3BF5BE47280319AE00A6D205 /* FoodViewController.xib */,
+				1E01B8CE284D883D00C4FFA4 /* FoodViewController.xib */,
+				3B7EBF7228039C6600F4581E /* Cells */,
+				1E01B8CB284D85A400C4FFA4 /* SearchBar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -612,10 +623,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E01B8CF284D883D00C4FFA4 /* FoodViewController.xib in Resources */,
 				3B7EBF7F2803A2F700F4581E /* EmptyCollectionViewCell.xib in Resources */,
 				3BBDF5D627FBA50F0090DD54 /* LaunchScreen.storyboard in Resources */,
 				3BE4FB2A2804F89D00A3F01F /* FoodCollectionViewCell.xib in Resources */,
-				3BF5BE49280319AE00A6D205 /* FoodViewController.xib in Resources */,
 				3BBDF5D327FBA50F0090DD54 /* Assets.xcassets in Resources */,
 				3B9DF6CD27FE680B00979E99 /* LoginViewController.xib in Resources */,
 			);
@@ -737,6 +748,7 @@
 				3BCF370E280E3A320046F73B /* AppCoordinator.swift in Sources */,
 				3BE4FB292804F89D00A3F01F /* FoodCollectionViewCell.swift in Sources */,
 				3BF5BE392803067600A6D205 /* LoginViewModel.swift in Sources */,
+				1E01B8CD284D85DA00C4FFA4 /* FoodSearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

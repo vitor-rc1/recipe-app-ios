@@ -26,9 +26,7 @@ final class FoodCollectionViewControllerTests: XCTestCase {
 
     func test_foodViewController_should_return_food_cell_when_load_data() throws {
         let (sut, _) = makeSut()
-        let recipes = Foods(Drinks(drinks: FoodMocks.shared.mockDrinks())).foods
-        sut.recipes = recipes
-        sut.collectionView.reloadData()
+        let recipes = FoodMocks.shared.mockMeals()
 
         let foodCell = try XCTUnwrap(sut.collectionView.cell(at: 0) as? FoodCollectionViewCell)
 
@@ -39,6 +37,7 @@ final class FoodCollectionViewControllerTests: XCTestCase {
     func makeSut() -> (FoodViewController, FoodViewModelProtocol) {
         let viewModel = FoodViewModelSpy()
         let sut = FoodViewController(viewModel: viewModel)
+        viewModel.delegate = sut
         _ = sut.view
         return (sut, viewModel)
     }
@@ -54,8 +53,12 @@ final class FoodViewModelSpy: FoodViewModelProtocol {
     }
 
     var loadFoodIsCalled = false
+    
     func loadFood() {
         loadFoodIsCalled = true
+        let foods = FoodMocks.shared.mockMeals().map { Food($0) }
+        
+        delegate?.didLoadedFood(foods: foods)
     }
 }
 
