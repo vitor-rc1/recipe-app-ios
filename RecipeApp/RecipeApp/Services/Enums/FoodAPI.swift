@@ -23,7 +23,7 @@ enum FoodAPI {
     func foods() -> String { "\(baseURL)/search.php?s=" }
     func foodByName(name: String) -> String { "\(baseURL)/search.php?s=\(name)" }
     func foodById(id: String) -> String { "\(baseURL)/lookup.php?i=\(id)" }
-    func foodsByIngredient(ingredient: String) -> String { "/filter.php?i=\(ingredient)" }
+    func foodsByIngredient(ingredient: String) -> String { "\(baseURL)/filter.php?i=\(ingredient)" }
     func foodsByFirstLettter(letter: String) -> String { "\(baseURL)/search.php?f=\(letter)" }
     func randomFood() -> String { "\(baseURL)/random.php" }
 }

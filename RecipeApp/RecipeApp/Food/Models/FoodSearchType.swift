@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum FoodSearchType {
-    case foodByName
-    case foodByIngredient
-    case foodByFirstLetter
+enum FoodSearchType: String {
+    case foodByName = "Name"
+    case foodByIngredient = "Ingredient"
+    case foodByFirstLetter = "First letter"
 }

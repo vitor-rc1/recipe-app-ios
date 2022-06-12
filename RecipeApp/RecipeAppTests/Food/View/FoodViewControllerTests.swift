@@ -63,6 +63,12 @@ final class FoodViewModelSpy: FoodViewModelProtocol {
             delegate?.didLoadedFood(foods: foods)
         }
     }
+    
+    func randomFood() {
+    }
+    
+    func searchFood(type: FoodSearchType, searchText: String) {
+    }
 }
 
 private extension UICollectionView {

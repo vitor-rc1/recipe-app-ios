@@ -11,7 +11,7 @@ final class FoodViewController: UICollectionViewController {
     private lazy var foodSearchBar: FoodSearchBar = {
         let foodSearchBar = FoodSearchBar()
         foodSearchBar.translatesAutoresizingMaskIntoConstraints = false
-        foodSearchBar.isHidden = isHiddingFoodSearchBar
+        foodSearchBar.isHidden = true
         return foodSearchBar
     }()
 
@@ -26,7 +26,11 @@ final class FoodViewController: UICollectionViewController {
     private var viewModel: FoodViewModelProtocol?
 
     private var recipes = [Food]()
-    private var isHiddingFoodSearchBar = true
+    private var isHiddingFoodSearchBar: Bool = true {
+        didSet {
+            foodSearchBar.isHidden = isHiddingFoodSearchBar
+        }
+    }
 
     convenience init(viewModel: FoodViewModelProtocol) {
         self.init(nibName: "FoodViewController", bundle: nil)
@@ -37,7 +41,7 @@ final class FoodViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.register(EmptyCollectionViewCell.self)
         collectionView?.register(FoodCollectionViewCell.self)
-        setUp()
+        setupView()
         viewModel?.loadFood()
     }
 
@@ -71,7 +75,6 @@ final class FoodViewController: UICollectionViewController {
 
     @objc func showSearchBar() {
         isHiddingFoodSearchBar = !isHiddingFoodSearchBar
-        foodSearchBar.isHidden = isHiddingFoodSearchBar
     }
 }
 
@@ -104,10 +107,12 @@ extension FoodViewController: FoodViewModelDelegateProtocol {
 extension FoodViewController: FoodSearchBarDelegate {
     func didClickkRandomButton() {
         viewModel?.randomFood()
+        isHiddingFoodSearchBar = true
     }
 
     func didClickSearchButton(type: FoodSearchType, searchText: String) {
-        viewModel?.searchFood(type: .foodByName, searchText: searchText)
+        viewModel?.searchFood(type: type, searchText: searchText)
+        isHiddingFoodSearchBar = true
     }
 }
 

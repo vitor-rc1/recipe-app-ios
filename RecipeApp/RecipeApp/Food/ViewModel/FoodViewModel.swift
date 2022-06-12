@@ -30,17 +30,18 @@ final class FoodViewModel: FoodViewModelProtocol {
     }
 
     func searchFood(type: FoodSearchType, searchText: String) {
+        let searchTextFiltered = searchText.replacingOccurrences(of: " ", with: "_")
         switch type {
         case .foodByName:
-            service.getFoodByName(name: searchText) { response in
+            service.getFoodByName(name: searchTextFiltered) { response in
                 self.handleResponse(response: response)
             }
         case .foodByIngredient:
-            service.getFoodsByIngredient(ingredient: searchText) { response in
+            service.getFoodsByIngredient(ingredient: searchTextFiltered) { response in
                 self.handleResponse(response: response)
             }
         case .foodByFirstLetter:
-            service.getFoodsByFirstLettter(letter: searchText) { response in
+            service.getFoodsByFirstLettter(letter: searchTextFiltered) { response in
                 self.handleResponse(response: response)
             }
         }

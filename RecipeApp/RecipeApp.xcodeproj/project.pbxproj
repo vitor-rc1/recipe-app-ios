@@ -15,6 +15,7 @@
 		1E01B8CF284D883D00C4FFA4 /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01B8CE284D883D00C4FFA4 /* FoodViewController.xib */; };
 		1E0AA1C128562C83007073B7 /* FoodSearchBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0AA1C028562C83007073B7 /* FoodSearchBarProtocols.swift */; };
 		1E0AA1C3285630D5007073B7 /* FoodSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0AA1C2285630D5007073B7 /* FoodSearchType.swift */; };
+		1E0AA1C8285640C9007073B7 /* RadioButtonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0AA1C7285640C9007073B7 /* RadioButtonsList.swift */; };
 		1E63105928394F3400165529 /* FoodTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105828394F3400165529 /* FoodTabBarProtocols.swift */; };
 		1E63105B283975F900165529 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105A283975F900165529 /* Food.swift */; };
 		1E70F96F284EC80000298CE7 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70F96E284EC7FF00298CE7 /* ViewCode.swift */; };
@@ -86,7 +87,7 @@
 		1E01B8CE284D883D00C4FFA4 /* FoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodViewController.xib; sourceTree = "<group>"; };
 		1E0AA1C028562C83007073B7 /* FoodSearchBarProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBarProtocols.swift; sourceTree = "<group>"; };
 		1E0AA1C2285630D5007073B7 /* FoodSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchType.swift; sourceTree = "<group>"; };
-		1E0AA1C42856356D007073B7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1E0AA1C7285640C9007073B7 /* RadioButtonsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsList.swift; sourceTree = "<group>"; };
 		1E63105828394F3400165529 /* FoodTabBarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarProtocols.swift; sourceTree = "<group>"; };
 		1E63105A283975F900165529 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1E70F96E284EC7FF00298CE7 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
@@ -175,6 +176,30 @@
 			path = SearchBar;
 			sourceTree = "<group>";
 		};
+		1E0AA1C5285640B4007073B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E0AA1C6285640BE007073B7 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1E0AA1C6285640BE007073B7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1E0AA1CA28567429007073B7 /* RadioButton */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1E0AA1CA28567429007073B7 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				1E0AA1C7285640C9007073B7 /* RadioButtonsList.swift */,
+			);
+			path = RadioButton;
+			sourceTree = "<group>";
+		};
 		3B6474B52806439900BE1342 /* FoodTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +258,7 @@
 		3B9DF6C627FE61D500979E99 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				1E0AA1C5285640B4007073B7 /* Views */,
 				3BB3A39E2813194400501A67 /* Protocols */,
 			);
 			path = Commons;
@@ -427,7 +453,6 @@
 				3BE4FB2B2804FB8800A3F01F /* Helpers */,
 				3B9DF6C527FE61CA00979E99 /* Login */,
 				3BF5BE3B28030BCD00A6D205 /* Services */,
-				1E0AA1C42856356D007073B7 /* MyPlayground.playground */,
 			);
 			path = RecipeApp;
 			sourceTree = "<group>";
@@ -757,6 +782,7 @@
 				3BB3A3A528131B4E00501A67 /* FoodTabBarCoordinator.swift in Sources */,
 				1E63105B283975F900165529 /* Food.swift in Sources */,
 				3BB3A3CE281767C400501A67 /* Meals.swift in Sources */,
+				1E0AA1C8285640C9007073B7 /* RadioButtonsList.swift in Sources */,
 				3BFB83BB28231DE5006B84E7 /* Drinks.swift in Sources */,
 				3BB3A3C22814B59B00501A67 /* Drink.swift in Sources */,
 				3BCF370E280E3A320046F73B /* AppCoordinator.swift in Sources */,

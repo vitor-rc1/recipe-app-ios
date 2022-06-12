@@ -30,20 +30,28 @@ class FoodSearchBar: UIView {
         return randomButton
     }()
 
+    private lazy var radioButtonsList: RadioButtonsList = {
+        let radioButton = RadioButtonsList(titles: ["First letter", "Ingredient", "Name"])
+        radioButton.translatesAutoresizingMaskIntoConstraints = false
+        return radioButton
+    }()
+
     weak var delegate: FoodSearchBarDelegate?
     private var searchText: String = String()
+    private var searchType: FoodSearchType = .foodByName
 
     convenience init() {
         self.init(frame: .zero)
-        setUp()
+        setupView()
     }
 
     @objc func didClickRandomButton() {
         delegate?.didClickkRandomButton()
+        
     }
 
     @objc func didClickSearchButton() {
-        delegate?.didClickSearchButton(type: .foodByName, searchText: searchText)
+        delegate?.didClickSearchButton(type: searchType, searchText: searchText)
     }
 
 }
@@ -54,11 +62,20 @@ extension FoodSearchBar: UISearchBarDelegate {
     }
 }
 
+extension FoodSearchBar: RadioButtonsListDelegate {
+    func radioSelected(title: String?) {
+        if let title = title {
+            searchType = FoodSearchType(rawValue: title) ?? .foodByName
+        }
+    }
+}
+
 extension FoodSearchBar: ViewCode {
     func buildViewHierarch() {
         addSubview(searchBar)
         addSubview(searchButton)
         addSubview(randomButton)
+        addSubview(radioButtonsList)
     }
 
     func setUpConstraints() {
@@ -66,19 +83,25 @@ extension FoodSearchBar: ViewCode {
             searchBar.topAnchor.constraint(equalTo: topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            radioButtonsList.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
+            radioButtonsList.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            radioButtonsList.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
 
-            searchButton.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
+            searchButton.topAnchor.constraint(equalTo: radioButtonsList.bottomAnchor, constant: 10),
             searchButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
 
-            randomButton.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
+            randomButton.topAnchor.constraint(equalTo: radioButtonsList.bottomAnchor, constant: 10),
             randomButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            randomButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+
         ])
     }
 
     func additionalConfiguration() {
         backgroundColor = UIColor.white
         searchBar.delegate = self
+        radioButtonsList.delegate = self
     }
 }
