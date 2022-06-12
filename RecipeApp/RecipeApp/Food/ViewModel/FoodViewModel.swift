@@ -18,13 +18,40 @@ final class FoodViewModel: FoodViewModelProtocol {
     }
 
     func loadFood() {
-        service.getFoods { result in
-            switch result {
-            case .success(let foods):
-                self.delegate?.didLoadedFood(foods: foods.foods)
-            case .failure(let error):
-                print(error.localizedDescription)
+        service.getFoods { response in
+            self.handleResponse(response: response)
+        }
+    }
+
+    func randomFood() {
+        service.getRandomFood { response in
+            self.handleResponse(response: response)
+        }
+    }
+
+    func searchFood(type: FoodSearchType, searchText: String) {
+        switch type {
+        case .foodByName:
+            service.getFoodByName(name: searchText) { response in
+                self.handleResponse(response: response)
             }
+        case .foodByIngredient:
+            service.getFoodsByIngredient(ingredient: searchText) { response in
+                self.handleResponse(response: response)
+            }
+        case .foodByFirstLetter:
+            service.getFoodsByFirstLettter(letter: searchText) { response in
+                self.handleResponse(response: response)
+            }
+        }
+    }
+
+    private func handleResponse(response: Result<FoodsProtocol, Error>) {
+        switch response {
+        case .success(let foods):
+            self.delegate?.didLoadedFood(foods: foods.foods)
+        case .failure(let error):
+            print(error.localizedDescription)
         }
     }
 }

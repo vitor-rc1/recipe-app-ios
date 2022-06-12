@@ -17,7 +17,7 @@ final class FoodCollectionViewControllerTests: XCTestCase {
     }
 
     func test_foodViewController_should_return_empty_cell_when_dont_have_data() {
-        let (sut, _) = makeSut()
+        let (sut, _) = makeSut(isLoadFoods: false)
 
         let emptyCell = sut.collectionView.cell(at: 0)
 
@@ -34,8 +34,8 @@ final class FoodCollectionViewControllerTests: XCTestCase {
         XCTAssertEqual(foodCell.label.text, recipes[0].name)
     }
 
-    func makeSut() -> (FoodViewController, FoodViewModelProtocol) {
-        let viewModel = FoodViewModelSpy()
+    func makeSut(isLoadFoods: Bool = true) -> (FoodViewController, FoodViewModelProtocol) {
+        let viewModel = FoodViewModelSpy(isLoadFoods: isLoadFoods)
         let sut = FoodViewController(viewModel: viewModel)
         viewModel.delegate = sut
         _ = sut.view
@@ -47,18 +47,21 @@ final class FoodViewModelSpy: FoodViewModelProtocol {
     weak var foodNavigation: FoodNavigation?
     weak var delegate: FoodViewModelDelegateProtocol?
     var service: FoodServiceProtocol
+    let isLoadFoods: Bool
     
-    init() {
+    init(isLoadFoods: Bool = true) {
         service = FoodServiceMock()
+        self.isLoadFoods = isLoadFoods
     }
 
     var loadFoodIsCalled = false
-    
     func loadFood() {
         loadFoodIsCalled = true
         let foods = FoodMocks.shared.mockMeals().map { Food($0) }
         
-        delegate?.didLoadedFood(foods: foods)
+        if isLoadFoods {
+            delegate?.didLoadedFood(foods: foods)
+        }
     }
 }
 

@@ -39,14 +39,14 @@ final class FoodService<FoodType: Codable>: FoodServiceProtocol {
     }
 
     func getFoodsByIngredient(ingredient: String,
-                           completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+                              completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
         sessionManager?.request(api.foodsByIngredient(ingredient: ingredient))
             .responseDecodable(of: FoodType.self) { response in
                 self.handleResponse(response: response, completion: completion)
             }
     }
     func getFoodsByFirstLettter(letter: String,
-                             completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+                                completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
         sessionManager?.request(api.foodsByFirstLettter(letter: letter))
             .responseDecodable(of: FoodType.self) { response in
                 self.handleResponse(response: response, completion: completion)

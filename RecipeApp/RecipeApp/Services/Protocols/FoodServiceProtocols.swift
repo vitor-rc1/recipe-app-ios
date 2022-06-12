@@ -13,8 +13,8 @@ protocol FoodServiceProtocol: AnyObject {
     func getFoodById(id: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void)
     func getFoodByName(name: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void)
     func getFoodsByIngredient(ingredient: String,
-                           completion: @escaping (Result<FoodsProtocol, Error>) -> Void)
+                              completion: @escaping (Result<FoodsProtocol, Error>) -> Void)
     func getFoodsByFirstLettter(letter: String,
-                             completion: @escaping (Result<FoodsProtocol, Error>) -> Void)
+                                completion: @escaping (Result<FoodsProtocol, Error>) -> Void)
     func getRandomFood(completion: @escaping (Result<FoodsProtocol, Error>) -> Void)
 }

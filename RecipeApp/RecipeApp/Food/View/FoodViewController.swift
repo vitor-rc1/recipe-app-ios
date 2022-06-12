@@ -8,9 +8,25 @@
 import UIKit
 
 final class FoodViewController: UICollectionViewController {
+    private lazy var foodSearchBar: FoodSearchBar = {
+        let foodSearchBar = FoodSearchBar()
+        foodSearchBar.translatesAutoresizingMaskIntoConstraints = false
+        foodSearchBar.isHidden = isHiddingFoodSearchBar
+        return foodSearchBar
+    }()
+
+    private lazy var searchButton: UIBarButtonItem = {
+        let searchButton = UIBarButtonItem(image: UIImage(named: "search-icon"),
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(showSearchBar))
+        return searchButton
+    }()
+
     private var viewModel: FoodViewModelProtocol?
 
     private var recipes = [Food]()
+    private var isHiddingFoodSearchBar = true
 
     convenience init(viewModel: FoodViewModelProtocol) {
         self.init(nibName: "FoodViewController", bundle: nil)
@@ -21,6 +37,7 @@ final class FoodViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.register(EmptyCollectionViewCell.self)
         collectionView?.register(FoodCollectionViewCell.self)
+        setUp()
         viewModel?.loadFood()
     }
 
@@ -51,6 +68,11 @@ final class FoodViewController: UICollectionViewController {
         cell.setupCell(food: recipe)
         return cell
     }
+
+    @objc func showSearchBar() {
+        isHiddingFoodSearchBar = !isHiddingFoodSearchBar
+        foodSearchBar.isHidden = isHiddingFoodSearchBar
+    }
 }
 
 extension FoodViewController: UICollectionViewDelegateFlowLayout {
@@ -77,4 +99,33 @@ extension FoodViewController: FoodViewModelDelegateProtocol {
     }
 
     func didFailLoadedFood() { }
+}
+
+extension FoodViewController: FoodSearchBarDelegate {
+    func didClickkRandomButton() {
+        viewModel?.randomFood()
+    }
+
+    func didClickSearchButton(type: FoodSearchType, searchText: String) {
+        viewModel?.searchFood(type: .foodByName, searchText: searchText)
+    }
+}
+
+extension FoodViewController: ViewCode {
+    func buildViewHierarch() {
+        view.addSubview(foodSearchBar)
+        navigationItem.rightBarButtonItem = searchButton
+    }
+
+    func setUpConstraints() {
+        NSLayoutConstraint.activate([
+            foodSearchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            foodSearchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            foodSearchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+
+    func additionalConfiguration() {
+        foodSearchBar.delegate = self
+    }
 }
