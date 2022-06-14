@@ -47,6 +47,10 @@ final class FoodViewModel: FoodViewModelProtocol {
         }
     }
 
+    func didTapFoodCell(id: String) {
+        foodNavigation?.goToFoodDetail(id: id)
+    }
+
     private func handleResponse(response: Result<FoodsProtocol, Error>) {
         switch response {
         case .success(let foods):

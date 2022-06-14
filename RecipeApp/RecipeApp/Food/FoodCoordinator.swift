@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-class FoodCoordinator<FoodType: Codable>: Coordinator {
+final class FoodCoordinator<FoodType: Codable>: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
@@ -26,6 +26,13 @@ class FoodCoordinator<FoodType: Codable>: Coordinator {
 }
 
 extension FoodCoordinator: FoodNavigation {
+    func goToFoodDetail(id: String) {
+        let foodDetailsCoordinator = FoodDetailsCoordinator<FoodType>(navCon: navigationController, api: api)
+        children.append(foodDetailsCoordinator)
+        foodDetailsCoordinator.parentCoordinator = self
+        foodDetailsCoordinator.start()
+    }
+    
     func goToFoodView() {
         let sessionManager = Alamofire.Session()
         let service = FoodService<FoodType>(sessionManager: sessionManager, api: api)

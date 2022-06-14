@@ -15,6 +15,7 @@ protocol FoodViewModelProtocol {
     func loadFood()
     func randomFood()
     func searchFood(type: FoodSearchType, searchText: String)
+    func didTapFoodCell(id: String)
 }
 
 protocol FoodViewModelDelegateProtocol: AnyObject {
@@ -24,4 +25,5 @@ protocol FoodViewModelDelegateProtocol: AnyObject {
 
 protocol FoodNavigation: AnyObject {
     func goToFoodView()
+    func goToFoodDetail(id: String)
 }

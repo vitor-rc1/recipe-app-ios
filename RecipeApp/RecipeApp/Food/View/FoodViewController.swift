@@ -62,15 +62,23 @@ final class FoodViewController: UICollectionViewController {
         return foodCell(indexPath: indexPath)
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recipe = recipes[indexPath.row]
+        viewModel?.didTapFoodCell(id: recipe.id)
+    }
+
     func emptyCell(indexPath: IndexPath) -> EmptyCollectionViewCell {
-        return collectionView.dequeueReusableCell(EmptyCollectionViewCell.self, for: indexPath)!
+        return collectionView.dequeueReusableCell(EmptyCollectionViewCell.self, for: indexPath) ?? EmptyCollectionViewCell()
     }
 
     func foodCell(indexPath: IndexPath) -> FoodCollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(FoodCollectionViewCell.self, for: indexPath)!
-        let recipe = recipes[indexPath.row]
-        cell.setupCell(food: recipe)
-        return cell
+        if let cell = collectionView.dequeueReusableCell(FoodCollectionViewCell.self, for: indexPath) {
+            let recipe = recipes[indexPath.row]
+            cell.setupCell(food: recipe)
+            return cell
+        }
+
+        return FoodCollectionViewCell()
     }
 
     @objc func showSearchBar() {
