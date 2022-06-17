@@ -12,17 +12,22 @@ final class FoodDetailsViewModel: FoodDetailsViewModelProtocol {
     var foodDetailsNavigation: FoodDetailsNavigation?
     var service: FoodServiceProtocol
     
-    init(foodDetailsNavigation: FoodDetailsNavigation, service: FoodServiceProtocol) {
+    let id: String
+    
+    init(foodDetailsNavigation: FoodDetailsNavigation, service: FoodServiceProtocol, id: String) {
         self.foodDetailsNavigation = foodDetailsNavigation
         self.service = service
+        self.id = id
     }
 
-    func getFoodById(id: String) {
+    func getFoodById() {
         service.getFoodById(id: id) { result in
             switch result {
             case .success(let foods):
-//                self.delegate?.didLoadedFood(foods: foods.foods)
-                print(foods.foods.first)
+                guard let food = foods.foods.first else {
+                    return
+                }
+                self.delegate?.didLoadFood(food: food)
             case .failure(let error):
                 print(error.localizedDescription)
             }

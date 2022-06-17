@@ -7,20 +7,20 @@
 
 import Foundation
 
-protocol FoodProtocol {
-    var id: String { get }
-    var name: String { get }
-    var thumb: String { get }
-}
-
-struct Food {
+struct Food: FoodProtocol {
     let id: String
     let name: String
     let thumb: String
+    let ingredients: [String]?
+    let category: String?
+    let instructions: String?
 
     init(_ food: FoodProtocol) {
         id = food.id
         name = food.name
         thumb = food.thumb
+        ingredients = food.ingredients
+        category = food.category
+        instructions = food.instructions
     }
 }

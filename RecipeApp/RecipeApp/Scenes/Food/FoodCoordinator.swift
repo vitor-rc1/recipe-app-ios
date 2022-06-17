@@ -27,12 +27,12 @@ final class FoodCoordinator<FoodType: Codable>: Coordinator {
 
 extension FoodCoordinator: FoodNavigation {
     func goToFoodDetail(id: String) {
-        let foodDetailsCoordinator = FoodDetailsCoordinator<FoodType>(navCon: navigationController, api: api)
+        let foodDetailsCoordinator = FoodDetailsCoordinator<FoodType>(navCon: navigationController, api: api, id: id)
         children.append(foodDetailsCoordinator)
         foodDetailsCoordinator.parentCoordinator = self
         foodDetailsCoordinator.start()
     }
-    
+
     func goToFoodView() {
         let sessionManager = Alamofire.Session()
         let service = FoodService<FoodType>(sessionManager: sessionManager, api: api)

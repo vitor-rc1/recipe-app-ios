@@ -8,6 +8,6 @@
 import Foundation
 
 protocol FoodDetailsDelegateProtocol: AnyObject {
-    func didLoadFood()
+    func didLoadFood(food: Food)
     func didFailFood()
 }

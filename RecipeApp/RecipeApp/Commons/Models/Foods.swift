@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol FoodsProtocol {
-    var foods: [Food] { get }
-}
-
 struct Foods: FoodsProtocol {
     let foods: [Food]
 

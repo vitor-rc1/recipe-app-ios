@@ -11,6 +11,7 @@ protocol FoodDetailsViewModelProtocol {
     var delegate: FoodDetailsDelegateProtocol? { get set }
     var foodDetailsNavigation: FoodDetailsNavigation? { get set }
     var service: FoodServiceProtocol { get set }
+    var id: String { get }
     
-    func getFoodById(id: String)
+    func getFoodById()
 }
