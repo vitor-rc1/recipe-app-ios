@@ -25,7 +25,14 @@ final class FoodViewModel: FoodViewModelProtocol {
 
     func randomFood() {
         service.getRandomFood { response in
-            self.handleResponse(response: response)
+            switch response {
+            case .success(let foods):
+                if let randomFood = foods.foods.first {
+                    self.foodNavigation?.goToFoodDetail(id: randomFood.id)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 
