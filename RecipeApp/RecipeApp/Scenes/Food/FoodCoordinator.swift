@@ -26,8 +26,8 @@ final class FoodCoordinator<FoodType: Codable>: Coordinator {
 }
 
 extension FoodCoordinator: FoodNavigation {
-    func goToFoodDetail(id: String) {
-        let foodDetailsCoordinator = FoodDetailsCoordinator<FoodType>(navCon: navigationController, api: api, id: id)
+    func goToFoodDetail(food: Food) {
+        let foodDetailsCoordinator = FoodDetailsCoordinator<FoodType>(navCon: navigationController, food: food)
         children.append(foodDetailsCoordinator)
         foodDetailsCoordinator.parentCoordinator = self
         foodDetailsCoordinator.start()

@@ -12,13 +12,11 @@ final class FoodDetailsCoordinator<FoodType: Codable>: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
-    let api: FoodAPI
-    let id: String
+    let food: Food
 
-    init(navCon: UINavigationController, api: FoodAPI, id: String) {
+    init(navCon: UINavigationController, food: Food) {
         self.navigationController = navCon
-        self.api = api
-        self.id = id
+        self.food = food
     }
 
     func start() {
@@ -28,11 +26,7 @@ final class FoodDetailsCoordinator<FoodType: Codable>: Coordinator {
 
 extension FoodDetailsCoordinator: FoodDetailsNavigation {
     func goToFoodDetails() {
-        let sessionManager = Alamofire.Session()
-        let service = FoodService<FoodType>(sessionManager: sessionManager, api: api)
-        let viewModel = FoodDetailsViewModel(foodDetailsNavigation: self, service: service, id: id)
-        let foodDetailsView = FoodDetailsViewController(viewModel: viewModel)
-        viewModel.delegate = foodDetailsView
+        let foodDetailsView = FoodDetailsViewController(food: food)
         navigationController.pushViewController(foodDetailsView, animated: true)
     }
 }

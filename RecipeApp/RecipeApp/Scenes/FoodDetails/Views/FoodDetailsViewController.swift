@@ -80,18 +80,20 @@ final class FoodDetailsViewController: UIViewController {
         return instructionsLabel
     }()
 
-    private var viewModel: FoodDetailsViewModelProtocol?
-    private var food: Food?
+    private var food: Food
 
-    convenience init(viewModel: FoodDetailsViewModelProtocol) {
-        self.init(nibName: nil, bundle: nil)
-        self.viewModel = viewModel
+    init(food: Food) {
+        self.food = food
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        viewModel?.getFoodById()
     }
 
     private func setupIngredients(_ ingredients: [String]?) {
@@ -104,17 +106,6 @@ final class FoodDetailsViewController: UIViewController {
             ingredientsStackView.addArrangedSubview(ingredientLabel)
         }
     }
-}
-
-extension FoodDetailsViewController: FoodDetailsDelegateProtocol {
-    func didLoadFood(food: Food) {
-        foodImageView.sd_setImage(with: URL(string: food.thumb))
-        nameLabel.text = food.name
-        categoryLabel.text = food.category
-        setupIngredients(food.ingredients)
-        instructionsLabel.text = food.instructions
-    }
-    func didFailFood() {}
 }
 
 extension FoodDetailsViewController: ViewCode {
@@ -174,5 +165,11 @@ extension FoodDetailsViewController: ViewCode {
 
     func additionalConfiguration() {
         view.backgroundColor = .white
+
+        foodImageView.sd_setImage(with: URL(string: food.thumb))
+        nameLabel.text = food.name
+        categoryLabel.text = food.category
+        setupIngredients(food.ingredients)
+        instructionsLabel.text = food.instructions
     }
 }

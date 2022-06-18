@@ -28,7 +28,7 @@ final class FoodViewModel: FoodViewModelProtocol {
             switch response {
             case .success(let foods):
                 if let randomFood = foods.foods.first {
-                    self.foodNavigation?.goToFoodDetail(id: randomFood.id)
+                    self.foodNavigation?.goToFoodDetail(food: randomFood)
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -55,7 +55,17 @@ final class FoodViewModel: FoodViewModelProtocol {
     }
 
     func didTapFoodCell(id: String) {
-        foodNavigation?.goToFoodDetail(id: id)
+        service.getFoodById(id: id) { result in
+            switch result {
+            case .success(let foods):
+                guard let food = foods.foods.first else {
+                    return
+                }
+                self.foodNavigation?.goToFoodDetail(food: food)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     private func handleResponse(response: Result<FoodsProtocol, Error>) {

@@ -8,20 +8,22 @@
 import UIKit
 
 final class EmptyCollectionViewCell: UICollectionViewCell {
-    private lazy var cellLabel: UILabel = {
-        let cellLabel = UILabel()
-        cellLabel.text = "Oops! Recipes\nnot found"
-        cellLabel.textAlignment = .center
-        cellLabel.font = .systemFont(ofSize: 19, weight: .bold)
-        cellLabel.translatesAutoresizingMaskIntoConstraints = false
-        return cellLabel
+    private lazy var emptyLabel: UILabel = {
+        let emptyLabel = UILabel()
+        emptyLabel.text = "Oops! Recipes\nnot found"
+        emptyLabel.textAlignment = .center
+        emptyLabel.font = .systemFont(ofSize: 19, weight: .bold)
+        emptyLabel.numberOfLines = 0
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        return emptyLabel
     }()
-    private lazy var cellImage: UIImageView = {
-        let cellImage = UIImageView()
-        cellImage.image = UIImage(named: "frying-pan")
-        cellImage.contentMode = .scaleAspectFit
-        cellImage.translatesAutoresizingMaskIntoConstraints = false
-        return cellImage
+
+    private lazy var emptyImageView: UIImageView = {
+        let emptyImageView = UIImageView()
+        emptyImageView.image = UIImage(named: "frying-pan")
+        emptyImageView.contentMode = .scaleAspectFit
+        emptyImageView.translatesAutoresizingMaskIntoConstraints = false
+        return emptyImageView
     }()
 
     func setupCell() {
@@ -31,20 +33,21 @@ final class EmptyCollectionViewCell: UICollectionViewCell {
 
 extension EmptyCollectionViewCell: ViewCode {
     func buildViewHierarch() {
-        addSubview(cellLabel)
-        addSubview(cellImage)
+        addSubview(emptyLabel)
+        addSubview(emptyImageView)
     }
 
     func setUpConstraints() {
         NSLayoutConstraint.activate([
-            cellLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            cellLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            cellLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emptyLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            emptyLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            cellImage.topAnchor.constraint(equalTo: cellLabel.bottomAnchor),
-            cellImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            cellImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cellImage.heightAnchor.constraint(equalToConstant: 200)
+            emptyImageView.topAnchor.constraint(equalTo: emptyLabel.bottomAnchor),
+            emptyImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emptyImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emptyImageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
