@@ -20,7 +20,7 @@ class AppCoordinator: Coordinator {
     func start() {
         goToHome()
     }
-    
+
     func goToHome() {
         let foodTabBarCoordinator = FoodTabBarCoordinator(navCon: navigationController)
         foodTabBarCoordinator.parentCoordinator = self

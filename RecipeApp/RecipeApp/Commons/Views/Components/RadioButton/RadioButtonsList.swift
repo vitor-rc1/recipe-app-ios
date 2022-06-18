@@ -25,7 +25,7 @@ final class RadioButtonsList: UIView {
 
     private var radioButtonsTitles: [String] = []
     private var radioButtons: [UIButton] = []
-    
+
     weak var delegate: RadioButtonsListDelegate?
 
     convenience init(titles: [String]) {

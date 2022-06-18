@@ -11,7 +11,7 @@ protocol FoodViewModelProtocol {
     var delegate: FoodViewModelDelegateProtocol? { get set }
     var foodNavigation: FoodNavigation? { get set }
     var service: FoodServiceProtocol { get set }
-    
+
     func loadFood()
     func randomFood()
     func searchFood(type: FoodSearchType, searchText: String)

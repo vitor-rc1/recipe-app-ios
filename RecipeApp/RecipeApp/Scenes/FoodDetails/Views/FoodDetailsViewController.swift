@@ -13,7 +13,7 @@ final class FoodDetailsViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-    
+
     private lazy var contentView: UIView = {
         let contentView = UIView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,7 +69,7 @@ final class FoodDetailsViewController: UIViewController {
         instructionssLabel.font = .systemFont(ofSize: 20)
         return instructionssLabel
     }()
-    
+
     private lazy var instructionsLabel: UILabel = {
         let instructionsLabel = UILabel()
         instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +95,7 @@ final class FoodDetailsViewController: UIViewController {
     }
 
     private func setupIngredients(_ ingredients: [String]?) {
-        ingredients?.forEach{ ingredient in
+        ingredients?.forEach { ingredient in
             let ingredientLabel = UILabel()
             ingredientLabel.text = ingredient
             ingredientLabel.font = .systemFont(ofSize: 15)
@@ -126,7 +126,7 @@ extension FoodDetailsViewController: ViewCode {
         contentView.addSubview(ingredientsStackView)
         contentView.addSubview(instructionsTitleLabel)
         contentView.addSubview(instructionsLabel)
-        
+
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
     }
@@ -164,7 +164,7 @@ extension FoodDetailsViewController: ViewCode {
 
             instructionsTitleLabel.topAnchor.constraint(equalTo: ingredientsStackView.bottomAnchor, constant: 10),
             instructionsTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            
+
             instructionsLabel.topAnchor.constraint(equalTo: instructionsTitleLabel.bottomAnchor, constant: 5),
             instructionsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             instructionsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),

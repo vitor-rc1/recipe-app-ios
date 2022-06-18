@@ -23,7 +23,7 @@ final class EmptyCollectionViewCell: UICollectionViewCell {
         cellImage.translatesAutoresizingMaskIntoConstraints = false
         return cellImage
     }()
-    
+
     func setupCell() {
         setupView()
     }
@@ -34,13 +34,13 @@ extension EmptyCollectionViewCell: ViewCode {
         addSubview(cellLabel)
         addSubview(cellImage)
     }
-    
+
     func setUpConstraints() {
         NSLayoutConstraint.activate([
             cellLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             cellLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             cellLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
+
             cellImage.topAnchor.constraint(equalTo: cellLabel.bottomAnchor),
             cellImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             cellImage.trailingAnchor.constraint(equalTo: trailingAnchor),

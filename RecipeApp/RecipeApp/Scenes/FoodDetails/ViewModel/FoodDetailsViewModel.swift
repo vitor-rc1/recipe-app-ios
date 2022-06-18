@@ -11,9 +11,9 @@ final class FoodDetailsViewModel: FoodDetailsViewModelProtocol {
     weak var delegate: FoodDetailsDelegateProtocol?
     var foodDetailsNavigation: FoodDetailsNavigation?
     var service: FoodServiceProtocol
-    
+
     let id: String
-    
+
     init(foodDetailsNavigation: FoodDetailsNavigation, service: FoodServiceProtocol, id: String) {
         self.foodDetailsNavigation = foodDetailsNavigation
         self.service = service
