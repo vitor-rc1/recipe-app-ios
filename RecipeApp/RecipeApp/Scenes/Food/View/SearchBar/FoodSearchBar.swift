@@ -16,7 +16,7 @@ class FoodSearchBar: UICollectionReusableView {
     }()
 
     private lazy var searchButton: UIButton = {
-        let searchButton = UIButton(type: .system)
+        let searchButton = UIButton(configuration: .filled(), primaryAction: nil)
         searchButton.translatesAutoresizingMaskIntoConstraints = false
         searchButton.setTitle("Search", for: .normal)
         searchButton.addTarget(self, action: #selector(didClickSearchButton), for: .touchUpInside)
@@ -24,7 +24,7 @@ class FoodSearchBar: UICollectionReusableView {
     }()
 
     private lazy var randomButton: UIButton = {
-        let randomButton = UIButton(type: .system)
+        let randomButton = UIButton(configuration: .tinted(), primaryAction: nil)
         randomButton.translatesAutoresizingMaskIntoConstraints = false
         randomButton.setTitle("Random", for: .normal)
         randomButton.addTarget(self, action: #selector(didClickRandomButton), for: .touchUpInside)
@@ -106,11 +106,11 @@ extension FoodSearchBar: ViewCode {
             radioButtonsList.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
 
             searchButton.topAnchor.constraint(equalTo: radioButtonsList.bottomAnchor, constant: 10),
-            searchButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
 
             randomButton.topAnchor.constraint(equalTo: radioButtonsList.bottomAnchor, constant: 10),
-            randomButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            randomButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
 
         ])

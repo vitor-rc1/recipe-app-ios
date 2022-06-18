@@ -22,7 +22,7 @@ final class FoodTabBarCoordinator: Coordinator {
     }
 
     private func prepareFoodTabBar() {
-        let pages: [TabBarPage] = [.food, .drink, .profile]
+        let pages: [TabBarPage] = [.food, .drink]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         let foodTabBarController = FoodTabBarController(foodTabBarNavigation: self, controllers: controllers)
         navigationController.pushViewController(foodTabBarController, animated: true)
@@ -44,9 +44,6 @@ final class FoodTabBarCoordinator: Coordinator {
             children.append(foodCoordinator)
             foodCoordinator.parentCoordinator = self
             foodCoordinator.start()
-        case .profile:
-            let profileVC = UIViewController()
-            navController.pushViewController(profileVC, animated: true)
         }
 
         return navController
