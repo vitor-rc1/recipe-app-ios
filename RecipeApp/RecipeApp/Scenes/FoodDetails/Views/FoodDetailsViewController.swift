@@ -173,7 +173,6 @@ extension FoodDetailsViewController: ViewCode {
     }
 
     func additionalConfiguration() {
-        viewModel?.delegate = self
         view.backgroundColor = .white
     }
 }

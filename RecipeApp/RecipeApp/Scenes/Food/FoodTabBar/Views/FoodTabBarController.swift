@@ -15,4 +15,9 @@ final class FoodTabBarController: UITabBarController {
         self.foodTabBarNavigation = foodTabBarNavigation
         self.setViewControllers(controllers, animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
 }

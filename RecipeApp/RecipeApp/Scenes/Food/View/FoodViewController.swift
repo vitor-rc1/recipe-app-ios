@@ -33,7 +33,7 @@ final class FoodViewController: UICollectionViewController {
     }
 
     convenience init(viewModel: FoodViewModelProtocol) {
-        self.init(nibName: "FoodViewController", bundle: nil)
+        self.init(collectionViewLayout: UICollectionViewFlowLayout())
         self.viewModel = viewModel
     }
 
@@ -56,7 +56,9 @@ final class FoodViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if recipes.isEmpty {
-            return emptyCell(indexPath: indexPath)
+            let emptyCell = emptyCell(indexPath: indexPath)
+            emptyCell.setupCell()
+            return emptyCell
         }
 
         return foodCell(indexPath: indexPath)
@@ -68,7 +70,8 @@ final class FoodViewController: UICollectionViewController {
     }
 
     func emptyCell(indexPath: IndexPath) -> EmptyCollectionViewCell {
-        return collectionView.dequeueReusableCell(EmptyCollectionViewCell.self, for: indexPath) ?? EmptyCollectionViewCell()
+        return collectionView
+            .dequeueReusableCell(EmptyCollectionViewCell.self, for: indexPath) ?? EmptyCollectionViewCell(frame: .zero)
     }
 
     func foodCell(indexPath: IndexPath) -> FoodCollectionViewCell {
@@ -96,8 +99,26 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
                           height: view.bounds.height - margins)
         }
 
-        let foodSize = (view.bounds.width / 2) - 5
+        let foodSize = (view.bounds.width / 2)
         return CGSize(width: foodSize, height: foodSize)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 

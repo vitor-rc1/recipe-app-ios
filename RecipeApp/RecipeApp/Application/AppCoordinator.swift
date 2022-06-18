@@ -18,22 +18,9 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-        goToLoginPage()
+        goToHome()
     }
-}
-
-extension AppCoordinator: LoginNavigation {
-    // TODO: Gerar RegisterProtocol
-    func goToRegisterPage() {}
-
-    func goToLoginPage() {
-        let loginViewModel = LoginViewModel(loginNavigation: self)
-        let loginViewController = LoginViewController(viewModel: loginViewModel)
-        loginViewModel.delegate = loginViewController
-
-        navigationController.pushViewController(loginViewController, animated: true)
-    }
-
+    
     func goToHome() {
         let foodTabBarCoordinator = FoodTabBarCoordinator(navCon: navigationController)
         foodTabBarCoordinator.parentCoordinator = self

@@ -10,6 +10,7 @@ import UIKit
 class FoodSearchBar: UIView {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.showsCancelButton = true
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -47,7 +48,6 @@ class FoodSearchBar: UIView {
 
     @objc func didClickRandomButton() {
         delegate?.didClickkRandomButton()
-        
     }
 
     @objc func didClickSearchButton() {
@@ -59,6 +59,14 @@ class FoodSearchBar: UIView {
 extension FoodSearchBar: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        radioButtonsList.cleanRadiosState()
+        searchType = .foodByName
+        searchBar.text = String()
+        searchText = String()
+        delegate?.didClickSearchButton(type: searchType, searchText: searchText)
     }
 }
 
@@ -83,7 +91,7 @@ extension FoodSearchBar: ViewCode {
             searchBar.topAnchor.constraint(equalTo: topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
+
             radioButtonsList.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
             radioButtonsList.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             radioButtonsList.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
@@ -94,7 +102,7 @@ extension FoodSearchBar: ViewCode {
 
             randomButton.topAnchor.constraint(equalTo: radioButtonsList.bottomAnchor, constant: 10),
             randomButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            searchButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
 
         ])
     }

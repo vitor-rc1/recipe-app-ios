@@ -67,7 +67,7 @@ final class RadioButtonsList: UIView {
         delegate?.radioSelected(title: button.titleLabel?.text)
     }
 
-    private func cleanRadiosState() {
+    func cleanRadiosState() {
         for radioButton in radioButtons {
             radioButton.setImage(UIImage(named: "radio-empty"), for: .normal)
         }

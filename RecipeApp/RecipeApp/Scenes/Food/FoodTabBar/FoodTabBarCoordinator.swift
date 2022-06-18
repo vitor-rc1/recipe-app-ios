@@ -25,8 +25,7 @@ final class FoodTabBarCoordinator: Coordinator {
         let pages: [TabBarPage] = [.food, .drink, .profile]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         let foodTabBarController = FoodTabBarController(foodTabBarNavigation: self, controllers: controllers)
-        foodTabBarController.modalPresentationStyle = .fullScreen
-        navigationController.present(foodTabBarController, animated: true)
+        navigationController.pushViewController(foodTabBarController, animated: true)
     }
 
     private func getTabController(_ page: TabBarPage) -> UINavigationController {

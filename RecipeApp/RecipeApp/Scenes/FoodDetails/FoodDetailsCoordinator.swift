@@ -32,6 +32,7 @@ extension FoodDetailsCoordinator: FoodDetailsNavigation {
         let service = FoodService<FoodType>(sessionManager: sessionManager, api: api)
         let viewModel = FoodDetailsViewModel(foodDetailsNavigation: self, service: service, id: id)
         let foodDetailsView = FoodDetailsViewController(viewModel: viewModel)
+        viewModel.delegate = foodDetailsView
         navigationController.pushViewController(foodDetailsView, animated: true)
     }
 }
