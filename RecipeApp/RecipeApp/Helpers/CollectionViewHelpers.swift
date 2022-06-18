@@ -9,12 +9,27 @@ import UIKit
 
 extension UICollectionView {
     func register(_ type: UICollectionViewCell.Type) {
-        let className = String(describing: type)
-        self.register(type, forCellWithReuseIdentifier: className)
+        self.register(type, forCellWithReuseIdentifier: className(type))
+    }
+
+    func registerHeader(_ type: UICollectionReusableView.Type) {
+        self.register(type,
+                      forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                      withReuseIdentifier: className(type))
+
     }
 
     func dequeueReusableCell<T>(_ type: T.Type, for indexPath: IndexPath) -> T? {
-        let className = String(describing: type)
-        return dequeueReusableCell(withReuseIdentifier: className, for: indexPath) as? T
+        dequeueReusableCell(withReuseIdentifier: className(type), for: indexPath) as? T
+    }
+
+    func dequeueReusableSupplementaryView<T>(_ type: T.Type, kind: String, indexPath: IndexPath) -> T? {
+        dequeueReusableSupplementaryView(ofKind: kind,
+                                         withReuseIdentifier: className(type),
+                                         for: indexPath) as? T
+    }
+
+    private func className(_ type: Any.Type) -> String {
+        String(describing: type)
     }
 }

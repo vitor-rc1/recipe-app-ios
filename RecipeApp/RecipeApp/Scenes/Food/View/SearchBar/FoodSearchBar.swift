@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FoodSearchBar: UIView {
+class FoodSearchBar: UICollectionReusableView {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = true
@@ -46,8 +46,17 @@ class FoodSearchBar: UIView {
         setupView()
     }
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     @objc func didClickRandomButton() {
-        delegate?.didClickkRandomButton()
+        delegate?.didClickRandomButton()
     }
 
     @objc func didClickSearchButton() {

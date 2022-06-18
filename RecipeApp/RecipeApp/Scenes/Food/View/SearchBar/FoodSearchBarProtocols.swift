@@ -8,6 +8,6 @@
 import Foundation
 
 protocol FoodSearchBarDelegate: AnyObject {
-    func didClickkRandomButton()
+    func didClickRandomButton()
     func didClickSearchButton(type: FoodSearchType, searchText: String)
 }

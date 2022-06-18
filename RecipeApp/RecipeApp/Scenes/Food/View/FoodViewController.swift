@@ -8,29 +8,8 @@
 import UIKit
 
 final class FoodViewController: UICollectionViewController {
-    private lazy var foodSearchBar: FoodSearchBar = {
-        let foodSearchBar = FoodSearchBar()
-        foodSearchBar.translatesAutoresizingMaskIntoConstraints = false
-        foodSearchBar.isHidden = true
-        return foodSearchBar
-    }()
-
-    private lazy var searchButton: UIBarButtonItem = {
-        let searchButton = UIBarButtonItem(image: UIImage(named: "search-icon"),
-                                           style: .plain,
-                                           target: self,
-                                           action: #selector(showSearchBar))
-        return searchButton
-    }()
-
     private var viewModel: FoodViewModelProtocol?
-
-    private var recipes = [Food]()
-    private var isHiddingFoodSearchBar: Bool = true {
-        didSet {
-            foodSearchBar.isHidden = isHiddingFoodSearchBar
-        }
-    }
+    private var recipes: [Food] = []
 
     convenience init(viewModel: FoodViewModelProtocol) {
         self.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -41,6 +20,7 @@ final class FoodViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.register(EmptyCollectionViewCell.self)
         collectionView?.register(FoodCollectionViewCell.self)
+        collectionView.registerHeader(FoodSearchBar.self)
         setupView()
         viewModel?.loadFood()
     }
@@ -69,6 +49,16 @@ final class FoodViewController: UICollectionViewController {
         viewModel?.didTapFoodCell(id: recipe.id)
     }
 
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(FoodSearchBar.self,
+                                                                     kind: kind,
+                                                                     indexPath: indexPath) ?? FoodSearchBar()
+        header.delegate = self
+        return header
+    }
+
     func emptyCell(indexPath: IndexPath) -> EmptyCollectionViewCell {
         return collectionView
             .dequeueReusableCell(EmptyCollectionViewCell.self, for: indexPath) ?? EmptyCollectionViewCell(frame: .zero)
@@ -83,13 +73,15 @@ final class FoodViewController: UICollectionViewController {
 
         return FoodCollectionViewCell()
     }
-
-    @objc func showSearchBar() {
-        isHiddingFoodSearchBar = !isHiddingFoodSearchBar
-    }
 }
 
 extension FoodViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 150)
+    }
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -134,32 +126,19 @@ extension FoodViewController: FoodViewModelDelegateProtocol {
 }
 
 extension FoodViewController: FoodSearchBarDelegate {
-    func didClickkRandomButton() {
+    func didClickRandomButton() {
         viewModel?.randomFood()
-        isHiddingFoodSearchBar = true
     }
 
     func didClickSearchButton(type: FoodSearchType, searchText: String) {
         viewModel?.searchFood(type: type, searchText: searchText)
-        isHiddingFoodSearchBar = true
     }
 }
 
 extension FoodViewController: ViewCode {
-    func buildViewHierarch() {
-        view.addSubview(foodSearchBar)
-        navigationItem.rightBarButtonItem = searchButton
-    }
+    func buildViewHierarch() {}
 
-    func setUpConstraints() {
-        NSLayoutConstraint.activate([
-            foodSearchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            foodSearchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            foodSearchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-    }
+    func setUpConstraints() {}
 
-    func additionalConfiguration() {
-        foodSearchBar.delegate = self
-    }
+    func additionalConfiguration() {}
 }
