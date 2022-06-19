@@ -55,7 +55,6 @@ final class FoodDetailsViewController: UIViewController {
     private lazy var ingredientsTextView: UITextView = {
         let ingredientsTextView = UITextView()
         ingredientsTextView.translatesAutoresizingMaskIntoConstraints = false
-        ingredientsTextView.textColor = .black
         ingredientsTextView.font = .systemFont(ofSize: 15)
         ingredientsTextView.isScrollEnabled = false
         ingredientsTextView.isEditable = false
@@ -75,7 +74,6 @@ final class FoodDetailsViewController: UIViewController {
     private lazy var instructionsTextView: UITextView = {
         let instructionsTextView = UITextView()
         instructionsTextView.translatesAutoresizingMaskIntoConstraints = false
-        instructionsTextView.textColor = .black
         instructionsTextView.font = .systemFont(ofSize: 13)
         instructionsTextView.isScrollEnabled = false
         instructionsTextView.isEditable = false
@@ -157,7 +155,7 @@ extension FoodDetailsViewController: ViewCode {
     }
 
     func additionalConfiguration() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         foodImageView.sd_setImage(with: URL(string: food.thumb))
         nameLabel.text = food.name

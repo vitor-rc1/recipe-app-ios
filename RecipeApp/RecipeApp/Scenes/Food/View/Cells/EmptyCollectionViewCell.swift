@@ -10,7 +10,7 @@ import UIKit
 final class EmptyCollectionViewCell: UICollectionViewCell {
     private lazy var emptyLabel: UILabel = {
         let emptyLabel = UILabel()
-        emptyLabel.text = "Oops! Recipes\nnot found"
+        emptyLabel.text = "Oops!\nRecipes not found."
         emptyLabel.textAlignment = .center
         emptyLabel.font = .systemFont(ofSize: 19, weight: .bold)
         emptyLabel.numberOfLines = 0
@@ -21,8 +21,11 @@ final class EmptyCollectionViewCell: UICollectionViewCell {
     private lazy var emptyImageView: UIImageView = {
         let emptyImageView = UIImageView()
         emptyImageView.image = UIImage(named: "frying-pan")
-        emptyImageView.contentMode = .scaleAspectFill
-        emptyImageView.layer.masksToBounds = true
+        emptyImageView.contentMode = .scaleAspectFit
+        emptyImageView.layer.cornerRadius = 100
+        emptyImageView.layer.borderWidth = 0.5
+        emptyImageView.clipsToBounds = true
+        emptyImageView.backgroundColor = .white
         emptyImageView.translatesAutoresizingMaskIntoConstraints = false
         return emptyImageView
     }()
@@ -45,10 +48,10 @@ extension EmptyCollectionViewCell: ViewCode {
             emptyLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             emptyLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            emptyImageView.topAnchor.constraint(equalTo: emptyLabel.bottomAnchor),
-            emptyImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            emptyImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            emptyImageView.heightAnchor.constraint(equalToConstant: 200)
+            emptyImageView.topAnchor.constraint(equalTo: emptyLabel.bottomAnchor, constant: 15),
+            emptyImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emptyImageView.heightAnchor.constraint(equalToConstant: 200),
+            emptyImageView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }

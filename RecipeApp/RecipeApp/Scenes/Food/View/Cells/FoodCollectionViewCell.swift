@@ -19,13 +19,15 @@ final class FoodCollectionViewCell: UICollectionViewCell {
         return foodView
     }()
 
-    private lazy var foodNameLabel: UILabel = {
-        let foodNameLabel = UILabel()
-        foodNameLabel.numberOfLines = 1
-        foodNameLabel.textColor = .black
-        foodNameLabel.font = .systemFont(ofSize: 17)
-        foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        return foodNameLabel
+    private lazy var foodNameTextView: UITextView = {
+        let foodNameTextView = UITextView()
+        foodNameTextView.font = .systemFont(ofSize: 17, weight: .bold)
+        foodNameTextView.backgroundColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 0.5)
+        foodNameTextView.translatesAutoresizingMaskIntoConstraints = false
+        foodNameTextView.isScrollEnabled = false
+        foodNameTextView.isEditable = false
+        foodNameTextView.textContainerInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        return foodNameTextView
     }()
 
     private lazy var foodImageView: UIImageView = {
@@ -36,7 +38,7 @@ final class FoodCollectionViewCell: UICollectionViewCell {
     }()
 
     func setupCell(food: Food) {
-        foodNameLabel.text = food.name
+        foodNameTextView.text = food.name
         foodImageView.sd_setImage(with: URL(string: food.thumb))
         setupView()
     }
@@ -44,8 +46,8 @@ final class FoodCollectionViewCell: UICollectionViewCell {
 
 extension FoodCollectionViewCell: ViewCode {
     func buildViewHierarch() {
-        foodView.addSubview(foodNameLabel)
         foodView.addSubview(foodImageView)
+        foodView.addSubview(foodNameTextView)
 
         addSubview(foodView)
     }
@@ -59,11 +61,11 @@ extension FoodCollectionViewCell: ViewCode {
             foodImageView.topAnchor.constraint(equalTo: foodView.topAnchor),
             foodImageView.leadingAnchor.constraint(equalTo: foodView.leadingAnchor),
             foodImageView.trailingAnchor.constraint(equalTo: foodView.trailingAnchor),
+            foodImageView.bottomAnchor.constraint(equalTo: foodView.bottomAnchor),
 
-            foodNameLabel.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 5),
-            foodNameLabel.bottomAnchor.constraint(equalTo: foodView.bottomAnchor, constant: -5),
-            foodNameLabel.leadingAnchor.constraint(equalTo: foodView.leadingAnchor, constant: 5),
-            foodNameLabel.trailingAnchor.constraint(equalTo: foodView.trailingAnchor)
+            foodNameTextView.bottomAnchor.constraint(equalTo: foodImageView.bottomAnchor),
+            foodNameTextView.leadingAnchor.constraint(equalTo: foodImageView.leadingAnchor),
+            foodNameTextView.trailingAnchor.constraint(equalTo: foodImageView.trailingAnchor)
         ])
     }
 }

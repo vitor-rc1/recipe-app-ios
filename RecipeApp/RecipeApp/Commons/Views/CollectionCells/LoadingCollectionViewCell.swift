@@ -22,6 +22,10 @@ final class LoadingCollectionViewCell: UICollectionViewCell {
         let loadingImageView = UIImageView()
         loadingImageView.image = UIImage(named: "fork-spoon")
         loadingImageView.contentMode = .scaleAspectFit
+        loadingImageView.layer.cornerRadius = 100
+        loadingImageView.layer.borderWidth = 0.5
+        loadingImageView.clipsToBounds = true
+        loadingImageView.backgroundColor = .white
         loadingImageView.translatesAutoresizingMaskIntoConstraints = false
         return loadingImageView
     }()
@@ -45,9 +49,9 @@ extension LoadingCollectionViewCell: ViewCode {
             loadingLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
 
             loadingImageView.topAnchor.constraint(equalTo: loadingLabel.bottomAnchor, constant: 15),
-            loadingImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            loadingImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            loadingImageView.heightAnchor.constraint(equalToConstant: 200)
+            loadingImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingImageView.heightAnchor.constraint(equalToConstant: 200),
+            loadingImageView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }

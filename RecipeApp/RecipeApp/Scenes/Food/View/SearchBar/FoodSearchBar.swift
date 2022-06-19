@@ -117,7 +117,6 @@ extension FoodSearchBar: ViewCode {
     }
 
     func additionalConfiguration() {
-        backgroundColor = UIColor.white
         searchBar.delegate = self
         radioButtonsList.delegate = self
     }

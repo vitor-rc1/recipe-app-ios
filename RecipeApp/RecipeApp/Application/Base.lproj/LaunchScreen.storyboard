@@ -16,15 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef" translatesAutoresizingMaskIntoConstraints="NO" id="Gt7-eY-8aj">
-                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjK-ju-9Qv">
+                                <rect key="frame" x="84.5" y="333" width="245" height="230"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="V2w-Gt-fH2"/>
-                                    <constraint firstAttribute="height" constant="256" id="yTC-4v-aD4"/>
+                                    <constraint firstAttribute="width" constant="245" id="OK7-qI-R3T"/>
+                                    <constraint firstAttribute="height" constant="230" id="jUB-HI-Sqz"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background" image="chef" imageContentMode="scaleAspectFit">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHK-xf-BiQ">
-                                <rect key="frame" x="89" y="586" width="236" height="115"/>
+                                <rect key="frame" x="89" y="589" width="236" height="115"/>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,11 +39,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Gt7-eY-8aj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AIM-CX-4F0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VHK-xf-BiQ" secondAttribute="bottom" constant="40" id="BW0-Oy-Og6"/>
-                            <constraint firstItem="Gt7-eY-8aj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PCc-Di-kic"/>
-                            <constraint firstItem="VHK-xf-BiQ" firstAttribute="top" secondItem="Gt7-eY-8aj" secondAttribute="bottom" constant="10" id="hgE-24-nja"/>
-                            <constraint firstItem="VHK-xf-BiQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="o8o-95-ydr"/>
+                            <constraint firstItem="DjK-ju-9Qv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AEG-wG-w1D"/>
+                            <constraint firstItem="VHK-xf-BiQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nNy-Yq-gie"/>
+                            <constraint firstItem="DjK-ju-9Qv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nVw-ou-NAq"/>
+                            <constraint firstItem="VHK-xf-BiQ" firstAttribute="top" secondItem="DjK-ju-9Qv" secondAttribute="bottom" constant="26" id="rX4-Mu-bjq"/>
                         </constraints>
                     </view>
                 </viewController>
