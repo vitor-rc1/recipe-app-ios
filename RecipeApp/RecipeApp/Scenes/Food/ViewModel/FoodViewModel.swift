@@ -31,7 +31,7 @@ final class FoodViewModel: FoodViewModelProtocol {
                     self.foodNavigation?.goToFoodDetail(food: randomFood)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                self.delegate?.didFailLoadedFood(title: "Error on load random food.", error: error.localizedDescription)
             }
         }
     }
@@ -48,8 +48,13 @@ final class FoodViewModel: FoodViewModelProtocol {
                 self.handleResponse(response: response)
             }
         case .foodByFirstLetter:
-            service.getFoodsByFirstLettter(letter: searchTextFiltered) { response in
-                self.handleResponse(response: response)
+            if searchTextFiltered.count == 1 {
+                service.getFoodsByFirstLettter(letter: searchTextFiltered) { response in
+                    self.handleResponse(response: response)
+                }
+            } else {
+                delegate?.didFailLoadedFood(title: "Validation error",
+                                            error: "Please insert one character for search by first letter")
             }
         }
     }
@@ -63,7 +68,7 @@ final class FoodViewModel: FoodViewModelProtocol {
                 }
                 self.foodNavigation?.goToFoodDetail(food: food)
             case .failure(let error):
-                print(error.localizedDescription)
+                self.delegate?.didFailLoadedFood(title: "Error on load food.", error: error.localizedDescription)
             }
         }
     }
@@ -73,7 +78,7 @@ final class FoodViewModel: FoodViewModelProtocol {
         case .success(let foods):
             self.delegate?.didLoadedFood(foods: foods.foods)
         case .failure(let error):
-            print(error.localizedDescription)
+            self.delegate?.didFailLoadedFood(title: "Error on load foods.", error: error.localizedDescription)
         }
     }
 }

@@ -11,6 +11,10 @@ import SDWebImage
 final class FoodCollectionViewCell: UICollectionViewCell {
     private lazy var foodView: UIView = {
         let foodView = UIView()
+        foodView.layer.borderColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 0.8).cgColor
+        foodView.layer.cornerRadius = 10
+        foodView.layer.borderWidth = 0.5
+        foodView.clipsToBounds = true
         foodView.translatesAutoresizingMaskIntoConstraints = false
         return foodView
     }()
@@ -49,7 +53,7 @@ extension FoodCollectionViewCell: ViewCode {
         NSLayoutConstraint.activate([
             foodView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             foodView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
-            foodView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            foodView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             foodView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
 
             foodImageView.topAnchor.constraint(equalTo: foodView.topAnchor),
@@ -61,14 +65,5 @@ extension FoodCollectionViewCell: ViewCode {
             foodNameLabel.leadingAnchor.constraint(equalTo: foodView.leadingAnchor, constant: 5),
             foodNameLabel.trailingAnchor.constraint(equalTo: foodView.trailingAnchor)
         ])
-    }
-
-    func additionalConfiguration() {
-        foodView.layer.borderColor = UIColor(red: 0.66, green: 0.66, blue: 0.66, alpha: 0.8).cgColor
-        foodView.layer.cornerRadius = 4
-        foodView.layer.borderWidth = 0.5
-        foodView.layer.shadowOffset = CGSize(width: 10, height: 2)
-        foodView.layer.shadowRadius = 5
-        foodView.layer.shadowOpacity = 0.3
     }
 }

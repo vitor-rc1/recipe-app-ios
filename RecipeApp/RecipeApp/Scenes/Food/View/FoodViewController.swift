@@ -24,11 +24,13 @@ final class FoodViewController: UICollectionViewController {
         collectionView?.register(FoodCollectionViewCell.self)
         collectionView.register(LoadingCollectionViewCell.self)
         collectionView.registerHeader(FoodSearchBar.self)
+
         viewModel?.loadFood()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel?.loadFood()
+    override func viewDidDisappear(_ animated: Bool) {
+        isLoading = false
+        collectionView.reloadData()
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -107,8 +109,14 @@ final class FoodViewController: UICollectionViewController {
 
     private func changeToLoadingState() {
         isLoading = true
-        recipes = []
         collectionView.reloadData()
+    }
+
+    private func showAlertMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
 }
 
@@ -160,7 +168,13 @@ extension FoodViewController: FoodViewModelDelegateProtocol {
         }
     }
 
-    func didFailLoadedFood() { }
+    func didFailLoadedFood(title: String, error: String) {
+        guaranteeMainThread {
+            self.isLoading = false
+            self.collectionView.reloadData()
+            self.showAlertMessage(title: title, message: error)
+        }
+    }
 }
 
 extension FoodViewController: FoodSearchBarDelegate {

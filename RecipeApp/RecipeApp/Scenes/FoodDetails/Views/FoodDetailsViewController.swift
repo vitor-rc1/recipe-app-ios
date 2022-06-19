@@ -24,14 +24,15 @@ final class FoodDetailsViewController: UIViewController {
         let foodImageView = UIImageView()
         foodImageView.translatesAutoresizingMaskIntoConstraints = false
         foodImageView.image = UIImage(named: "frying-pan")
-        foodImageView.contentMode = .scaleAspectFit
+        foodImageView.contentMode = .scaleAspectFill
+        foodImageView.layer.masksToBounds = true
         return foodImageView
     }()
 
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.font = .systemFont(ofSize: 20)
+        nameLabel.font = .systemFont(ofSize: 28, weight: .bold)
         return nameLabel
     }()
 
@@ -51,15 +52,16 @@ final class FoodDetailsViewController: UIViewController {
         return ingredientsLabel
     }()
 
-    private lazy var ingredientsStackView: UIStackView = {
-        let ingredientsStackView = UIStackView()
-        ingredientsStackView.translatesAutoresizingMaskIntoConstraints = false
-        ingredientsStackView.axis = .vertical
-        ingredientsStackView.distribution = .fill
-        ingredientsStackView.alignment = .leading
-        ingredientsStackView.spacing = 3
-        ingredientsStackView.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
-        return ingredientsStackView
+    private lazy var ingredientsTextView: UITextView = {
+        let ingredientsTextView = UITextView()
+        ingredientsTextView.translatesAutoresizingMaskIntoConstraints = false
+        ingredientsTextView.textColor = .black
+        ingredientsTextView.font = .systemFont(ofSize: 15)
+        ingredientsTextView.isScrollEnabled = false
+        ingredientsTextView.isEditable = false
+        ingredientsTextView.textContainerInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        ingredientsTextView.backgroundColor = .systemGray5
+        return ingredientsTextView
     }()
 
     private lazy var instructionsTitleLabel: UILabel = {
@@ -70,14 +72,16 @@ final class FoodDetailsViewController: UIViewController {
         return instructionssLabel
     }()
 
-    private lazy var instructionsLabel: UILabel = {
-        let instructionsLabel = UILabel()
-        instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
-        instructionsLabel.textColor = .black
-        instructionsLabel.font = .systemFont(ofSize: 13)
-        instructionsLabel.numberOfLines = 0
-        instructionsLabel.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
-        return instructionsLabel
+    private lazy var instructionsTextView: UITextView = {
+        let instructionsTextView = UITextView()
+        instructionsTextView.translatesAutoresizingMaskIntoConstraints = false
+        instructionsTextView.textColor = .black
+        instructionsTextView.font = .systemFont(ofSize: 13)
+        instructionsTextView.isScrollEnabled = false
+        instructionsTextView.isEditable = false
+        instructionsTextView.textContainerInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        instructionsTextView.backgroundColor =  .systemGray5
+        return instructionsTextView
     }()
 
     private var food: Food
@@ -95,17 +99,6 @@ final class FoodDetailsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-
-    private func setupIngredients(_ ingredients: [String]?) {
-        ingredients?.forEach { ingredient in
-            let ingredientLabel = UILabel()
-            ingredientLabel.text = ingredient
-            ingredientLabel.font = .systemFont(ofSize: 15)
-            ingredientLabel.textColor = .black
-
-            ingredientsStackView.addArrangedSubview(ingredientLabel)
-        }
-    }
 }
 
 extension FoodDetailsViewController: ViewCode {
@@ -114,9 +107,9 @@ extension FoodDetailsViewController: ViewCode {
         contentView.addSubview(nameLabel)
         contentView.addSubview(categoryLabel)
         contentView.addSubview(ingredientsTitleLabel)
-        contentView.addSubview(ingredientsStackView)
+        contentView.addSubview(ingredientsTextView)
         contentView.addSubview(instructionsTitleLabel)
-        contentView.addSubview(instructionsLabel)
+        contentView.addSubview(instructionsTextView)
 
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
@@ -138,28 +131,28 @@ extension FoodDetailsViewController: ViewCode {
             foodImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             foodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             foodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            foodImageView.heightAnchor.constraint(equalToConstant: 150),
+            foodImageView.heightAnchor.constraint(equalToConstant: 200),
 
             nameLabel.topAnchor.constraint(equalTo: foodImageView.bottomAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
 
-            categoryLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
+            categoryLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
 
             ingredientsTitleLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 20),
             ingredientsTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
 
-            ingredientsStackView.topAnchor.constraint(equalTo: ingredientsTitleLabel.bottomAnchor, constant: 5),
-            ingredientsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            ingredientsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            ingredientsTextView.topAnchor.constraint(equalTo: ingredientsTitleLabel.bottomAnchor, constant: 5),
+            ingredientsTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            ingredientsTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
-            instructionsTitleLabel.topAnchor.constraint(equalTo: ingredientsStackView.bottomAnchor, constant: 10),
+            instructionsTitleLabel.topAnchor.constraint(equalTo: ingredientsTextView.bottomAnchor, constant: 10),
             instructionsTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
 
-            instructionsLabel.topAnchor.constraint(equalTo: instructionsTitleLabel.bottomAnchor, constant: 5),
-            instructionsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            instructionsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            instructionsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            instructionsTextView.topAnchor.constraint(equalTo: instructionsTitleLabel.bottomAnchor, constant: 5),
+            instructionsTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            instructionsTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            instructionsTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
 
@@ -169,7 +162,7 @@ extension FoodDetailsViewController: ViewCode {
         foodImageView.sd_setImage(with: URL(string: food.thumb))
         nameLabel.text = food.name
         categoryLabel.text = food.category
-        setupIngredients(food.ingredients)
-        instructionsLabel.text = food.instructions
+        ingredientsTextView.text = food.ingredients?.joined(separator: "\n")
+        instructionsTextView.text = food.instructions
     }
 }

@@ -20,7 +20,7 @@ protocol FoodViewModelProtocol {
 
 protocol FoodViewModelDelegateProtocol: AnyObject {
     func didLoadedFood(foods: [Food])
-    func didFailLoadedFood()
+    func didFailLoadedFood(title: String, error: String)
 }
 
 protocol FoodNavigation: AnyObject {

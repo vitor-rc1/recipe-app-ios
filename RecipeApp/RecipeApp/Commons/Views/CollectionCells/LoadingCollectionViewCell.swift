@@ -44,7 +44,7 @@ extension LoadingCollectionViewCell: ViewCode {
             loadingLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             loadingLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            loadingImageView.topAnchor.constraint(equalTo: loadingLabel.bottomAnchor),
+            loadingImageView.topAnchor.constraint(equalTo: loadingLabel.bottomAnchor, constant: 15),
             loadingImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             loadingImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             loadingImageView.heightAnchor.constraint(equalToConstant: 200)

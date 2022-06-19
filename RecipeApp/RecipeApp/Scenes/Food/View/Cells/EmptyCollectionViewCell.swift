@@ -21,7 +21,8 @@ final class EmptyCollectionViewCell: UICollectionViewCell {
     private lazy var emptyImageView: UIImageView = {
         let emptyImageView = UIImageView()
         emptyImageView.image = UIImage(named: "frying-pan")
-        emptyImageView.contentMode = .scaleAspectFit
+        emptyImageView.contentMode = .scaleAspectFill
+        emptyImageView.layer.masksToBounds = true
         emptyImageView.translatesAutoresizingMaskIntoConstraints = false
         return emptyImageView
     }()
