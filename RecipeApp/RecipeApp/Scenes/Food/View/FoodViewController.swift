@@ -106,7 +106,7 @@ final class FoodViewController: UICollectionViewController {
         var loadingCell = LoadingCollectionViewCell(frame: .zero)
         if let dequeCell = collectionView
             .dequeueReusableCell(LoadingCollectionViewCell.self, for: indexPath) {
-            loadingCell.setupCell()
+            dequeCell.setupCell()
             loadingCell = dequeCell
         }
 
