@@ -22,7 +22,6 @@ class FoodDetailsCoordinatorTests: XCTestCase {
     }
     
     func makeSut(food: Food) -> FoodDetailsCoordinator<Meals> {
-        
         return FoodDetailsCoordinator<Meals>(navCon: NavigationControllerSpy(),
                                              food: food)
     }

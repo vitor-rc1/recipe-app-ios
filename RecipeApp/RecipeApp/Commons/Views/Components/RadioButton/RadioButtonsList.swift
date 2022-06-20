@@ -45,7 +45,7 @@ final class RadioButtonsList: UIView {
         }
     }
 
-    func setupRadio(title: String = String()) -> UIButton {
+    private func setupRadio(title: String = String()) -> UIButton {
         let radioButton = UIButton(frame: .zero)
         radioButton.setTitleColor(.systemGray, for: .normal)
         radioButton.setTitle(title, for: .normal)

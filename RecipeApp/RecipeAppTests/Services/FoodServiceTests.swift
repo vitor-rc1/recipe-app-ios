@@ -106,7 +106,7 @@ final class FoodServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        self.wait(for: [expectation], timeout: 0.1)
+        self.wait(for: [expectation], timeout: 0.2)
     }
     
     func test_getFooddByFirstLetter_should_return_drinksByFirsLetter() throws {

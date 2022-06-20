@@ -4,12 +4,17 @@ PODS:
   - SDWebImage (5.12.5):
     - SDWebImage/Core (= 5.12.5)
   - SDWebImage/Core (5.12.5)
+  - SDWebImageMockPlugin (0.1.0):
+    - SDWebImage (~> 5.0)
+  - SnapshotTesting (1.9.0)
   - SwiftLint (0.45.1)
 
 DEPENDENCIES:
   - Alamofire
   - Mocker
   - SDWebImage
+  - SDWebImageMockPlugin
+  - SnapshotTesting
   - SwiftLint
 
 SPEC REPOS:
@@ -17,14 +22,18 @@ SPEC REPOS:
     - Alamofire
     - Mocker
     - SDWebImage
+    - SDWebImageMockPlugin
+    - SnapshotTesting
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Mocker: 8c731a8104962f246cadf2b02556218e9edc1390
   SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+  SDWebImageMockPlugin: 2cddc58639ba10dd907bf194f1b705d7308dcc2d
+  SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
 
-PODFILE CHECKSUM: f7638b5ea2d7342b9a045288f1f15515f1e3c7ce
+PODFILE CHECKSUM: f5909ba18308a5eb8d9210111f2fea9972ef1882
 
 COCOAPODS: 1.11.3

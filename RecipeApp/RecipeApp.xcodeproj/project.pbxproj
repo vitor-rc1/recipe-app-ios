@@ -21,6 +21,10 @@
 		1E63105B283975F900165529 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105A283975F900165529 /* Food.swift */; };
 		1E70F96F284EC80000298CE7 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70F96E284EC7FF00298CE7 /* ViewCode.swift */; };
 		1E89C495285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C494285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift */; };
+		1E89C498285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C497285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift */; };
+		1E89C49E2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C49D2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift */; };
+		1E89C4A028600B500030CCD0 /* FoodCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C49F28600B500030CCD0 /* FoodCoordinatorTests.swift */; };
+		1E89C4A228600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C4A128600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift */; };
 		1E9C483C285CDED300E7BB23 /* FoodsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C483B285CDED300E7BB23 /* FoodsProtocol.swift */; };
 		1E9C483E285CDEEC00E7BB23 /* FoodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C483D285CDEEC00E7BB23 /* FoodProtocol.swift */; };
 		1EE53D82285804F000EF4FCB /* FoodDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE53D81285804F000EF4FCB /* FoodDetailsCoordinator.swift */; };
@@ -91,6 +95,10 @@
 		1E63105A283975F900165529 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1E70F96E284EC7FF00298CE7 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		1E89C494285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsCoordinatorTests.swift; sourceTree = "<group>"; };
+		1E89C497285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		1E89C49D2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonListSnapshotTests.swift; sourceTree = "<group>"; };
+		1E89C49F28600B500030CCD0 /* FoodCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCoordinatorTests.swift; sourceTree = "<group>"; };
+		1E89C4A128600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBarSnapshotTests.swift; sourceTree = "<group>"; };
 		1E9C483B285CDED300E7BB23 /* FoodsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsProtocol.swift; sourceTree = "<group>"; };
 		1E9C483D285CDEEC00E7BB23 /* FoodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodProtocol.swift; sourceTree = "<group>"; };
 		1EE53D81285804F000EF4FCB /* FoodDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsCoordinator.swift; sourceTree = "<group>"; };
@@ -225,9 +233,50 @@
 		1E89C493285FFAA70030CCD0 /* FoodDetails */ = {
 			isa = PBXGroup;
 			children = (
+				1E89C496285FFDC40030CCD0 /* View */,
 				1E89C494285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift */,
 			);
 			path = FoodDetails;
+			sourceTree = "<group>";
+		};
+		1E89C496285FFDC40030CCD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E89C497285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E89C499286004560030CCD0 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				1E89C49A286004650030CCD0 /* Views */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		1E89C49A286004650030CCD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E89C49B2860046B0030CCD0 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1E89C49B2860046B0030CCD0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1E89C49C286004730030CCD0 /* RadioButtonList */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1E89C49C286004730030CCD0 /* RadioButtonList */ = {
+			isa = PBXGroup;
+			children = (
+				1E89C49D2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift */,
+			);
+			path = RadioButtonList;
 			sourceTree = "<group>";
 		};
 		1E9C4839285CDB3300E7BB23 /* Models */ = {
@@ -288,6 +337,7 @@
 			children = (
 				3B6474B52806439900BE1342 /* FoodTabBar */,
 				3B7EBF7028039C0800F4581E /* FoodViewControllerTests.swift */,
+				1E89C4A128600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,6 +514,7 @@
 		3BBDF5DF27FBA50F0090DD54 /* RecipeAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E89C499286004560030CCD0 /* Commons */,
 				3BB3A3B02814798D00501A67 /* Application */,
 				3BB3A3B32814814000501A67 /* Helpers */,
 				1E89C492285FFA8B0030CCD0 /* Scenes */,
@@ -545,6 +596,7 @@
 			children = (
 				3BB3A3B828149C4C00501A67 /* ViewModel */,
 				3B7EBF6F28039BEB00F4581E /* View */,
+				1E89C49F28600B500030CCD0 /* FoodCoordinatorTests.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -797,13 +849,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB3A3B5281481AB00501A67 /* NavigationControllerHelper.swift in Sources */,
+				1E89C49E2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift in Sources */,
 				3BB3A3C92814C38000501A67 /* FoodServiceTests.swift in Sources */,
 				3BB3A3B2281479A300501A67 /* AppCoordinatorTests.swift in Sources */,
+				1E89C4A028600B500030CCD0 /* FoodCoordinatorTests.swift in Sources */,
 				3B7EBF7128039C0800F4581E /* FoodViewControllerTests.swift in Sources */,
 				3BB3A3BA28149C7800501A67 /* FoodViewModelTests.swift in Sources */,
 				1E89C495285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift in Sources */,
 				3BB3A3B7281481FD00501A67 /* FoodTabBarCoordinatorTests.swift in Sources */,
+				1E89C498285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift in Sources */,
 				3BF5BE4128030D2B00A6D205 /* FoodTabBarControllerTests.swift in Sources */,
+				1E89C4A228600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift in Sources */,
 				3BB3A3C42814B5F500501A67 /* FoodMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

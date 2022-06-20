@@ -9,6 +9,8 @@ target 'RecipeApp' do
   target 'RecipeAppTests' do
     inherit! :search_paths
     pod 'Mocker'
+    pod 'SnapshotTesting'
+    pod 'SDWebImageMockPlugin'
   end
 
 end

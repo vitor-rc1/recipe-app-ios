@@ -31,7 +31,10 @@ final class FoodMocks {
     func mockMeal() -> [Food] {
         return [Food(id: "52772",
                     name: "Teriyaki Chicken Casserole",
-                    thumb: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg")]
+                    thumb: "https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg",
+                     ingredients: ["- Chicken - 3/4 cup", "- Water - 1/2 cup", "- Teriyaki Sauce - 1/2 cup"],
+                     category: "Chicken",
+                     instructions: "Preheat oven to 350° F. Spray a 9x13-inch baking pan with non-stick spray.\r\nCombine soy sauce" )]
     }
     
     
