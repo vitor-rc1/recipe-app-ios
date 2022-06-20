@@ -12,12 +12,12 @@ final class AppCoordinatorTests: XCTestCase {
 
     func test_goToLoginPage_did_push_loginViewController() throws {
         let sut = makeSut()
-        sut.goToLoginPage()
+        sut.goToHome()
 
         let navController = try XCTUnwrap(sut.navigationController as? NavigationControllerSpy)
 
         XCTAssertTrue(navController.pushViewControllerDidCalled)
-        XCTAssertTrue(navController.viewController is LoginViewController)
+        XCTAssertTrue(navController.viewController is FoodTabBarController)
     }
 
     func test_goToHome_append_foodTabBarCoordinator_when_called() {

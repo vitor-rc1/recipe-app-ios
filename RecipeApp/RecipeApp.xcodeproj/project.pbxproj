@@ -20,6 +20,7 @@
 		1E63105928394F3400165529 /* FoodTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105828394F3400165529 /* FoodTabBarProtocols.swift */; };
 		1E63105B283975F900165529 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105A283975F900165529 /* Food.swift */; };
 		1E70F96F284EC80000298CE7 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70F96E284EC7FF00298CE7 /* ViewCode.swift */; };
+		1E89C495285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C494285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift */; };
 		1E9C483C285CDED300E7BB23 /* FoodsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C483B285CDED300E7BB23 /* FoodsProtocol.swift */; };
 		1E9C483E285CDEEC00E7BB23 /* FoodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C483D285CDEEC00E7BB23 /* FoodProtocol.swift */; };
 		1EE53D82285804F000EF4FCB /* FoodDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE53D81285804F000EF4FCB /* FoodDetailsCoordinator.swift */; };
@@ -30,7 +31,6 @@
 		3B7EBF6E28038FE300F4581E /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF6D28038FE300F4581E /* FoodViewModel.swift */; };
 		3B7EBF7128039C0800F4581E /* FoodViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF7028039C0800F4581E /* FoodViewControllerTests.swift */; };
 		3B7EBF7E2803A2F700F4581E /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EBF7C2803A2F700F4581E /* EmptyCollectionViewCell.swift */; };
-		3BA4901A2800FA0B0021A4E9 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA490192800FA0B0021A4E9 /* LoginViewControllerTests.swift */; };
 		3BB3A3A02813195500501A67 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A39F2813195500501A67 /* Coordinator.swift */; };
 		3BB3A3A2281319F700501A67 /* FoodCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3A1281319F700501A67 /* FoodCoordinator.swift */; };
 		3BB3A3A528131B4E00501A67 /* FoodTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3A3A428131B4E00501A67 /* FoodTabBarCoordinator.swift */; };
@@ -90,6 +90,7 @@
 		1E63105828394F3400165529 /* FoodTabBarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarProtocols.swift; sourceTree = "<group>"; };
 		1E63105A283975F900165529 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1E70F96E284EC7FF00298CE7 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		1E89C494285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsCoordinatorTests.swift; sourceTree = "<group>"; };
 		1E9C483B285CDED300E7BB23 /* FoodsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsProtocol.swift; sourceTree = "<group>"; };
 		1E9C483D285CDEEC00E7BB23 /* FoodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodProtocol.swift; sourceTree = "<group>"; };
 		1EE53D81285804F000EF4FCB /* FoodDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsCoordinator.swift; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		3B7EBF6D28038FE300F4581E /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
 		3B7EBF7028039C0800F4581E /* FoodViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewControllerTests.swift; sourceTree = "<group>"; };
 		3B7EBF7C2803A2F700F4581E /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
-		3BA490192800FA0B0021A4E9 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 		3BB3A39F2813195500501A67 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3BB3A3A1281319F700501A67 /* FoodCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCoordinator.swift; sourceTree = "<group>"; };
 		3BB3A3A428131B4E00501A67 /* FoodTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -213,6 +213,23 @@
 			path = RadioButton;
 			sourceTree = "<group>";
 		};
+		1E89C492285FFA8B0030CCD0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1E89C493285FFAA70030CCD0 /* FoodDetails */,
+				3BF5BE3F28030CFE00A6D205 /* Food */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1E89C493285FFAA70030CCD0 /* FoodDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1E89C494285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift */,
+			);
+			path = FoodDetails;
+			sourceTree = "<group>";
+		};
 		1E9C4839285CDB3300E7BB23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +286,7 @@
 		3B7EBF6F28039BEB00F4581E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B6474B52806439900BE1342 /* FoodTabBar */,
 				3B7EBF7028039C0800F4581E /* FoodViewControllerTests.swift */,
 			);
 			path = View;
@@ -299,22 +317,6 @@
 				3BB3A39E2813194400501A67 /* Protocols */,
 			);
 			path = Commons;
-			sourceTree = "<group>";
-		};
-		3BA490182800F9EA0021A4E9 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				3BB3A39D28108A8400501A67 /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		3BB3A39D28108A8400501A67 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3BA490192800FA0B0021A4E9 /* LoginViewControllerTests.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		3BB3A39E2813194400501A67 /* Protocols */ = {
@@ -463,10 +465,8 @@
 			isa = PBXGroup;
 			children = (
 				3BB3A3B02814798D00501A67 /* Application */,
-				3BF5BE3F28030CFE00A6D205 /* Food */,
-				3B6474B52806439900BE1342 /* FoodTabBar */,
 				3BB3A3B32814814000501A67 /* Helpers */,
-				3BA490182800F9EA0021A4E9 /* Login */,
+				1E89C492285FFA8B0030CCD0 /* Scenes */,
 				3BB3A3C72814BDFF00501A67 /* Services */,
 			);
 			path = RecipeAppTests;
@@ -799,9 +799,9 @@
 				3BB3A3B5281481AB00501A67 /* NavigationControllerHelper.swift in Sources */,
 				3BB3A3C92814C38000501A67 /* FoodServiceTests.swift in Sources */,
 				3BB3A3B2281479A300501A67 /* AppCoordinatorTests.swift in Sources */,
-				3BA4901A2800FA0B0021A4E9 /* LoginViewControllerTests.swift in Sources */,
 				3B7EBF7128039C0800F4581E /* FoodViewControllerTests.swift in Sources */,
 				3BB3A3BA28149C7800501A67 /* FoodViewModelTests.swift in Sources */,
+				1E89C495285FFAC40030CCD0 /* FoodDetailsCoordinatorTests.swift in Sources */,
 				3BB3A3B7281481FD00501A67 /* FoodTabBarCoordinatorTests.swift in Sources */,
 				3BF5BE4128030D2B00A6D205 /* FoodTabBarControllerTests.swift in Sources */,
 				3BB3A3C42814B5F500501A67 /* FoodMocks.swift in Sources */,
@@ -1010,9 +1010,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MFDADSRP66;
+				DEVELOPMENT_TEAM = 49VTWBV22B;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1036,9 +1036,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MFDADSRP66;
+				DEVELOPMENT_TEAM = 49VTWBV22B;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

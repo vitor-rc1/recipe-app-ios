@@ -5,6 +5,9 @@
 //  Created by Vitor Conceicao on 10/04/22.
 //
 
+// Arrumar testes
+// Deixar o app bonito ✅
+
 import UIKit
 
 final class FoodViewController: UICollectionViewController {
@@ -78,33 +81,36 @@ final class FoodViewController: UICollectionViewController {
     }
 
     private func emptyCell(indexPath: IndexPath) -> EmptyCollectionViewCell {
-        if let emptyCell = collectionView
+        var emptyCell = EmptyCollectionViewCell(frame: .zero)
+        if let dequeCell = collectionView
             .dequeueReusableCell(EmptyCollectionViewCell.self, for: indexPath) {
-            emptyCell.setupCell()
-            return emptyCell
+            dequeCell.setupCell()
+            emptyCell = dequeCell
         }
 
-        return EmptyCollectionViewCell(frame: .zero)
+        return emptyCell
     }
 
     private func foodCell(indexPath: IndexPath) -> FoodCollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(FoodCollectionViewCell.self, for: indexPath) {
+        var foodCell = FoodCollectionViewCell()
+        if let dequeCell = collectionView.dequeueReusableCell(FoodCollectionViewCell.self, for: indexPath) {
             let recipe = recipes[indexPath.row]
-            cell.setupCell(food: recipe)
-            return cell
+            dequeCell.setupCell(food: recipe)
+            foodCell = dequeCell
         }
 
-        return FoodCollectionViewCell()
+        return foodCell
     }
 
     private func loadingCell(indexPath: IndexPath) -> LoadingCollectionViewCell {
-        if let loadingCell = collectionView
+        var loadingCell = LoadingCollectionViewCell(frame: .zero)
+        if let dequeCell = collectionView
             .dequeueReusableCell(LoadingCollectionViewCell.self, for: indexPath) {
             loadingCell.setupCell()
-            return loadingCell
+            loadingCell = dequeCell
         }
 
-        return LoadingCollectionViewCell(frame: .zero)
+        return loadingCell
     }
 
     private func changeToLoadingState() {

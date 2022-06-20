@@ -19,4 +19,8 @@ struct Foods: FoodsProtocol {
             self.foods = []
         }
     }
+
+    init(foods: [Food]) {
+        self.foods = foods
+    }
 }

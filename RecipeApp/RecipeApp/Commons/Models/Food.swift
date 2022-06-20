@@ -23,4 +23,18 @@ struct Food: FoodProtocol {
         category = food.category
         instructions = food.instructions
     }
+
+    init(id: String,
+         name: String,
+         thumb: String,
+         ingredients: [String]? = nil,
+         category: String? = nil,
+         instructions: String? = nil) {
+        self.id = id
+        self.name = name
+        self.thumb = thumb
+        self.ingredients = ingredients
+        self.category = category
+        self.instructions = instructions
+    }
 }

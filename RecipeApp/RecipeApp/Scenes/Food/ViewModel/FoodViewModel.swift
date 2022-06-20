@@ -53,7 +53,7 @@ final class FoodViewModel: FoodViewModelProtocol {
                     self.handleResponse(response: response)
                 }
             } else {
-                delegate?.didFailLoadedFood(title: "Validation error",
+                delegate?.didFailLoadedFood(title: "Validation error.",
                                             error: "Please insert one character for search by first letter")
             }
         }
@@ -63,12 +63,11 @@ final class FoodViewModel: FoodViewModelProtocol {
         service.getFoodById(id: id) { result in
             switch result {
             case .success(let foods):
-                guard let food = foods.foods.first else {
-                    return
+                if let food = foods.foods.first {
+                    self.foodNavigation?.goToFoodDetail(food: food)
                 }
-                self.foodNavigation?.goToFoodDetail(food: food)
             case .failure(let error):
-                self.delegate?.didFailLoadedFood(title: "Error on load food.", error: error.localizedDescription)
+                self.delegate?.didFailLoadedFood(title: "Error on load food by id.", error: error.localizedDescription)
             }
         }
     }
