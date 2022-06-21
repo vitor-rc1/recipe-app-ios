@@ -20,7 +20,6 @@ class FoodDetailsViewControllerSnapshotTests: XCTestCase {
     }
     
     func test_should_show_details() throws {
-        URL.imageMock(named: "drink", inBundleID: "main")
         let food = try XCTUnwrap(FoodMocks.shared.mockMeal().first)
         let sut = makeSut(food: food)
         
