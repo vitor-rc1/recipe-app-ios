@@ -1,0 +1,6 @@
+language: objective-c
+xcode_workspace: RecipeApp/RecipeApp.xcworkspace
+xcode_scheme: RecipeAppTests
+xcode_destination: platform=iOS Simulator,OS=12.4,name=iPhone 11
+osx_image: xcode13.4
+podfile: RecipeApp/Podfile
