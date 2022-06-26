@@ -1,4 +1,4 @@
-# Recipe App iOS
+# Recipe App iOS - MVVM
 
 ## Features
 - Search meals or drinks by:
