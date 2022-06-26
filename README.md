@@ -24,19 +24,19 @@
 
 ## Images
 
-|![](./Public/launch-screen.png) |
+|<img src="./Public/launch-screen.png" width="300"> |
 |:---:|
 | Launch screen |
 
-|![](./Public/meals-main.png)| ![](./Public/meal-detail.png) |
+|<img src="./Public/meals-main.png" width="300">| <img src="./Public/meal-detail.png" width="300"> |
 |:---:| :---:|
 | Meals | Meal details|
 
-|![](./Public/drinks-main.png)| ![](./Public/drink-detail.png) |
+|<img src="./Public/drinks-main.png" width="300">| <img src="./Public/drink-detail.png" width="300"> |
 |:---:| :---:|
 | Drinks | Drink details|
 
-|![](./Public/not-found.png)| ![](./Public/loading.png) |
+|<img src="./Public/not-found.png" width="300">| <img src="./Public/loading.png" width="300"> |
 |:---:| :---:|
 | Not found | Loading|
 
