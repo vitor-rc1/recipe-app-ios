@@ -1,4 +1,4 @@
-![](https://app.bitrise.io/app/d34fe4028f2d0c3b/status.svg?token=Kgot587rITfVCaLBRE44aQ&branch=master)
+![](https://app.bitrise.io/app/d34fe4028f2d0c3b/status.svg?token=Kgot587rITfVCaLBRE44aQ&branch=main)
 
 # Recipe App iOS - MVVM+C+S
 
