@@ -155,8 +155,6 @@ extension FoodDetailsViewController: ViewCode {
     }
 
     func additionalConfiguration() {
-        view.backgroundColor = .systemBackground
-
         foodImageView.sd_setImage(with: URL(string: food.thumb))
         nameLabel.text = food.name
         categoryLabel.text = food.category
