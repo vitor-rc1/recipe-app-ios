@@ -12,6 +12,7 @@ import SnapshotTesting
 class FoodSearchBarSnapshotTests: XCTestCase {
     func test_should_show_searchBar() throws {
         let (sut, _) = makeSut()
+        
         assertSnapshot(matching: sut, as: .image)
     }
     
