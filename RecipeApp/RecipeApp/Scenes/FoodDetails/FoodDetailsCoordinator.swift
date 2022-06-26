@@ -27,6 +27,7 @@ final class FoodDetailsCoordinator<FoodType: Codable>: Coordinator {
 extension FoodDetailsCoordinator: FoodDetailsNavigation {
     func goToFoodDetails() {
         let foodDetailsView = FoodDetailsViewController(food: food)
+        foodDetailsView.view.backgroundColor = .systemBackground
         navigationController.pushViewController(foodDetailsView, animated: true)
     }
 }

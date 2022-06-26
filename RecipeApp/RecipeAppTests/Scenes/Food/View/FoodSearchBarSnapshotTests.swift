@@ -12,7 +12,6 @@ import SnapshotTesting
 class FoodSearchBarSnapshotTests: XCTestCase {
     func test_should_show_searchBar() throws {
         let (sut, _) = makeSut()
-        
         assertSnapshot(matching: sut, as: .image)
     }
     
@@ -37,7 +36,6 @@ class FoodSearchBarSnapshotTests: XCTestCase {
         let delegate = FoodSearchBarDelegateSpy()
         sut.delegate = delegate
         sut.frame = CGRect(x: 0, y: 0, width: 414, height: 150)
-        sut.backgroundColor = .systemBackground
         return (sut, delegate)
     }
 }
