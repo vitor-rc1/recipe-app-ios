@@ -37,7 +37,7 @@ class FoodSearchBarSnapshotTests: XCTestCase {
         let delegate = FoodSearchBarDelegateSpy()
         sut.delegate = delegate
         sut.frame = CGRect(x: 0, y: 0, width: 414, height: 150)
-        sut.backgroundColor = .white
+        sut.backgroundColor = .systemBackground
         return (sut, delegate)
     }
 }
