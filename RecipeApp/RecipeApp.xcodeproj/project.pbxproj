@@ -17,7 +17,6 @@
 		1E0AA1C128562C83007073B7 /* FoodSearchBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0AA1C028562C83007073B7 /* FoodSearchBarProtocols.swift */; };
 		1E0AA1C3285630D5007073B7 /* FoodSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0AA1C2285630D5007073B7 /* FoodSearchType.swift */; };
 		1E0AA1C8285640C9007073B7 /* RadioButtonsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0AA1C7285640C9007073B7 /* RadioButtonsList.swift */; };
-		1E39C06E2862884A0028C422 /* teriyaki_chicken.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1E39C06D2862884A0028C422 /* teriyaki_chicken.jpeg */; };
 		1E63105928394F3400165529 /* FoodTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105828394F3400165529 /* FoodTabBarProtocols.swift */; };
 		1E63105B283975F900165529 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E63105A283975F900165529 /* Food.swift */; };
 		1E70F96F284EC80000298CE7 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E70F96E284EC7FF00298CE7 /* ViewCode.swift */; };
@@ -92,7 +91,6 @@
 		1E0AA1C028562C83007073B7 /* FoodSearchBarProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBarProtocols.swift; sourceTree = "<group>"; };
 		1E0AA1C2285630D5007073B7 /* FoodSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchType.swift; sourceTree = "<group>"; };
 		1E0AA1C7285640C9007073B7 /* RadioButtonsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonsList.swift; sourceTree = "<group>"; };
-		1E39C06D2862884A0028C422 /* teriyaki_chicken.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = teriyaki_chicken.jpeg; path = ../../../../../../../../../Downloads/teriyaki_chicken.jpeg; sourceTree = "<group>"; };
 		1E63105828394F3400165529 /* FoodTabBarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTabBarProtocols.swift; sourceTree = "<group>"; };
 		1E63105A283975F900165529 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1E70F96E284EC7FF00298CE7 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
@@ -223,14 +221,6 @@
 			path = RadioButton;
 			sourceTree = "<group>";
 		};
-		1E39C06C286288340028C422 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				1E39C06D2862884A0028C422 /* teriyaki_chicken.jpeg */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		1E89C492285FFA8B0030CCD0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +242,6 @@
 		1E89C496285FFDC40030CCD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1E39C06C286288340028C422 /* Images */,
 				1E89C497285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift */,
 			);
 			path = View;
@@ -739,7 +728,6 @@
 				1E01B8C8284D7DF100C4FFA4 /* RandomMeal.json in Resources */,
 				1E01B8C7284D7DF100C4FFA4 /* DrinksByIngredient.json in Resources */,
 				1E01B8C6284D7DF100C4FFA4 /* DrinksByFirstLetter.json in Resources */,
-				1E39C06E2862884A0028C422 /* teriyaki_chicken.jpeg in Resources */,
 				3BB3A3D728176A1B00501A67 /* Drink.json in Resources */,
 				3BB3A3D428176A1B00501A67 /* Drinks.json in Resources */,
 			);
