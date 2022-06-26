@@ -9,13 +9,7 @@ import XCTest
 import SnapshotTesting
 @testable import RecipeApp
 
-class FoodSearchBarSnapshotTests: XCTestCase {
-    func test_should_show_searchBar() throws {
-        let (sut, _) = makeSut()
-        
-        assertSnapshot(matching: sut, as: .image)
-    }
-    
+class FoodSearchBarTests: XCTestCase {
     func test_should_call_didClickRandomButton() throws {
         let (sut, delegate) = makeSut()
         let randomButtonAction = try XCTUnwrap(sut.subviews[2] as? UIButton)

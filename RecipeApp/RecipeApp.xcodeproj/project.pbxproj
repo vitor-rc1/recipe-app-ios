@@ -24,7 +24,7 @@
 		1E89C498285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C497285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift */; };
 		1E89C49E2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C49D2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift */; };
 		1E89C4A028600B500030CCD0 /* FoodCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C49F28600B500030CCD0 /* FoodCoordinatorTests.swift */; };
-		1E89C4A228600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C4A128600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift */; };
+		1E89C4A228600D4C0030CCD0 /* FoodSearchBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89C4A128600D4C0030CCD0 /* FoodSearchBarTests.swift */; };
 		1E9C483C285CDED300E7BB23 /* FoodsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C483B285CDED300E7BB23 /* FoodsProtocol.swift */; };
 		1E9C483E285CDEEC00E7BB23 /* FoodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C483D285CDEEC00E7BB23 /* FoodProtocol.swift */; };
 		1EE53D82285804F000EF4FCB /* FoodDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE53D81285804F000EF4FCB /* FoodDetailsCoordinator.swift */; };
@@ -98,7 +98,7 @@
 		1E89C497285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		1E89C49D2860048B0030CCD0 /* RadioButtonListSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonListSnapshotTests.swift; sourceTree = "<group>"; };
 		1E89C49F28600B500030CCD0 /* FoodCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCoordinatorTests.swift; sourceTree = "<group>"; };
-		1E89C4A128600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBarSnapshotTests.swift; sourceTree = "<group>"; };
+		1E89C4A128600D4C0030CCD0 /* FoodSearchBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchBarTests.swift; sourceTree = "<group>"; };
 		1E9C483B285CDED300E7BB23 /* FoodsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsProtocol.swift; sourceTree = "<group>"; };
 		1E9C483D285CDEEC00E7BB23 /* FoodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodProtocol.swift; sourceTree = "<group>"; };
 		1EE53D81285804F000EF4FCB /* FoodDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsCoordinator.swift; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 			children = (
 				3B6474B52806439900BE1342 /* FoodTabBar */,
 				3B7EBF7028039C0800F4581E /* FoodViewControllerTests.swift */,
-				1E89C4A128600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift */,
+				1E89C4A128600D4C0030CCD0 /* FoodSearchBarTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -859,7 +859,7 @@
 				3BB3A3B7281481FD00501A67 /* FoodTabBarCoordinatorTests.swift in Sources */,
 				1E89C498285FFDDD0030CCD0 /* FoodDetailsViewControllerSnapshotTests.swift in Sources */,
 				3BF5BE4128030D2B00A6D205 /* FoodTabBarControllerTests.swift in Sources */,
-				1E89C4A228600D4C0030CCD0 /* FoodSearchBarSnapshotTests.swift in Sources */,
+				1E89C4A228600D4C0030CCD0 /* FoodSearchBarTests.swift in Sources */,
 				3BB3A3C42814B5F500501A67 /* FoodMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -937,7 +937,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -992,7 +992,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1068,7 +1068,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49VTWBV22B;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1094,7 +1094,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 49VTWBV22B;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
