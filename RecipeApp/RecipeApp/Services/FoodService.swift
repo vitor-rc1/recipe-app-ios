@@ -47,9 +47,13 @@ final class FoodService<FoodType: Codable>: FoodServiceProtocol {
             .responseDecodable(of: FoodType.self) { response in
                 switch response.result {
                 case .success(let foods):
-                    completion(.success(Foods(foods)))
+                    DispatchQueue.main.async {
+                        completion(.success(Foods(foods)))
+                    }
                 case .failure(let error):
-                    completion(.failure(error))
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
                 }
             }
     }
