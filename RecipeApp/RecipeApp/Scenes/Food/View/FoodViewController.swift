@@ -5,9 +5,6 @@
 //  Created by Vitor Conceicao on 10/04/22.
 //
 
-// Arrumar testes
-// Deixar o app bonito ✅
-
 import UIKit
 
 final class FoodViewController: UICollectionViewController {
@@ -168,18 +165,14 @@ extension FoodViewController: UICollectionViewDelegateFlowLayout {
 extension FoodViewController: FoodViewModelDelegateProtocol {
     func didLoadedFood(foods: [Food]) {
         self.recipes = foods
-        guaranteeMainThread {
-            self.isLoading = false
-            self.collectionView.reloadData()
-        }
+        self.isLoading = false
+        self.collectionView.reloadData()
     }
-
+    
     func didFailLoadedFood(title: String, error: String) {
-        guaranteeMainThread {
-            self.isLoading = false
-            self.collectionView.reloadData()
-            self.showAlertMessage(title: title, message: error)
-        }
+        self.isLoading = false
+        self.collectionView.reloadData()
+        self.showAlertMessage(title: title, message: error)
     }
 }
 

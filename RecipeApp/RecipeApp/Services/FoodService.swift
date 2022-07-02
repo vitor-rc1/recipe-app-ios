@@ -18,54 +18,43 @@ final class FoodService<FoodType: Codable>: FoodServiceProtocol {
     }
 
     func getFoods(completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
-        sessionManager?.request(api.foods())
-            .responseDecodable(of: FoodType.self) { response in
-                self.handleResponse(response: response, completion: completion)
-            }
+        request(url: api.foods(), completion: completion)
     }
 
     func getFoodById(id: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
-        sessionManager?.request(api.foodById(id: id))
-            .responseDecodable(of: FoodType.self) { response in
-                self.handleResponse(response: response, completion: completion)
-            }
+        request(url: api.foodById(id: id), completion: completion)
     }
 
     func getFoodByName(name: String, completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
-        sessionManager?.request(api.foodByName(name: name))
-            .responseDecodable(of: FoodType.self) { response in
-                self.handleResponse(response: response, completion: completion)
-            }
+        request(url: api.foodByName(name: name), completion: completion)
     }
 
     func getFoodsByIngredient(ingredient: String,
                               completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
-        sessionManager?.request(api.foodsByIngredient(ingredient: ingredient))
-            .responseDecodable(of: FoodType.self) { response in
-                self.handleResponse(response: response, completion: completion)
-            }
+        request(url: api.foodsByIngredient(ingredient: ingredient), completion: completion)
     }
     func getFoodsByFirstLettter(letter: String,
                                 completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
-        sessionManager?.request(api.foodsByFirstLettter(letter: letter))
-            .responseDecodable(of: FoodType.self) { response in
-                self.handleResponse(response: response, completion: completion)
-            }
+        request(url: api.foodsByFirstLettter(letter: letter), completion: completion)
     }
     func getRandomFood(completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
-        sessionManager?.request(api.randomFood())
-            .responseDecodable(of: FoodType.self) { response in
-                self.handleResponse(response: response, completion: completion)
-            }
+        request(url: api.randomFood(), completion: completion)
     }
 
-    private func handleResponse(response: DataResponse<FoodType, AFError>,
-                                completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
-        switch response.result {
-        case .success(let foods):
-            completion(.success(Foods(foods)))
-        case .failure(let error):
-            completion(.failure(error))
-        }
+    private func request(url: String,
+                         completion: @escaping (Result<FoodsProtocol, Error>) -> Void) {
+        sessionManager?.request(url)
+            .responseDecodable(of: FoodType.self) { response in
+                switch response.result {
+                case .success(let foods):
+                    DispatchQueue.main.async {
+                        completion(.success(Foods(foods)))
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                }
+            }
     }
 }
