@@ -5,9 +5,6 @@
 //  Created by Vitor Conceicao on 10/04/22.
 //
 
-// Arrumar testes
-// Deixar o app bonito ✅
-
 import UIKit
 
 final class FoodViewController: UICollectionViewController {

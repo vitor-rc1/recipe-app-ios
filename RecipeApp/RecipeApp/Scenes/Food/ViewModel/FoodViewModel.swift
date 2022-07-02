@@ -18,20 +18,21 @@ final class FoodViewModel: FoodViewModelProtocol {
     }
 
     func loadFood() {
-        service.getFoods { response in
-            self.handleResponse(response: response)
+        service.getFoods { [weak self] response in
+            self?.handleResponse(response: response)
         }
     }
 
     func randomFood() {
-        service.getRandomFood { response in
+        service.getRandomFood { [weak self] response in
             switch response {
             case .success(let foods):
                 if let randomFood = foods.foods.first {
-                    self.foodNavigation?.goToFoodDetail(food: randomFood)
+                    self?.foodNavigation?.goToFoodDetail(food: randomFood)
                 }
             case .failure(let error):
-                self.delegate?.didFailLoadedFood(title: "Error on load random food.", error: error.localizedDescription)
+                self?.delegate?.didFailLoadedFood(title: "Error on load random food.",
+                                                  error: error.localizedDescription)
             }
         }
     }
@@ -40,17 +41,17 @@ final class FoodViewModel: FoodViewModelProtocol {
         let searchTextFiltered = searchText.replacingOccurrences(of: " ", with: "_")
         switch type {
         case .foodByName:
-            service.getFoodByName(name: searchTextFiltered) { response in
-                self.handleResponse(response: response)
+            service.getFoodByName(name: searchTextFiltered) {[weak self] response in
+                self?.handleResponse(response: response)
             }
         case .foodByIngredient:
-            service.getFoodsByIngredient(ingredient: searchTextFiltered) { response in
-                self.handleResponse(response: response)
+            service.getFoodsByIngredient(ingredient: searchTextFiltered) { [weak self] response in
+                self?.handleResponse(response: response)
             }
         case .foodByFirstLetter:
             if searchTextFiltered.count == 1 {
-                service.getFoodsByFirstLettter(letter: searchTextFiltered) { response in
-                    self.handleResponse(response: response)
+                service.getFoodsByFirstLettter(letter: searchTextFiltered) { [weak self] response in
+                    self?.handleResponse(response: response)
                 }
             } else {
                 delegate?.didFailLoadedFood(title: "Validation error.",
@@ -60,14 +61,14 @@ final class FoodViewModel: FoodViewModelProtocol {
     }
 
     func didTapFoodCell(id: String) {
-        service.getFoodById(id: id) { result in
+        service.getFoodById(id: id) { [weak self] result in
             switch result {
             case .success(let foods):
                 if let food = foods.foods.first {
-                    self.foodNavigation?.goToFoodDetail(food: food)
+                    self?.foodNavigation?.goToFoodDetail(food: food)
                 }
             case .failure(let error):
-                self.delegate?.didFailLoadedFood(title: "Error on load food by id.", error: error.localizedDescription)
+                self?.delegate?.didFailLoadedFood(title: "Error on load food by id.", error: error.localizedDescription)
             }
         }
     }
