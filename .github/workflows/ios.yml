@@ -17,8 +17,6 @@ jobs:
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
           podfile-path: RecipeApp/Podfile.lock
-      - name: Install Xcode Select
-        run: xcode-select --install
       - name: Setup Ruby, JRuby and TruffleRuby
         uses: ruby/setup-ruby@v1.171.0
       - name: Install Bundles
