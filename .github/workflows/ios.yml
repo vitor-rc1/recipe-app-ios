@@ -22,8 +22,10 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
+      - name: Change Directory to App Folder
+        run: cd RecipeApp
       - name: Install Bundles
-        run: cd RecipeApp && bundle install
+        run: bundle install
       - name: Run tests
         run: |
           pwd
