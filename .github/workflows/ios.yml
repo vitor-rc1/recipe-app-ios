@@ -21,7 +21,8 @@ jobs:
         run: cd RecipeApp && bundle exec fastlane tests
       - name: Run code coverage
         run: cd RecipeApp && bundle exec fastlane tests_coverage
-      - uses: MeilCli/danger-action@v5
+      - name: Run Danger
+        uses: MeilCli/danger-action@v5
         with:
           danger_file: 'RecipeApp/Dangerfile'
           danger_id: 'danger-pr'
