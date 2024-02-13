@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Run Unit tests
 
+### ios tests_coverage
+
+```sh
+[bundle exec] fastlane ios tests_coverage
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

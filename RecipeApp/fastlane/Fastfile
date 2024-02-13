@@ -22,6 +22,9 @@ platform :ios do
               device: "iPhone 14",
               scheme: "RecipeApp", 
               code_coverage: true)
+  end
+
+  lane :tests_coverage do
     xcov(
       workspace: "RecipeApp.xcworkspace",
       scheme: "RecipeApp",
