@@ -25,4 +25,4 @@ jobs:
       - name: Install Bundles
         run: cd RecipeApp && bundle install
       - name: Run tests
-        run: fastlane tests
+        run: bundle exec fastlane tests
