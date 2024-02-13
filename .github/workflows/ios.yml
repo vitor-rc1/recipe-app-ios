@@ -19,6 +19,9 @@ jobs:
           podfile-path: RecipeApp/Podfile.lock
       - name: Setup Ruby, JRuby and TruffleRuby
         uses: ruby/setup-ruby@v1.171.0
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
       - name: Install Bundles
         run: cd RecipeApp && bundle install
       - name: Run tests
