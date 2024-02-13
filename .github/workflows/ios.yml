@@ -13,15 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
-      # - name: Setup Cocoa
-      #   uses: maxim-lobanov/setup-cocoapods@v1
-      #   with:
-      #     podfile-path: RecipeApp/Podfile.lock
-      # - name: Setup Ruby, JRuby and TruffleRuby
-      #   uses: ruby/setup-ruby@v1.171.0
-      #   with:
-      #     ruby-version: '3.3'
-      #     bundler-cache: true
       - name: Install pods
         run: cd RecipeApp && pod install
       - name: Install Bundles
@@ -30,3 +21,9 @@ jobs:
         run: cd RecipeApp && bundle exec fastlane tests
       - name: Run code coverage
         run: cd RecipeApp && bundle exec fastlane tests_coverage
+      - uses: MeilCli/danger-action@v5
+        with:
+          danger_file: 'RecipeApp/Dangerfile'
+          danger_id: 'danger-pr'
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.BOT_TOKEN }}
