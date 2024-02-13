@@ -19,7 +19,7 @@ platform :ios do
   desc "Run Unit tests"
   lane :tests do
     run_tests(workspace: "RecipeApp.xcworkspace", 
-              device: "iPhone 14",
+              device: "iPhone 14 (16.2)",
               scheme: "RecipeApp", 
               code_coverage: true)
   end
