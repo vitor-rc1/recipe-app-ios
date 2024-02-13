@@ -9,19 +9,19 @@ on:
 jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
-    runs-on: macos-latest
+    runs-on: macos-12
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
-      - name: Setup Cocoa
-        uses: maxim-lobanov/setup-cocoapods@v1
-        with:
-          podfile-path: RecipeApp/Podfile.lock
-      - name: Setup Ruby, JRuby and TruffleRuby
-        uses: ruby/setup-ruby@v1.171.0
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
+      # - name: Setup Cocoa
+      #   uses: maxim-lobanov/setup-cocoapods@v1
+      #   with:
+      #     podfile-path: RecipeApp/Podfile.lock
+      # - name: Setup Ruby, JRuby and TruffleRuby
+      #   uses: ruby/setup-ruby@v1.171.0
+      #   with:
+      #     ruby-version: '3.3'
+      #     bundler-cache: true
       - name: Install pods
         run: cd RecipeApp && pod install
       - name: Install Bundles
