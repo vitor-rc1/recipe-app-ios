@@ -26,6 +26,7 @@ platform :ios do
       workspace: "RecipeApp.xcworkspace",
       scheme: "RecipeApp",
       output_directory: "fastlane/xcov_output",
+      minimum_coverage_percentage: 80.0
     )  
   end
 end
