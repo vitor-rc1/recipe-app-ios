@@ -81,6 +81,7 @@ Dependencies/
 */fastlane/Preview.html
 */fastlane/screenshots/**/*.png
 */fastlane/test_output
+*/fastlane/xcov_output
 
 # Code Injection
 #

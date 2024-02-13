@@ -16,10 +16,16 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Unit tests"
+  desc "Run Unit tests"
   lane :tests do
     run_tests(workspace: "RecipeApp.xcworkspace", 
               device: "iPhone 14",
-              scheme: "RecipeApp")
+              scheme: "RecipeApp", 
+              code_coverage: true)
+    xcov(
+      workspace: "RecipeApp.xcworkspace",
+      scheme: "RecipeApp",
+      output_directory: "fastlane/xcov_output",
+    )  
   end
 end
