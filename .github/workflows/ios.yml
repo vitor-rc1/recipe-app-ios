@@ -22,6 +22,8 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true
+      - name: Install pods
+        run: cd RecipeApp && pod install
       - name: Install Bundles
         run: cd RecipeApp && bundle install
       - name: Run tests
