@@ -17,7 +17,6 @@ jobs:
       - name: Setup Cocoa
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
-          version: 1.13.0
           podfile-path: RecipeApp/
       - name: Set Default Scheme
         run: |
