@@ -17,7 +17,7 @@ jobs:
       - name: Setup Cocoa
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
-          podfile-path: RecipeApp/
+          podfile-path: RecipeApp/Podfile.lock
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
