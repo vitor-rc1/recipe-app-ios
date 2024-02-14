@@ -18,14 +18,14 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 100
-      # - name: Install pods
-      #   run: cd RecipeApp && pod install
-      # - name: Install Bundles
-      #   run: cd RecipeApp && bundle install
-      # - name: Run tests
-      #   run: cd RecipeApp && bundle exec fastlane tests
-      # - name: Run code coverage
-      #   run: cd RecipeApp && bundle exec fastlane tests_coverage
+      - name: Install pods
+        run: cd RecipeApp && pod install
+      - name: Install Bundles
+        run: cd RecipeApp && bundle install
+      - name: Run tests
+        run: cd RecipeApp && bundle exec fastlane tests
+      - name: Run code coverage
+        run: cd RecipeApp && bundle exec fastlane tests_coverage
       - name: Run Danger
         uses: MeilCli/danger-action@v5
         with:
