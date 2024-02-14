@@ -3,8 +3,6 @@ name: Main status
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "develop", "main" ]
 
 jobs:
   build:
