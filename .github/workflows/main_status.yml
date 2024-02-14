@@ -1,4 +1,4 @@
-name: Pull request workflow
+name: Main status
 
 on:
   push:
