@@ -13,8 +13,8 @@ fail("fdescribe left in tests") if `grep -r fdescribe specs/ `.length > 1
 fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 
 xcov.report(
-    workspace: "RecipeApp/RecipeApp.xcworkspace",
-    scheme: "RecipeApp",
-    output_directory: "RecipeApp/fastlane/xcov_output",
-    minimum_coverage_percentage: 80.0
+   scheme: 'RecipeApp',
+   workspace: 'RecipeApp/RecipeApp.xcworkspace',
+   exclude_targets: 'RecipeApp.app',
+   minimum_coverage_percentage: 80
 )
