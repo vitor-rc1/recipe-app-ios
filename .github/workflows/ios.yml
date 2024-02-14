@@ -2,7 +2,7 @@ name: Pull request workflow
 
 on:
   push:
-    branches: [ "develop", "main"]
+    branches: [ "main" ]
   pull_request:
     branches: [ "develop", "main" ]
 
