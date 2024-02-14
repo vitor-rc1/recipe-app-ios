@@ -11,8 +11,8 @@ jobs:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-12
     permissions:
-      pull-requests: write # required for Danger to post comments
-      issues: write # required for Danger to post comments
+      pull-requests: write
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
