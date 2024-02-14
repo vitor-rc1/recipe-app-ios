@@ -22,10 +22,5 @@ jobs:
         run: cd RecipeApp && bundle install
       - name: Run tests
         run: cd RecipeApp && bundle exec fastlane tests
-      - name: Run Danger
-        uses: MeilCli/danger-action@v5
-        with:
-          danger_file: 'RecipeApp/Dangerfile'
-          danger_id: 'danger-pr'
-        env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+      - name: Run code coverage
+        run: cd RecipeApp && bundle exec fastlane tests_coverage
