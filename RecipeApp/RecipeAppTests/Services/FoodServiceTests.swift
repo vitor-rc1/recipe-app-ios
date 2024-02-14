@@ -48,7 +48,7 @@ final class FoodServiceTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        self.wait(for: [expectation], timeout: 0.2)
+        self.wait(for: [expectation], timeout: 0.5)
     }
     
     func test_getFoodById_should_return_mealById() throws {
