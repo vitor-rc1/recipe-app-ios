@@ -16,5 +16,5 @@ xcov.report(
    scheme: 'RecipeApp',
    workspace: 'RecipeApp/RecipeApp.xcworkspace',
    exclude_targets: 'RecipeApp.app',
-   minimum_coverage_percentage: 80
+   minimum_coverage_percentage: 80.0
 )
