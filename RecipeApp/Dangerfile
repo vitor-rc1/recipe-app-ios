@@ -15,6 +15,6 @@ fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 xcov.report(
    scheme: 'RecipeApp',
    workspace: 'RecipeApp/RecipeApp.xcworkspace',
-   exclude_targets: 'RecipeApp.app',
-   minimum_coverage_percentage: 80.0
+   minimum_coverage_percentage: 80.0,
+   output_directory: "RecipeApp/fastlane/xcov_output"
 )
