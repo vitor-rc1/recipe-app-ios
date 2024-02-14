@@ -1,18 +1,16 @@
-name: Pull request workflow
+name: Main status
 
 on:
   push:
-    branches: [ "develop", "main"]
-  pull_request:
-    branches: [ "develop", "main" ]
+    branches: [ "main" ]
 
 jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-12
     permissions:
-      pull-requests: write # required for Danger to post comments
-      issues: write # required for Danger to post comments
+      pull-requests: write
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -24,8 +22,6 @@ jobs:
         run: cd RecipeApp && bundle install
       - name: Run tests
         run: cd RecipeApp && bundle exec fastlane tests
-      # - name: Run code coverage
-      #   run: cd RecipeApp && bundle exec fastlane tests_coverage
       - name: Run Danger
         uses: MeilCli/danger-action@v5
         with:

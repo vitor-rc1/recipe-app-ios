@@ -1,4 +1,4 @@
-![](https://app.bitrise.io/app/d34fe4028f2d0c3b/status.svg?token=Kgot587rITfVCaLBRE44aQ&branch=main)
+![](https://github.com/vitor-rc1/recipe-app-ios/actions/workflows/main_status.yml/badge.svg)
 
 # Recipe App iOS - MVVM+C+S
 
@@ -13,9 +13,18 @@
 ## APIs
 - [TheMealDB API](https://www.themealdb.com/)
 - [The CockTailDB API](https://www.thecocktaildb.com/api.php)
-## Requirements 
- - XCode 13.1
- - CocoaPod 1.11.3
+## Minimum Requirements 
+ - XCode 13.1+
+ - CocoaPod 1.11.3+
+ - Ruby 2.6.3+
+
+## Installation
+1. Clone the repository
+2. Run `pod install` in the project directory
+3. Run `bundle install` in the project directory
+4. Now you can open RecipeApp.xcworkspace and run the project
+5. If you want to run the tests, you can run `bundle exec fastlane tests` in the project directory
+6. To check the coverage, you can run `bundle exec fastlane tests_coverage` in the project directory
 
 ## Pods
 - SwiftLint
