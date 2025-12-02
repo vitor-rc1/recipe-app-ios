@@ -22,6 +22,8 @@ jobs:
         run: cd RecipeApp && bundle install
       - name: Select Xcode
         run: xcodes select 26.1.1
+      - name: Setup project
+        run: make setup project
       - name: Run tests
         run: cd RecipeApp && bundle exec fastlane tests
       # TODO: FIX XCov Integration 
