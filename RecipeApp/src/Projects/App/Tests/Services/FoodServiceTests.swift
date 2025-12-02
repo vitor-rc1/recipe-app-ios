@@ -8,7 +8,7 @@
 import XCTest
 import Mocker
 import Alamofire
-@testable import RecipeApp
+@testable import App
 
 final class FoodServiceTests: XCTestCase {
     func test_getFood_should_return_meals() throws {

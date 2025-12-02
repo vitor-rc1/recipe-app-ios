@@ -8,7 +8,7 @@
 import XCTest
 import SnapshotTesting
 import SDWebImageMockPlugin
-@testable import RecipeApp
+@testable import App
 
 class FoodDetailsViewControllerSnapshotTests: XCTestCase {
     

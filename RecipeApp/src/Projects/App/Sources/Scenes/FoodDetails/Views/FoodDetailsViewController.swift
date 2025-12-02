@@ -155,7 +155,7 @@ extension FoodDetailsViewController: ViewCode {
     }
 
     func additionalConfiguration() {
-        foodImageView.sd_setImage(with: URL(string: food.thumb))
+//        foodImageView.sd_setImage(with: URL(string: food.thumb))
         nameLabel.text = food.name
         categoryLabel.text = food.category
         ingredientsTextView.text = food.ingredients?.joined(separator: "\n")

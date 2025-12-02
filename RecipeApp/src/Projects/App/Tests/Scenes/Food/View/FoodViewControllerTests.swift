@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RecipeApp
+@testable import App
 
 final class FoodCollectionViewControllerTests: XCTestCase {
 

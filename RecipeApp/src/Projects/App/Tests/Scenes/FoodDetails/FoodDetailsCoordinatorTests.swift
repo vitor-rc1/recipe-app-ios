@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RecipeApp
+@testable import App
 
 class FoodDetailsCoordinatorTests: XCTestCase {
     func test_start_prepareFoodTabBar_when_called() throws {

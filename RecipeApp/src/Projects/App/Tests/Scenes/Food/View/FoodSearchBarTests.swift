@@ -7,7 +7,7 @@
 
 import XCTest
 import SnapshotTesting
-@testable import RecipeApp
+@testable import App
 
 class FoodSearchBarTests: XCTestCase {
     func test_should_call_didClickRandomButton() throws {

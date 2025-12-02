@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import RecipeApp
+@testable import App
 
 final class FoodMocks {
     static let shared: FoodMocks = FoodMocks()

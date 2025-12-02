@@ -7,7 +7,7 @@
 
 import XCTest
 import SnapshotTesting
-@testable import RecipeApp
+@testable import App
 
 class RadioButtonListSnapshotTests: XCTestCase {
 

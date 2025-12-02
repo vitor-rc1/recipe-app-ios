@@ -39,7 +39,7 @@ final class FoodCollectionViewCell: UICollectionViewCell {
 
     func setupCell(food: Food) {
         foodNameTextView.text = food.name
-        foodImageView.sd_setImage(with: URL(string: food.thumb))
+//        foodImageView.sd_setImage(with: URL(string: food.thumb))
         setupView()
     }
 }

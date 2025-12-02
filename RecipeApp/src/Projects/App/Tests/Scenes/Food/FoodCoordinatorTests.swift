@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import RecipeApp
+@testable import App
 
 class FoodCoordinatorTests: XCTestCase {
     func test_start_goToFoodView_when_called() throws {

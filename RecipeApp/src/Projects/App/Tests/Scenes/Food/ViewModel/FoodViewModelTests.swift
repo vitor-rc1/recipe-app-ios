@@ -7,7 +7,7 @@
 
 import XCTest
 import Alamofire
-@testable import RecipeApp
+@testable import App
 
 final class FoodViewModelTests: XCTestCase {
 
