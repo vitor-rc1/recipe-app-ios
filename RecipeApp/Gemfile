@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "fastlane"
+gem "fastlane", "~> 2.229.1"
 gem "xcov", "~> 1.9.0"
 gem "danger"
 gem "danger-xcov"
