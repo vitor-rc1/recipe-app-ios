@@ -1,18 +1,33 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
 default_platform(:ios)
 
 platform :ios do
   desc "Run Unit tests"
   lane :tests do
-    run_tests(workspace: "src/Recipes.xcworkspace", 
-              device: "iPhone 17 (26.1)",
-              scheme: "App", 
+    run_tests(workspace: "RecipeApp.xcworkspace", 
+              device: "iPhone 14 (16.2)",
+              scheme: "RecipeApp", 
               code_coverage: true)
   end
 
   lane :tests_coverage do
     xcov(
-      workspace: "src/Recipes.xcworkspace",
-      scheme: "App",
+      workspace: "RecipeApp.xcworkspace",
+      scheme: "RecipeApp",
       output_directory: "fastlane/xcov_output",
       minimum_coverage_percentage: 80.0
     )  

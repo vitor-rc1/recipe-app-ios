@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
-    runs-on: macos-26
+    runs-on: macos-12
     permissions:
       pull-requests: write
       issues: write
@@ -16,21 +16,16 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 100
-      - name: Install dependencies
-        run: make ci-setup
+      - name: Install pods
+        run: cd RecipeApp && pod install
       - name: Install Bundles
         run: cd RecipeApp && bundle install
-      - name: Select Xcode
-        run: xcodes select 26.1.1
-      - name: Setup project
-        run: make setup-ci-project
       - name: Run tests
         run: cd RecipeApp && bundle exec fastlane tests
-      # TODO: FIX XCov Integration 
-      # - name: Run Danger
-      #   uses: MeilCli/danger-action@v5
-      #   with:
-      #     danger_file: 'RecipeApp/Dangerfile'
-      #     danger_id: 'danger-pr'
-      #   env:
-      #     DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+      - name: Run Danger
+        uses: MeilCli/danger-action@v5
+        with:
+          danger_file: 'RecipeApp/Dangerfile'
+          danger_id: 'danger-pr'
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
