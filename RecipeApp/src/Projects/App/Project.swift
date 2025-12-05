@@ -7,7 +7,6 @@ let dependecies: [TargetDependency] = [
     .external(name: "Alamofire"),
     .external(name: "SDWebImage"),
     .external(name: "Swinject"),
-    // .external(name: "SwiftLintPlugins"),
 ]
 
 let testDependencies: [TargetDependency] = [
@@ -18,9 +17,15 @@ let testDependencies: [TargetDependency] = [
     .external(name: "SnapshotTesting")
 ]
 
+let packages: [Package] = [
+    .remote(url: "https://github.com/SimplyDanny/SwiftLintPlugins.git",
+                   requirement: .exact("0.62.2"))
+]
+
 let project = Project(
     name: moduleName,
     options: .options(automaticSchemesOptions: .disabled),
+    packages: packages,
     targets: [
         .target(name: moduleName,
                 destinations: .iOS,
@@ -30,6 +35,9 @@ let project = Project(
                 infoPlist: "Info.plist",
                 sources: "Sources/**",
                 resources: "Resources/**",
+                scripts: [
+                    .post(path: "../../scripts/swiftlint.sh", arguments: "", name: "Swiftlint")
+                ],
                 dependencies: dependecies
                ),
         .target(name: "\(moduleName)Tests",

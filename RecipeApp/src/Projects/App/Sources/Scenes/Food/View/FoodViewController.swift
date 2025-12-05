@@ -168,7 +168,7 @@ extension FoodViewController: FoodViewModelDelegateProtocol {
         self.isLoading = false
         self.collectionView.reloadData()
     }
-    
+
     func didFailLoadedFood(title: String, error: String) {
         self.isLoading = false
         self.collectionView.reloadData()
