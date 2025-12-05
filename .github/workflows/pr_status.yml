@@ -4,26 +4,10 @@ on:
   pull_request:
     branches: [ "develop", "main" ]
 
-jobs:
-  build:
-    name: Build and Test default scheme using any available iPhone simulator
-    runs-on: macos-26
-    permissions:
-      pull-requests: write
-      issues: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4.1.1
-        with:
-          fetch-depth: 100
-      - name: CI Setup
-        run: make ci-setup
-        continue-on-error: false
-  
+jobs:  
   test:
     name: Test ${{ matrix.target }}
     runs-on: macos-26
-    needs: build
     strategy:
       matrix:
         target: [ "App", "DependencyInjection" ]
@@ -33,5 +17,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
+      - name: CI Setup
+        run: make ci-setup
       - name: Run tests for ${{ matrix.target }}
         run: cd RecipeApp && bundle exec fastlane tests target:${{ matrix.target }}
