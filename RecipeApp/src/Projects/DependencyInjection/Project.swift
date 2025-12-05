@@ -8,5 +8,5 @@ let dependecies: [TargetDependency] = [
 ]
 
 let project = Project.templateModule(named: moduleName,
-                                     targets: [.source,. interfaces, .test, .testing],
+                                     targets: [.source,. interfaces, .test],
                                      dependencies: dependecies)
