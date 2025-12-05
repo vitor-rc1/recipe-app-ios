@@ -7,9 +7,15 @@
 
 import UIKit
 import CoreData
+import DependencyInjection
+import DependencyInjectionInterfaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    override init() {
+        super.init()
+        setupDependencies()
+    }
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -83,4 +89,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // MARK: - DI
+
+    private func setupDependencies() {
+        let injector = Injector()
+        SharedContainer.shared.setInjector(injector)
+    }
 }

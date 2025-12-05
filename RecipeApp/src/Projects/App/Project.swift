@@ -7,6 +7,10 @@ let dependecies: [TargetDependency] = [
     .external(name: "Alamofire"),
     .external(name: "SDWebImage"),
     .external(name: "Swinject"),
+    .project(target: "DependencyInjection",
+             path: "../DependencyInjection"),
+    .project(target: "DependencyInjectionInterfaces",
+             path: "../DependencyInjection"),
 ]
 
 let testDependencies: [TargetDependency] = [
@@ -31,12 +35,14 @@ let project = Project(
                 destinations: .iOS,
                 product: .app,
                 bundleId: "com.vrc.recipes.\(moduleName.lowercased())",
-                deploymentTargets: .iOS("18.0"),
+                deploymentTargets: iOSDeploymentTarget,
                 infoPlist: "Info.plist",
                 sources: "Sources/**",
                 resources: "Resources/**",
                 scripts: [
-                    .post(path: "../../scripts/swiftlint.sh", arguments: "", name: "Swiftlint")
+                    .post(path: "../../scripts/swiftlint.sh",
+                          arguments: "",
+                          name: "Swiftlint")
                 ],
                 dependencies: dependecies
                ),
@@ -44,7 +50,7 @@ let project = Project(
                 destinations: .iOS,
                 product: .unitTests,
                 bundleId: "com.vrc.recipes.\(moduleName.lowercased()).tests",
-                deploymentTargets: .iOS("18.0"),
+                deploymentTargets: iOSDeploymentTarget,
                 infoPlist: .default,
                 sources: ["Tests/**"],
                 resources: "Tests/Helpers/JsonResponses/**",
