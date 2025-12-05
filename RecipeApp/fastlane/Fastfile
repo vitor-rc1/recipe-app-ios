@@ -2,10 +2,12 @@ default_platform(:ios)
 
 platform :ios do
   desc "Run Unit tests"
-  lane :tests do
+  lane :tests do |options|
+    target = options[:target] || "App"
+    
     run_tests(workspace: "src/Recipes.xcworkspace", 
               device: "iPhone 17 (26.1)",
-              scheme: "App", 
+              scheme: target, 
               code_coverage: true)
   end
 
