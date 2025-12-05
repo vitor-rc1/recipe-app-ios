@@ -11,6 +11,7 @@ public let developmentEnv: [String: EnvironmentVariable] = [
     "DRINK_BASE_URL": drinkBaseURL
 ]
 
+public let iOSDeploymentTarget: DeploymentTargets = .iOS("18.0")
 
 public extension Project {
     static func templateModule(named moduleName: String,
@@ -26,6 +27,7 @@ public extension Project {
                         destinations: .iOS,
                         product: .framework,
                         bundleId: "com.vrc.\(moduleName.lowercased()).interfaces",
+                        deploymentTargets: iOSDeploymentTarget,
                         infoPlist: .default,
                         sources: ["Interfaces/**"])
             )
@@ -43,6 +45,7 @@ public extension Project {
                         destinations: .iOS,
                         product: .framework,
                         bundleId: "com.vrc.\(moduleName.lowercased())",
+                        deploymentTargets: iOSDeploymentTarget,
                         infoPlist: .default,
                         sources: ["Sources/**"],
                         dependencies: moduleTargets)
@@ -62,6 +65,7 @@ public extension Project {
                         destinations: .iOS,
                         product: .unitTests,
                         bundleId: "com.vrc.\(moduleName.lowercased()).tests",
+                        deploymentTargets: iOSDeploymentTarget,
                         infoPlist: .default,
                         sources: ["Tests/**"],
                         dependencies: testDeps)
@@ -74,6 +78,7 @@ public extension Project {
                         destinations: .iOS,
                         product: .framework,
                         bundleId: "com.vrc.\(moduleName.lowercased()).testing",
+                        deploymentTargets: iOSDeploymentTarget,
                         infoPlist: .default,
                         sources: ["Testing/**"],
                         dependencies: [
