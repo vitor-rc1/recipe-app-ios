@@ -16,14 +16,8 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 100
-      - name: Install dependencies
+      - name: CI Setup
         run: make ci-setup
-      - name: Install Bundles
-        run: cd RecipeApp && bundle install
-      - name: Select Xcode
-        run: xcodes select 26.1.1
-      - name: Setup project
-        run: make setup-ci-project
       - name: Run tests
         run: cd RecipeApp && bundle exec fastlane tests
       # TODO: FIX XCov Integration 
