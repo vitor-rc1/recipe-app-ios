@@ -21,6 +21,8 @@ echo "Installing Bundles..."
 bundle install
 echo "✅ Bundles installed."
 
+cd ..
+
 echo "Selecting Xcode..."
 xcodes select 26.1.1
 echo "✅ Xcode selected."
