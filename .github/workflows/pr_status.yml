@@ -18,6 +18,7 @@ jobs:
           fetch-depth: 100
       - name: CI Setup
         run: make ci-setup
+        continue-on-error: false
       - name: Run tests
         run: cd RecipeApp && bundle exec fastlane tests
       # TODO: FIX XCov Integration 

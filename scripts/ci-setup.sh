@@ -3,6 +3,8 @@ export XDG_DATA_HOME="$PWD/.mise/data"
 export XDG_STATE_HOME="$PWD/.mise/state"
 export XDG_CACHE_HOME="$PWD/.mise/cache"
 
+set -e
+
 echo "CI setup Started"
 
 echo "Installing Mise..."
