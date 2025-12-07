@@ -7,6 +7,8 @@ let dependecies: [TargetDependency] = [
     .external(name: "Alamofire"),
     .external(name: "SDWebImage"),
     .external(name: "Swinject"),
+    .external(name: "Networking"),
+    .external(name: "NetworkingInterfaces"),
     .project(target: "DependencyInjection",
              path: "../DependencyInjection"),
     .project(target: "DependencyInjectionInterfaces",
