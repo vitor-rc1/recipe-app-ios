@@ -94,5 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupDependencies() {
         let injector = Injector()
         SharedContainer.shared.setInjector(injector)
+
+        NetworkAssembly(injector: injector).register()
     }
 }
