@@ -13,4 +13,9 @@ public protocol DependencyInjector: DependencyResolver {
         _ serviceType: Service.Type,
         factory: @escaping (DependencyResolver) -> Service
     )
+    
+    func register<Service, Argument>(
+        _ serviceType: Service.Type,
+        factory: @escaping (DependencyResolver, Argument) -> Service
+    )
 }
