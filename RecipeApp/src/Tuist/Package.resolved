@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "networking-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vitor-rc1/networking-package.git",
+      "state" : {
+        "revision" : "c864079f70704b09d62b0cca15eb9a45e9dc1a94",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",

@@ -18,5 +18,6 @@ let package = Package(
         .package(url: "https://github.com/faberNovel/SDWebImageMockPlugin.git", from: "0.1.0"),        
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
+        .package(url: "https://github.com/vitor-rc1/networking-package.git", from: "1.0.0"),
     ]
 )
