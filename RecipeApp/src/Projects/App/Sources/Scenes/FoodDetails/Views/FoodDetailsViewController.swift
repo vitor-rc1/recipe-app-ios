@@ -82,10 +82,10 @@ final class FoodDetailsViewController: UIViewController {
         return instructionsTextView
     }()
 
-    private var food: Food
+    private var viewModel: FoodDetailsViewModelProtocol
 
-    init(food: Food) {
-        self.food = food
+    init(viewModel: FoodDetailsViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -96,6 +96,12 @@ final class FoodDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+}
+
+extension FoodDetailsViewController: FoodDetailsViewControllerProtocol {
+    func loaded(state: FoodDetailsState) {
+
     }
 }
 
@@ -156,9 +162,9 @@ extension FoodDetailsViewController: ViewCode {
 
     func additionalConfiguration() {
 //        foodImageView.sd_setImage(with: URL(string: food.thumb))
-        nameLabel.text = food.name
-        categoryLabel.text = food.category
-        ingredientsTextView.text = food.ingredients?.joined(separator: "\n")
-        instructionsTextView.text = food.instructions
+//        nameLabel.text = food.name
+//        categoryLabel.text = food.category
+//        ingredientsTextView.text = food.ingredients?.joined(separator: "\n")
+//        instructionsTextView.text = food.instructions
     }
 }

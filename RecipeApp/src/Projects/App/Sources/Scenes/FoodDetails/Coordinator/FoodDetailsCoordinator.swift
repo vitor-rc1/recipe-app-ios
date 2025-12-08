@@ -6,17 +6,17 @@
 //
 
 import UIKit
-import Alamofire
 
-final class FoodDetailsCoordinator<FoodType: Codable>: Coordinator {
+final class FoodDetailsCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
-    let food: Food
+    var foodDetailsViewController: UIViewController
 
-    init(navCon: UINavigationController, food: Food) {
+    init(navCon: UINavigationController,
+         foodDetailsViewController: UIViewController) {
         self.navigationController = navCon
-        self.food = food
+        self.foodDetailsViewController = foodDetailsViewController
     }
 
     func start() {
@@ -26,8 +26,7 @@ final class FoodDetailsCoordinator<FoodType: Codable>: Coordinator {
 
 extension FoodDetailsCoordinator: FoodDetailsNavigation {
     func goToFoodDetails() {
-        let foodDetailsView = FoodDetailsViewController(food: food)
-        foodDetailsView.view.backgroundColor = .systemBackground
-        navigationController.pushViewController(foodDetailsView, animated: true)
+        foodDetailsViewController.view.backgroundColor = .systemBackground
+        navigationController.pushViewController(foodDetailsViewController, animated: true)
     }
 }

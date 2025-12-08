@@ -5,19 +5,27 @@
 //  Created by Vitor Conceicao on 22/04/22.
 //
 
-import Foundation
-import UIKit
 import Alamofire
 
-final class FoodCoordinator<FoodType: Codable>: Coordinator {
+import Foundation
+import UIKit
+
+final class FoodCoordinator<FoodCodable: Codable>: Coordinator {
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
     let api: FoodAPI
+    let foodType: FoodType
+    let detailsFactory: FoodDetailsFactoryProtocol
 
-    init(navCon: UINavigationController, api: FoodAPI) {
+    init(navCon: UINavigationController,
+         api: FoodAPI,
+         foodType: FoodType,
+         detailsFactory: FoodDetailsFactoryProtocol) {
         self.navigationController = navCon
         self.api = api
+        self.foodType = foodType
+        self.detailsFactory = detailsFactory
     }
 
     func start() {
@@ -27,7 +35,9 @@ final class FoodCoordinator<FoodType: Codable>: Coordinator {
 
 extension FoodCoordinator: FoodNavigation {
     func goToFoodDetail(food: Food) {
-        let foodDetailsCoordinator = FoodDetailsCoordinator<FoodType>(navCon: navigationController, food: food)
+        var foodDetailsCoordinator = detailsFactory.make(foodId: food.id,
+                                                         foodType: foodType,
+                                                         navigationController: navigationController)
         children.append(foodDetailsCoordinator)
         foodDetailsCoordinator.parentCoordinator = self
         foodDetailsCoordinator.start()
@@ -35,7 +45,7 @@ extension FoodCoordinator: FoodNavigation {
 
     func goToFoodView() {
         let sessionManager = Alamofire.Session()
-        let service = FoodService<FoodType>(sessionManager: sessionManager, api: api)
+        let service = FoodService<FoodCodable>(sessionManager: sessionManager, api: api)
         let foodViewModel = FoodViewModel(foodNavigation: self, service: service)
         let foodVC = FoodViewController(viewModel: foodViewModel)
         foodViewModel.delegate = foodVC
