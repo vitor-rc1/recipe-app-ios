@@ -10,4 +10,9 @@ import Foundation
 
 public protocol DependencyResolver {
     func resolve<Service>() -> Service
+    
+    func resolve<Service, Argument>(
+        _ serviceType: Service.Type,
+        argument: Argument
+    ) -> Service
 }

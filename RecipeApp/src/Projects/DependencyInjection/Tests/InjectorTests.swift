@@ -41,4 +41,20 @@ final class DependencyInjectorTests {
         let service: DependentService = injector.resolve()
         #expect(service.testService.value == "test")
     }
+    
+    @Test("Test register and resolution with argument")
+    func testRegisterAndResolutionWithArgument() {
+        let injector = Injector()
+        let args = ("param1", "param2")
+        
+        injector.register(TestService.self) { (_, arg: (String, String)) in
+            let (param1, param2) = arg
+            return MockServiceWithParameter(parameter: param1, secondParameter: param2)
+        }
+        
+        let service: TestService = injector.resolve(TestService.self,
+                                                    argument: args)
+        
+        #expect(service.value == "test args")
+    }
 }

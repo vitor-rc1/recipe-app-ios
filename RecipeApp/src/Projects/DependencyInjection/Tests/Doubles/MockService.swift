@@ -15,3 +15,10 @@ protocol TestService {
 struct MockService: TestService {
     let value: String = "test"
 }
+
+struct MockServiceWithParameter: TestService {
+    var value: String = "test args"
+    
+    let parameter: String
+    let secondParameter: String
+}

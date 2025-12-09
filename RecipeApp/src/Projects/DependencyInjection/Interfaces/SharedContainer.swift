@@ -11,7 +11,7 @@ import Foundation
 public final class SharedContainer {
     public static let shared = SharedContainer()
     
-    private var injector: DependencyInjector!
+    private var injector: DependencyInjector?
     
     private init() {}
     
