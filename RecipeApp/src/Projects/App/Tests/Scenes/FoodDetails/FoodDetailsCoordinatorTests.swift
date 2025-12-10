@@ -21,8 +21,8 @@ class FoodDetailsCoordinatorTests: XCTestCase {
         XCTAssertTrue(navController.viewController is FoodDetailsViewController)
     }
     
-    func makeSut(food: Food) -> FoodDetailsCoordinator<Meals> {
-        return FoodDetailsCoordinator<Meals>(navCon: NavigationControllerSpy(),
-                                             food: food)
+    func makeSut(food: Food) -> FoodDetailsCoordinator {
+        return FoodDetailsCoordinator(navCon: NavigationControllerSpy(),
+                                      foodDetailsViewController: UIViewController())
     }
 }
