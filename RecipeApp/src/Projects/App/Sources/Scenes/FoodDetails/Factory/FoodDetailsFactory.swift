@@ -38,6 +38,8 @@ final class FoodDetailsFactory: FoodDetailsFactoryProtocol {
         let coordinator = FoodDetailsCoordinator(navCon: navigationController,
                                                  foodDetailsViewController: viewController)
 
+        viewModel.viewController = viewController
+
         return coordinator
     }
 }

@@ -12,6 +12,7 @@ import Foundation
 import UIKit
 
 enum FoodDetailsState {
+    case initial
     case loading
     case loaded
     case failure(String)
@@ -21,6 +22,13 @@ final class FoodDetailsViewModel {
     private let networkService: NetworkServiceProtocol
     private let endpoint: FoodDetailsEndpoint
     private let decodeType: FoodProtocol.Type
+    private(set) var state: FoodDetailsState = .initial {
+        didSet {
+            Task { @MainActor in
+                viewController?.stateDidChange(state: state)
+            }
+        }
+    }
 
     var navigation: FoodDetailsNavigation?
     weak var viewController: FoodDetailsViewControllerProtocol?
@@ -36,6 +44,7 @@ final class FoodDetailsViewModel {
 
 extension FoodDetailsViewModel: FoodDetailsViewModelProtocol {
     func fetchFoodDetails() async {
-        
+        state = .loading
     }
 }
+

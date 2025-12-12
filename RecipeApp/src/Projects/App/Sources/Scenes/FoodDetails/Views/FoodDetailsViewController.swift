@@ -102,12 +102,26 @@ final class FoodDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        Task { [weak self] in
+            await self?.viewModel.fetchFoodDetails()
+        }
     }
 }
 
 extension FoodDetailsViewController: FoodDetailsViewControllerProtocol {
-    func loaded(state: FoodDetailsState) {
-
+    func stateDidChange(state: FoodDetailsState) {
+        switch state {
+        case .initial, .loading:
+            scrollView.isHidden = true
+            loadingView.isHidden = false
+            loadingView.startAnimating()
+        case .loaded:
+            scrollView.isHidden = true
+            loadingView.isHidden = false
+            loadingView.stopAnimating()
+        case let .failure( string):
+            print("---- failure")
+        }
     }
 }
 
@@ -174,6 +188,7 @@ extension FoodDetailsViewController: ViewCode {
     }
 
     func additionalConfiguration() {
+        hidesBottomBarWhenPushed = true
 //        foodImageView.sd_setImage(with: URL(string: food.thumb))
 //        nameLabel.text = food.name
 //        categoryLabel.text = food.category
