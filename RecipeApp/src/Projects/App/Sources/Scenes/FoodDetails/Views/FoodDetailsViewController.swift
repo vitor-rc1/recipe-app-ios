@@ -82,6 +82,12 @@ final class FoodDetailsViewController: UIViewController {
         return instructionsTextView
     }()
 
+    private lazy var loadingView: LoadingView = {
+        let loadingView = LoadingView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        return loadingView
+    }()
+
     private var viewModel: FoodDetailsViewModelProtocol
 
     init(viewModel: FoodDetailsViewModelProtocol) {
@@ -116,7 +122,9 @@ extension FoodDetailsViewController: ViewCode {
         contentView.addSubview(instructionsTextView)
 
         scrollView.addSubview(contentView)
+
         view.addSubview(scrollView)
+        view.addSubview(loadingView)
     }
 
     func setUpConstraints() {
@@ -157,6 +165,11 @@ extension FoodDetailsViewController: ViewCode {
             instructionsTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             instructionsTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             instructionsTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+        ])
+
+        NSLayoutConstraint.activate([
+            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
