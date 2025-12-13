@@ -14,14 +14,14 @@ import UIKit
 enum FoodDetailsState {
     case initial
     case loading
-    case loaded(FoodDetailProtocol)
+    case loaded(FoodDetailsProtocol)
     case failure(String)
 }
 
 final class FoodDetailsViewModel {
     private let networkService: NetworkServiceProtocol
     private let endpoint: FoodDetailsEndpoint
-    private let decodeType: FoodDetailProtocol.Type
+    private let detailsAdapter: FoodDetailsAdapterProtocol
     private(set) var state: FoodDetailsState = .initial {
         didSet {
             Task { @MainActor in
@@ -35,10 +35,10 @@ final class FoodDetailsViewModel {
 
     init(networkService: NetworkServiceProtocol,
          endpoint: FoodDetailsEndpoint,
-         decodeType: FoodDetailProtocol.Type) {
+         detailsAdapter: FoodDetailsAdapterProtocol) {
         self.networkService = networkService
         self.endpoint = endpoint
-        self.decodeType = decodeType
+        self.detailsAdapter = detailsAdapter
     }
 }
 
@@ -56,13 +56,11 @@ extension FoodDetailsViewModel: FoodDetailsViewModelProtocol {
         }
     }
 
-    private func loadFood() async throws -> FoodDetailProtocol {
-        let decoder = JSONDecoder()
+    private func loadFood() async throws -> FoodDetailsProtocol {
         let (data, httpUrlResponse) = try await networkService.request(endpoint: endpoint)
         switch httpUrlResponse.statusCode {
         case 200...299:
-            let result = try decoder.decode(decodeType.self, from: data)
-            return result
+            return try detailsAdapter.adapt(foodData: data)
         default:
             throw ServiceError.network("Failed to load food details.\nStatus code: \(httpUrlResponse.statusCode)")
         }

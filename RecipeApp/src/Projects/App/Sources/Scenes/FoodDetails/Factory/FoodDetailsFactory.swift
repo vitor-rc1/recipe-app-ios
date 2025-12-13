@@ -18,20 +18,20 @@ final class FoodDetailsFactory: FoodDetailsFactoryProtocol {
         let resolver = SharedContainer.shared.resolver()
         let networkService: NetworkServiceProtocol = resolver.resolve()
 
-        let decodeType: FoodDetailProtocol.Type
+        let detailsAdapter: FoodDetailsAdapterProtocol
         let endpoint: FoodDetailsEndpoint
         switch foodType {
         case .drink:
             endpoint = DrinkDetailsEndpoint(id: foodId)
-            decodeType = DrinkDetail.self
+            detailsAdapter = DrinksDetailsAdapter()
         case .meal:
             endpoint = MealDetailsEndpoint(id: foodId)
-            decodeType = MealDetail.self
+            detailsAdapter = MealDetailsAdapter()
         }
 
         let viewModel = FoodDetailsViewModel(networkService: networkService,
                                              endpoint: endpoint,
-                                             decodeType: decodeType)
+                                             detailsAdapter: detailsAdapter)
 
         let viewController = FoodDetailsViewController(viewModel: viewModel)
 
