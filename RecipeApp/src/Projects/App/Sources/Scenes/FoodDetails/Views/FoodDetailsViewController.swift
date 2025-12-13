@@ -115,7 +115,7 @@ extension FoodDetailsViewController: FoodDetailsViewControllerProtocol {
             scrollView.isHidden = true
             loadingView.isHidden = false
             loadingView.startAnimating()
-        case .loaded:
+        case let .loaded(food):
             scrollView.isHidden = true
             loadingView.isHidden = false
             loadingView.stopAnimating()
