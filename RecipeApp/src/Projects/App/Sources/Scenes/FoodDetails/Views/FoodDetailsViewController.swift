@@ -119,8 +119,10 @@ extension FoodDetailsViewController: FoodDetailsViewControllerProtocol {
             scrollView.isHidden = true
             loadingView.isHidden = false
             loadingView.stopAnimating()
-        case let .failure( string):
-            print("---- failure")
+        case let .failure(error):
+            scrollView.isHidden = false
+            loadingView.isHidden = false
+            loadingView.stopAnimating()
         }
     }
 }
