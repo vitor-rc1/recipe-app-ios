@@ -11,13 +11,6 @@ import NetworkingInterfaces
 import Foundation
 import UIKit
 
-enum FoodDetailsState {
-    case initial
-    case loading
-    case loaded(FoodDetailsProtocol)
-    case failure(String)
-}
-
 final class FoodDetailsViewModel {
     private let networkService: NetworkServiceProtocol
     private let endpoint: FoodDetailsEndpoint

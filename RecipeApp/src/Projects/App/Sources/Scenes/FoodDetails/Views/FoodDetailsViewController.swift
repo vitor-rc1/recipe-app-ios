@@ -106,6 +106,14 @@ final class FoodDetailsViewController: UIViewController {
             await self?.viewModel.fetchFoodDetails()
         }
     }
+
+    func configure(with food: FoodDetailsProtocol) {
+//        foodImageView.sd_setImage(with: URL(string: food.thumb))
+        nameLabel.text = food.name
+        categoryLabel.text = food.category
+        ingredientsTextView.text = food.ingredients.joined(separator: "\n")
+        instructionsTextView.text = food.instructions
+    }
 }
 
 extension FoodDetailsViewController: FoodDetailsViewControllerProtocol {
@@ -116,9 +124,10 @@ extension FoodDetailsViewController: FoodDetailsViewControllerProtocol {
             loadingView.isHidden = false
             loadingView.startAnimating()
         case let .loaded(food):
-            scrollView.isHidden = true
-            loadingView.isHidden = false
+            scrollView.isHidden = false
+            loadingView.isHidden = true
             loadingView.stopAnimating()
+            configure(with: food)
         case let .failure(error):
             scrollView.isHidden = false
             loadingView.isHidden = false
@@ -191,10 +200,5 @@ extension FoodDetailsViewController: ViewCode {
 
     func additionalConfiguration() {
         hidesBottomBarWhenPushed = true
-//        foodImageView.sd_setImage(with: URL(string: food.thumb))
-//        nameLabel.text = food.name
-//        categoryLabel.text = food.category
-//        ingredientsTextView.text = food.ingredients?.joined(separator: "\n")
-//        instructionsTextView.text = food.instructions
     }
 }
