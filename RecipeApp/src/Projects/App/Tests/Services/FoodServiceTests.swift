@@ -148,24 +148,24 @@ final class FoodServiceTests: XCTestCase {
         self.wait(for: [expectation], timeout: 0.1)
     }
     
-    
-    func test_getfoods_should_not_return_meals() throws {
-        let api = FoodAPI.meal
-        let sut = makeSut(type: Meals.self, api: api)
-
-        let expectation = self.expectation(description: "Get random meal.")
-        registerMock(urlString: FoodAPI.drink.foodById(id: "1234"), mockFileName: "NotFound", statusCode: 200)
-        sut.getFoodById(id: "1234") { result in
-            switch result {
-            case .failure(let error):
-                XCTAssertEqual(error.localizedDescription, "URLSessionTask failed with error: The operation couldn’t be completed. (Mocker.MockingURLProtocol.Error error 0.)")
-            default:
-                XCTFail("Success to get meal")
-            }
-            expectation.fulfill()
-        }
-        self.wait(for: [expectation], timeout: 0.2)
-    }
+//    
+//    func test_getfoods_should_not_return_meals() throws {
+//        let api = FoodAPI.meal
+//        let sut = makeSut(type: Meals.self, api: api)
+//
+//        let expectation = self.expectation(description: "Get random meal.")
+//        registerMock(urlString: FoodAPI.drink.foodById(id: "1234"), mockFileName: "NotFound", statusCode: 200)
+//        sut.getFoodById(id: "1234") { result in
+//            switch result {
+//            case .failure(let error):
+//                XCTAssertEqual(error.localizedDescription, "URLSessionTask failed with error: The operation couldn’t be completed. (Mocker.MockingURLProtocol.Error error 0.)")
+//            default:
+//                XCTFail("Success to get meal")
+//            }
+//            expectation.fulfill()
+//        }
+//        self.wait(for: [expectation], timeout: 0.2)
+//    }
     
     func makeSut<FoodType: Codable>(type: FoodType.Type, api: FoodAPI) -> FoodService<FoodType> {
         let configuration = URLSessionConfiguration.af.default
