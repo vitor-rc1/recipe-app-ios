@@ -5,6 +5,8 @@
 //  Created by Vitor Conceicao on 22/04/22.
 //
 
+import DependencyInjectionInterfaces
+
 import Foundation
 import UIKit
 
@@ -33,14 +35,23 @@ final class FoodTabBarCoordinator: Coordinator {
         navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(),
                                                      image: UIImage(named: page.pageImageName()),
                                                      tag: page.rawValue)
+        let resolver = SharedContainer.shared.resolver()
+        let foodDetailsFactory: FoodDetailsFactoryProtocol = resolver.resolve()
+
         switch page {
         case .food:
-            let foodCoordinator = FoodCoordinator<Meals>(navCon: navController, api: .meal)
+            let foodCoordinator = FoodCoordinator<Meals>(navCon: navController,
+                                                         api: .meal,
+                                                         foodType: .meal,
+                                                         detailsFactory: foodDetailsFactory)
             children.append(foodCoordinator)
             foodCoordinator.parentCoordinator = self
             foodCoordinator.start()
         case .drink:
-            let foodCoordinator = FoodCoordinator<Drinks>(navCon: navController, api: .drink)
+            let foodCoordinator = FoodCoordinator<Drinks>(navCon: navController,
+                                                          api: .drink,
+                                                          foodType: .drink,
+                                                          detailsFactory: foodDetailsFactory)
             children.append(foodCoordinator)
             foodCoordinator.parentCoordinator = self
             foodCoordinator.start()

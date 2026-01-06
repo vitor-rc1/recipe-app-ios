@@ -26,13 +26,16 @@ class FoodCoordinatorTests: XCTestCase {
         
         sut.goToFoodDetail(food: meal)
 
-        XCTAssertTrue(sut.children.first is FoodDetailsCoordinator<Meals>)
+        XCTAssertTrue(sut.children.first is CoordinatorDummy)
     }
     
     func makeSut() -> FoodCoordinator<Meals> {
         let foodApi = FoodAPI.meal
         let navigationController = NavigationControllerSpy()
-        let sut = FoodCoordinator<Meals>(navCon: navigationController, api: foodApi)
+        let sut = FoodCoordinator<Meals>(navCon: navigationController,
+                                         api: foodApi,
+                                         foodType: .meal,
+                                         detailsFactory: FoodDetailsFactorySpy())
         return sut
     }
 }

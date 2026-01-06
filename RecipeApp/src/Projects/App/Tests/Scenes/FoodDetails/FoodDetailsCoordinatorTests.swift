@@ -11,18 +11,26 @@ import XCTest
 class FoodDetailsCoordinatorTests: XCTestCase {
     func test_start_prepareFoodTabBar_when_called() throws {
         let meal = try XCTUnwrap(FoodMocks.shared.mockMeal().first)
-        let sut = makeSut(food: meal)
+        let (sut, navController) = makeSut(food: meal)
 
         sut.start()
 
-        let navController = try XCTUnwrap(sut.navigationController as? NavigationControllerSpy)
-
         XCTAssertTrue(navController.pushViewControllerDidCalled)
-        XCTAssertTrue(navController.viewController is FoodDetailsViewController)
     }
-    
-    func makeSut(food: Food) -> FoodDetailsCoordinator<Meals> {
-        return FoodDetailsCoordinator<Meals>(navCon: NavigationControllerSpy(),
-                                             food: food)
+}
+
+extension FoodDetailsCoordinatorTests {
+    typealias SutAndDoubless = (
+        sut: FoodDetailsCoordinator,
+        navigationControllerSpy: NavigationControllerSpy
+    )
+
+    func makeSut(food: Food) -> SutAndDoubless {
+        let navConSpy = NavigationControllerSpy()
+        return (
+            FoodDetailsCoordinator(navCon: navConSpy,
+                                   foodDetailsViewController: UIViewController()),
+            navConSpy
+        )
     }
 }

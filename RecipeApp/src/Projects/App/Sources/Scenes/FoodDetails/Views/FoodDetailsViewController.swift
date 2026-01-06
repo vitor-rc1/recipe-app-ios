@@ -82,10 +82,16 @@ final class FoodDetailsViewController: UIViewController {
         return instructionsTextView
     }()
 
-    private var food: Food
+    private lazy var loadingView: LoadingView = {
+        let loadingView = LoadingView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        return loadingView
+    }()
 
-    init(food: Food) {
-        self.food = food
+    private var viewModel: FoodDetailsViewModelProtocol
+
+    init(viewModel: FoodDetailsViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -96,6 +102,37 @@ final class FoodDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        Task { [weak self] in
+            await self?.viewModel.fetchFoodDetails()
+        }
+    }
+
+    func configure(with food: FoodDetailsProtocol) {
+//        foodImageView.sd_setImage(with: URL(string: food.thumb))
+        nameLabel.text = food.name
+        categoryLabel.text = food.category
+        ingredientsTextView.text = food.ingredients.joined(separator: "\n")
+        instructionsTextView.text = food.instructions
+    }
+}
+
+extension FoodDetailsViewController: FoodDetailsViewControllerProtocol {
+    func stateDidChange(state: FoodDetailsState) {
+        switch state {
+        case .initial, .loading:
+            scrollView.isHidden = true
+            loadingView.isHidden = false
+            loadingView.startAnimating()
+        case let .loaded(food):
+            scrollView.isHidden = false
+            loadingView.isHidden = true
+            loadingView.stopAnimating()
+            configure(with: food)
+        case let .failure(error):
+            scrollView.isHidden = false
+            loadingView.isHidden = false
+            loadingView.stopAnimating()
+        }
     }
 }
 
@@ -110,7 +147,9 @@ extension FoodDetailsViewController: ViewCode {
         contentView.addSubview(instructionsTextView)
 
         scrollView.addSubview(contentView)
+
         view.addSubview(scrollView)
+        view.addSubview(loadingView)
     }
 
     func setUpConstraints() {
@@ -152,13 +191,14 @@ extension FoodDetailsViewController: ViewCode {
             instructionsTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             instructionsTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
+
+        NSLayoutConstraint.activate([
+            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 
     func additionalConfiguration() {
-//        foodImageView.sd_setImage(with: URL(string: food.thumb))
-        nameLabel.text = food.name
-        categoryLabel.text = food.category
-        ingredientsTextView.text = food.ingredients?.joined(separator: "\n")
-        instructionsTextView.text = food.instructions
+        hidesBottomBarWhenPushed = true
     }
 }

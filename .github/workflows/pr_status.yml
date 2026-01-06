@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
+      - uses: jdx/mise-action@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: CI Setup
         run: make ci-setup
       - name: Run tests for ${{ matrix.target }}

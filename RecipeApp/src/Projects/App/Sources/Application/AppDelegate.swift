@@ -96,5 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SharedContainer.shared.setInjector(injector)
 
         NetworkAssembly(injector: injector).register()
+        FoodDetailsFactoryAssembly(injector: injector).register()
     }
 }
