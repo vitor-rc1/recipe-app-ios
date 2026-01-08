@@ -24,7 +24,7 @@ class FoodCoordinatorTests: XCTestCase {
         let sut = makeSut()
         let meal = try XCTUnwrap(FoodMocks.shared.mockMeal().first)
         
-        sut.goToFoodDetail(food: meal)
+        sut.goToFoodDetail(foodId: meal.id)
 
         XCTAssertTrue(sut.children.first is CoordinatorDummy)
     }
