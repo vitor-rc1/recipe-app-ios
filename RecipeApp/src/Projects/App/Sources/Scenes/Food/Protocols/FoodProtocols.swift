@@ -25,5 +25,5 @@ protocol FoodViewModelDelegateProtocol: AnyObject {
 
 protocol FoodNavigation: AnyObject {
     func goToFoodView()
-    func goToFoodDetail(food: Food)
+    func goToFoodDetail(foodId: String)
 }

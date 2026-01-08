@@ -34,8 +34,8 @@ final class FoodCoordinator<FoodCodable: Codable>: Coordinator {
 }
 
 extension FoodCoordinator: FoodNavigation {
-    func goToFoodDetail(food: Food) {
-        var foodDetailsCoordinator = detailsFactory.make(foodId: food.id,
+    func goToFoodDetail(foodId: String) {
+        var foodDetailsCoordinator = detailsFactory.make(foodId: foodId,
                                                          foodType: foodType,
                                                          navigationController: navigationController)
         children.append(foodDetailsCoordinator)

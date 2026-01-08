@@ -40,7 +40,7 @@ final class FoodViewModelTests: XCTestCase {
         
         XCTAssertTrue(service.getRandomFoodCalled)
         XCTAssertTrue(navigation.goToFoodDetailCalled)
-        XCTAssertEqual(navigation.food?.id, "52772")
+        XCTAssertEqual(navigation.foodId, "52772")
     }
     
     func test_randomFood_should_call_didFailLoadedFood() {
@@ -98,24 +98,12 @@ final class FoodViewModelTests: XCTestCase {
     }
     
     func test_didTapFoodCell_loaded_food_with_success() {
-        let (sut, _, service, navigation) = makeSut()
+        let (sut, _, _, navigation) = makeSut()
 
         sut.didTapFoodCell(id: "52772")
 
-        XCTAssertTrue(service.getFoodByIdCalled)
         XCTAssertTrue(navigation.goToFoodDetailCalled)
-        XCTAssertEqual(navigation.food?.id, "52772")
-    }
-    
-    func test_didTapFoodCell_loaded_food_with_error() {
-        let (sut, delegate, service, _) = makeSut(isSuccess: false)
-
-        sut.didTapFoodCell(id: "52772")
-        
-        XCTAssertTrue(service.getFoodByIdCalled)
-        XCTAssertTrue(delegate.didFailLoadedFoodCalled)
-        XCTAssertEqual(delegate.errorTitle, "Error on load food by id.")
-        XCTAssertEqual(delegate.errorMessage, "Load Food By Id error.")
+        XCTAssertEqual(navigation.foodId, "52772")
     }
 
     func makeSut(isSuccess: Bool = true) -> (FoodViewModel,
@@ -133,14 +121,14 @@ final class FoodViewModelTests: XCTestCase {
 }
 
 final class FoodNavigationSpy: FoodNavigation {
-    var food: Food?
-    
+    var foodId: String?
+
     func goToFoodView() {}
     
     var goToFoodDetailCalled = false
-    func goToFoodDetail(food: Food) {
+    func goToFoodDetail(foodId: String) {
         goToFoodDetailCalled = true
-        self.food = food
+        self.foodId = foodId
     }
 }
 

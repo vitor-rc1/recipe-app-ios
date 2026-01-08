@@ -63,7 +63,6 @@ final class FoodViewController: UICollectionViewController {
         if indexPath.section == 1 {
             let recipe = recipes[indexPath.row]
             viewModel?.didTapFoodCell(id: recipe.id)
-            changeToLoadingState()
         }
     }
 
